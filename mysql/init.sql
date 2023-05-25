@@ -18,6 +18,8 @@ CREATE TABLE IF NOT EXISTS Events (
     FOREIGN KEY (merchant_id) REFERENCES Merchants(merchant_id),
     description VARCHAR(700), 
     available_tickets INT
+    image_id INT,
+    FOREIGN KEY (image_id) REFERENCES Images(id)
 );
 
 CREATE TABLE IF NOT EXISTS Users (
@@ -33,8 +35,6 @@ CREATE TABLE IF NOT EXISTS Tickets (
     PRIMARY KEY(customer_id, event_id),
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
     FOREIGN KEY (event_id) REFERENCES Events(event_id) 
-    image_id INT,
-    FOREIGN KEY (image_id) REFERENCES Images(id)
 );
 
 CREATE TABLE IF NOT EXISTS Images (
