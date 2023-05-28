@@ -827,13 +827,13 @@ footer.footer{
     /* height: 150px; */
   }
   .event-image{
-    padding: 24%;
+    padding: 22%;
   }
   .event-card h2{
     font-size: 1.3rem;
   }
   .top-events{
- /*    height: 600px; */
+    height: 600px;
   }
   .event-category{
     height: 500px;
