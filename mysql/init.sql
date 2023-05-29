@@ -1,16 +1,26 @@
 CREATE DATABASE if not exists project;
 USE project;
 
+CREATE TABLE IF NOT EXISTS Users (
+    user_id INT PRIMARY KEY,  
+    user_name VARCHAR(255),
+    password VARCHAR(255),
+    user_type ENUM('customer', 'merchant') NOT NULL,
+    UNIQUE KEY (user_name)
+);
+
 CREATE TABLE IF NOT EXISTS Customers (
     customer_id INT PRIMARY KEY,
     email VARCHAR(255),
-    sex INT
-);  
+    sex INT,
+    FOREIGN KEY (customer_id) REFERENCES Users(user_id)
+);
 
 CREATE TABLE IF NOT EXISTS Merchants (
     merchant_id INT PRIMARY KEY,
-    email VARCHAR(255)
-);  
+    email VARCHAR(255),
+    FOREIGN KEY (merchant_id) REFERENCES Users(user_id)
+);
 
 CREATE TABLE IF NOT EXISTS Events (
     event_id INT PRIMARY KEY,
@@ -22,23 +32,15 @@ CREATE TABLE IF NOT EXISTS Events (
 );
 
 CREATE TABLE Tags (
-  tag_id INT PRIMARY KEY,
-  tag_name VARCHAR(50) UNIQUE
+    tag_id INT PRIMARY KEY,
+    tag_name VARCHAR(50) UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS Event_Tags (
-  event_id INT,
-  tag_id INT,
-  FOREIGN KEY (event_id) REFERENCES Events(event_id),
-  FOREIGN KEY (tag_id) REFERENCES Tags(tag_id)
-);
-
-CREATE TABLE IF NOT EXISTS Users (
-    user_id INT  PRIMARY KEY,  
-    user_name VARCHAR(255),
-    password VARCHAR(255),
-    FOREIGN KEY (user_id) REFERENCES Customers(customer_id),
-    FOREIGN KEY (user_id) REFERENCES Merchants(merchant_id)
+    event_id INT,
+    tag_id INT,
+    FOREIGN KEY (event_id) REFERENCES Events(event_id),
+    FOREIGN KEY (tag_id) REFERENCES Tags(tag_id)
 );
 
 CREATE TABLE IF NOT EXISTS Tickets (
