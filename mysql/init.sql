@@ -22,6 +22,18 @@ CREATE TABLE IF NOT EXISTS Events (
     FOREIGN KEY (image_id) REFERENCES Images(id)
 );
 
+CREATE TABLE Tags (
+  tag_id INT PRIMARY KEY,
+  tag_name VARCHAR(50) UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS Event_Tags (
+  event_id INT,
+  tag_id INT,
+  FOREIGN KEY (event_id) REFERENCES Events(event_id),
+  FOREIGN KEY (tag_id) REFERENCES Tags(tag_id)
+)
+
 CREATE TABLE IF NOT EXISTS Users (
     user_id INT  PRIMARY KEY,  
     user_name VARCHAR(255),
