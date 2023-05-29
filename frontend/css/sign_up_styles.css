@@ -227,3 +227,31 @@ body {
     justify-content: center;
     align-items: center;
 }
+.error{
+    color: red;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.5;
+    width: 60%;
+}
+@media (max-width: 800px){
+    .signup-content{
+        display: none;
+    }
+    .signup-form{
+        flex-basis: 100%;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    .form-content-card button[data-carousel-button="finish"]{
+        margin-left: 35vw;
+    }
+}
+@media (max-width: 500px){
+    .form-content-card input{
+        width: 70%;
+    }
+    .form-content-card button{
+        font-size: 0.95rem;
+    }
+}

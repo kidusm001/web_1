@@ -54,10 +54,10 @@
                 <form action="" method="post" data-slides>
                     <div class="form-content-card" data-active>
                         <label for="firstname">First Name</label>
-                        <input type="text" name="firstname" id="firstname" placeholder="John">
+                        <input type="text" name="firstname" id="firstname" placeholder="John" required data-required>
                         <div class="error"></div>
                         <label for="lastname">Last Name</label>
-                        <input type="text" name="lastname" id="lastname" placeholder="Doe">
+                        <input type="text" name="lastname" id="lastname" placeholder="Doe" required data-required>
                         <div class="error"></div>
                         <label for="middlename">Middle Name</label>
                         <input type="text" name="middlename" id="middlename" placeholder="Optional">
@@ -69,23 +69,23 @@
                     </div>
                     <div class="form-content-card">
                         <label for="email">Email Address</label>
-                        <input type="email" name="email" id="email" placeholder="Eg. johndoe@mail.com">
+                        <input type="email" name="email" id="email" placeholder="Eg. johndoe@mail.com" required data-required>
                         <div class="error"></div>
                         <label for="dateofbirth">Date of Birth</label>
-                        <input type="datetime" name="dateofbirth" id="dateofbirth" placeholder="Select a Date">
+                        <input type="datetime" name="dateofbirth" id="dateofbirth" placeholder="Select a Date" required data-required>
                         <div class="error"></div>
                         <label for="gender">Gender</label>
                         <div class="gender-container">
                             <div class="male-container">
-                                <input type="radio" name="gender" id="male">
+                                <input type="radio" name="gender" id="male" value="M" required>
                                 <label for="male">Male</label>
                             </div>
                             <div class="female-container">
-                                <input type="radio" name="gender" id="female">
+                                <input type="radio" name="gender" id="female" value="F">
                                 <label for="female">female</label>
                             </div>
                         </div>
-                        <div class="error"></div>
+                        <div class="radio-error"></div>
                         <div class="button-container">
                             <button data-carousel-button="prev">Previous</button>
                             <button data-carousel-button="next">Next</button>
@@ -93,7 +93,7 @@
                     </div>
                     <div class="form-content-card">
                         <label for="password">Password</label>
-                        <input type="password" name="password" id="password">
+                        <input type="password" name="password" id="password" required data-required>
                         <div class="error"></div>
                         <label for="confirm-password">Confirm password</label>
                         <input type="password" name="confirm-password" id="confirm-password">
