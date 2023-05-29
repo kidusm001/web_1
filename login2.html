@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="frontend/css/sign_up_styles.css">
+    <link rel="stylesheet" href="frontend/css/login2.css">
 </head>
 <body>
     <div class="wapper">
-        <section class="signup-content">
+        <section class="login-content">
             <a href="#">
                 <div class="back-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -18,7 +18,7 @@
                     <P>Back</P>
                 </div>
             </a>
-            <div class="signup-content-content">
+            <div class="login-content-content">
                 <h1>
                     Thanks for choosing
                 </h1>
@@ -41,39 +41,22 @@
                     </g>
                 </svg>
             </div>
-            <p>Get started by creating an account.</p>
+            <p>Let's get started shall we.</p>
+            <div class="register">
+                Don't have an account?
+                <a href="sign_up.html">Register</a>
+            </div>
         </section>
-        <section class="signup-form">
-            <h3>Sign Up</h3>
-            <div class="signup-form-content">
+        <section class="login-form">
+            <h3>Login</h3>
+            <div class="login-form-content">
                 <form action="" method="post">
                     <div class="form-content-card" data-active>
-                        <label for="firstname">First Name</label>
-                        <input type="text" name="firstname" id="firstname" placeholder="John">
-                        <label for="lastname">Last Name</label>
-                        <input type="text" name="lastname" id="lastname" placeholder="Doe">
-                        <label for="middlename">Middle Name</label>
-                        <input type="text" name="middlename" id="middlename" placeholder="Optional">
-                        <button>next</button>
-                    </div>
-                    <div class="form-content-card">
-                        <label for="email">Email Address</label>
-                        <input type="email" name="email" id="email">
-                        <label for="dateofbirth">Date of Birth</label>
-                        <input type="date" name="dateofbirth" id="dateofbirth">
-                        <label for="gender">Gender</label>
-                        <input type="radio" name="gender" id="male">
-                        <label for="male">Male</label>
-                        <input type="radio" name="gender" id="female">
-                        <label for="female">female</label>
-                        <button>next</button>
-                    </div>
-                    <div class="form-content-card">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" placeholder="John123">
                         <label for="password">Password</label>
-                        <input type="password" name="password" id="password">
-                        <label for="confirm-password">Confirm password</label>
-                        <input type="password" name="confirm-password" id="confirm-password">
-                        <button type="submit">Finish</button>
+                        <input type="password" name="password" id="password" placeholder="12345678">
+                        <button type="submit">login</button>
                     </div>
                 </form>
             </div>
