@@ -50,3 +50,51 @@ CREATE TABLE IF NOT EXISTS Tickets (
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
     FOREIGN KEY (event_id) REFERENCES Events(event_id) 
 );
+
+-- Dummy data 
+INSERT INTO Users (user_id, user_name, password, user_type) VALUES
+(1, 'Abel', 'password1', 'customer'),
+(2, 'Biruk', 'password2', 'customer'),
+(3, 'Chaltu', 'password3', 'customer'),
+(4, 'Dawit', 'password4', 'customer'),
+(5, 'Ephrem', 'password5', 'merchant'),
+(6, 'Frehiwot', 'password6', 'merchant');
+
+INSERT INTO Customers (customer_id, email, sex) VALUES
+(1, 'abel@example.com', 1),
+(2, 'biruk@example.com', 2),
+(3, 'chaltu@example.com', 0),
+(4, 'dawit@example.com', 1);
+
+INSERT INTO Merchants (merchant_id, email) VALUES
+(5, 'ephrem@example.com'),
+(6, 'frehiwot@example.com');
+
+INSERT INTO Tags (tag_id, tag_name) VALUES
+(1, 'Birthday'),
+(2, 'Wedding'),
+(3, 'Concert');
+
+INSERT INTO Events (event_id, merchant_id, description, available_tickets, image) VALUES
+(1, 5, 'John\'s Birthday Party', 50, 'example.com/birthday.jpg'),
+(2, 6, 'Sarah and Mark\'s Wedding', 100, 'example.com/wedding.jpg'),
+(3, 5, 'Summer Concert Series', 200, 'example.com/concert1.jpg'),
+(4, 5, 'Hip Hop Festival', 150, 'example.com/concert2.jpg'),
+(5, 6, 'New Year\'s Eve Bash', 75, 'example.com/newyear.jpg');
+
+INSERT INTO Event_Tags (event_id, tag_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 3),
+(5, 1),
+(5, 3);
+
+INSERT INTO Tickets (customer_id, event_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(1, 5),
+(2, 5),
+(3, 5);
