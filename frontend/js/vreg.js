@@ -1,138 +1,73 @@
-
-let form = document.getElementsByClassName("reg");
-let fname = form.elements["fname"];
-let lname = form.elements["lname"];
-let username = form.elements["username"];
-let email = form.elements["email"];
-let password = form.elements["password"];
-let number = form.elements["phone"];
-img.style.display = "none";
-
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  validateForm();
-});
-
-function setError(element, message) {
-  let error = element.nextElementSibling;
-  error.textContent = message;
-  error.style.display = "block";
-  //element.classList.add("error-input");
-  img.style.display = "inline-block";
-
-  const inputControl = element.parentElement;
-  inputControl.classList.add("error");
-}
-
-function setSuccess(element) {
-  let errorElement = element.nextElementSibling;
-  errorElement.textContent = "";
-  const inputControl = element.parentElement;
-  inputControl.classList.remove("error");
-}
-
 function validateForm() {
-  let isValid = true;
+  // Get the values of the form fields.
+  var firstName = document.getElementsByClassName("firstName").value;
+  var lastName = document.getElementsByClassName("lastName").value;
+  var username = document.getElementsByClassName("username").value;
+  var email = document.getElementsByClassName("email").value;
+  var phone = document.getElementById("phone");
+  var password = document.getElementsByClassName("password").value;
 
-  if (fname.value == "") {
-    setError(fname, "fname is required");
-    isValid = false;
-  } else {
-    setSuccess(fname);
+  // Validate the first name.
+  if (firstName == "") {
+    alert("Please enter your first name.");
+    fname.style.border = "1px solid red";
+    return false;
   }
 
-  if (lname.value == "") {
-    setError(lname, "lname is required");
-    isValid = false;
-  } else {
-    setSuccess(lname);
+  // Validate the last name.
+  if (lastName == "") {
+    alert("Please enter your last name.");
+    lname.style.border = "1px solid red";
+    return false;
   }
 
-  if (username.value == "") {
-    setError(username, "Username is required");
-    isValid = false;
-  } else {
-    setSuccess(username);
+  // Validate the username.
+  if (username == "") {
+    alert("Please enter a username.");
+    username.style.border = "1px solid red";
+    return false;
   }
 
-  if (email.value == "") {
-    setError(email, "Email is required");
-    isValid = false;
-  } else if (!isValidEmail(email.value)) {
-    setError(email, "Invalid email format");
-    isValid = false;
-  } else {
-    setSuccess(email);
+  // Validate the email address.
+  if (email == "") {
+    alert("Please enter an email address.");
+    email.style.border = "1px solid red";
+    return false;
+  } else if (/^\S+@\S+\.\S+$/.test(email)) {
+    alert("Please enter a valid email address.");
+    email.style.border = "1px solid red";
+    return false;
   }
 
-  if (password.value == "") {
-    setError(password, "Password is required");
-    isValid = false;
-  } else if (password.value.length < 8) {
-    setError(password, "Password must be at least 8 characters");
-    isValid = false;
-  } else if (!isValidPassword(password.value)) {
-    setError(
-      password,
-      "Password must contain at least 1 uppercase letter and 1 number"
-    );
-    isValid = false;
-  } else {
-    setSuccess(password);
+  //Validate the phone number.
+  if (!/^[0-9]{10}$/.test(phone.value)) {
+    alert("Please enter a valid phone number.");
+    phone.style.border = "1px solid red";
+    return false;
   }
 
-  if (phone.value == "") {
-    setError(phone, "phone number is required");
-    isValid = false;
-  } else {
-    setSuccess(phone);
+  // Validate the password.
+  if (password == "") {
+    alert("Please enter a password.");
+    password.style.border = "1px solid red";
+    return false;
+  } else if (password.length < 8) {
+    alert("Please enter a password that is at least 6 characters long.");
+    password.style.border = "1px solid red";
+    return false;
   }
 
-  if (isValid) {
-    form.submit();
-  } else {
-    container.style.border = "2px solid red";
-  }
-}
-
-function isValidEmail(email) {
-  // basic email validation
-  const emailRegex = /^\S+@\S+\.\S+$/;
-  return emailRegex.test(email);
-}
-function isValidPassword(password) {
-  // Regular expression to match password pattern
-  const passwordPattern = /^(?=.*\d)(?=.*[A-Z]).{6,}$/;
-  return passwordPattern.test(password);
-}
-
-function isValidPhone(phone) {
-    // Regular expression to match phone pattern
-    const phonePattern = /^\+?[\d\s\-\(\)]{7,}$/;
-    return phonePattern.test(phone);
+  
+  // If all of the validations pass, submit the form.
+  document.getElementById("form").submit();
+ // document.getElementById("form").clearForm();
 }
 
 function clearForm() {
+  firstname.value= "";
+  lastname.value= "";
   username.value = "";
   email.value = "";
-  password.value = "";
   phone.value = "";
-  img.style.display = "none";
-
-  // Clear error messages and styles
-  setSuccess(fname);
-  setSuccess(lname);
-  setSuccess(username);
-  setSuccess(email);
-  setSuccess(password);
-  setSuccess(phone);
-
-  const inputControls = document.querySelectorAll(".input-control");
-  inputControls.forEach((control) => control.classList.remove("error"));
-
-  container.style.border = "none";
+  password.value = "";
 }
-
-form.addEventListener("reset", function (e) {
-  clearForm();
-});
