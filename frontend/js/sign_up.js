@@ -56,6 +56,10 @@ buttons.forEach((button) => {
       slides.children[newIndex].dataset.active = true;
       delete activeSlide.dataset.active;
       progIndicators.children[newIndex].dataset.progressIndicator = true;
+      if(button.dataset.carouselButton === "prev"){
+        delete progIndicators.children[newIndex+1].dataset.progressIndicator;
+      }
+      /* delete activeProgIndicator.dataset.progressIndicator; */
       if (button.dataset.carouselButton === "finish") {
         const form = button.closest("form");
         form.submit();
@@ -63,5 +67,30 @@ buttons.forEach((button) => {
     }
   });
 });
+/* const form = document.querySelector("[data-slides]"); */
+
+/* form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const inputs = form.querySelectorAll("input[type=text], input[type=email], input[type=date], input[type=password], input[type=radio]:checked");
+
+  let isValid = true;
+
+  inputs.forEach((input) => {
+    const label = form.querySelector(`label[for=${input.id}]`);
+    const errorContainer = input.nextElementSibling;
+
+    errorContainer.textContent = "";
+
+    if (input.required && !input.value.trim()) {
+      errorContainer.textContent = `${label.textContent} is required`;
+      isValid = false;
+    }
+  });
+
+  if (isValid) {
+    form.submit();
+  }
+}); */
+
 
 
