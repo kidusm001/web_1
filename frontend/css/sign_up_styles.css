@@ -178,7 +178,13 @@ body {
     color: #fff;
     margin-top: 2em;
     cursor: pointer;
-    margin-left: 20vw;
+    /* margin-left: 20vw; */
+}
+.form-content-card button[data-carousel-button="finish"]{
+    margin-left: 22vw;
+}
+.form-content-card button:hover{
+    background-color: #a16bb5;
 }
 .progress-indicator{
     display: flex;
@@ -194,7 +200,7 @@ body {
     width: 15px;
     height: 15px;
 }
-.circle[data-active] svg{
+.circle[data-progress-indicator] svg{
     fill: #b17cc4;
 }
 .gender-container{
@@ -208,6 +214,16 @@ body {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+.gender-container input[type="radio"]{
+    accent-color: #b17cc4;
+}
+.button-container{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
 }
