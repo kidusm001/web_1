@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/sign_up_styles.css">
+    <link rel="stylesheet" href="css/sign_up_styles.css">
 </head>
 <body>
     <div class="wapper">
@@ -47,35 +47,68 @@
             <h3>Sign Up</h3>
             <div class="signup-form-content">
                 <form action="" method="post">
-                    <div class="form-content-card" data-active>
+                    <div class="form-content-card">
                         <label for="firstname">First Name</label>
                         <input type="text" name="firstname" id="firstname" placeholder="John">
+                        <div class="error"></div>
                         <label for="lastname">Last Name</label>
                         <input type="text" name="lastname" id="lastname" placeholder="Doe">
+                        <div class="error"></div>
                         <label for="middlename">Middle Name</label>
                         <input type="text" name="middlename" id="middlename" placeholder="Optional">
-                        <button>next</button>
+                        <div class="error"></div>
+                        <button>Next</button>
                     </div>
                     <div class="form-content-card">
                         <label for="email">Email Address</label>
                         <input type="email" name="email" id="email">
+                        <div class="error"></div>
                         <label for="dateofbirth">Date of Birth</label>
                         <input type="date" name="dateofbirth" id="dateofbirth">
+                        <div class="error"></div>
                         <label for="gender">Gender</label>
-                        <input type="radio" name="gender" id="male">
-                        <label for="male">Male</label>
-                        <input type="radio" name="gender" id="female">
-                        <label for="female">female</label>
+                        <div class="gender-container">
+                            <div class="male-container">
+                                <input type="radio" name="gender" id="male">
+                                <label for="male">Male</label>
+                            </div>
+                            <div class="female-container">
+                                <input type="radio" name="gender" id="female">
+                                <label for="female">female</label>
+                            </div>
+                        </div>
+                        <div class="error"></div>
                         <button>next</button>
                     </div>
-                    <div class="form-content-card">
+                    <div class="form-content-card" data-active>
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password">
+                        <div class="error"></div>
                         <label for="confirm-password">Confirm password</label>
                         <input type="password" name="confirm-password" id="confirm-password">
+                        <div class="error"></div>
                         <button type="submit">Finish</button>
                     </div>
                 </form>
+                
+            </div>
+            <div class="progress-indicator">
+                <span class="circle" data-active>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="80" stroke-width="40" />
+                      </svg>                                            
+                </span>
+                <span class="circle"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="80" stroke-width="40" />
+                      </svg>
+                      
+                </span>
+                <span class="circle"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="80"  stroke-width="40" />
+                      </svg>                                            
+                </span>
             </div>
         </section>      
     </div>
