@@ -3,12 +3,12 @@
 }
 
 body{
-    background: #131315;
+    background: #fff;
 }
 
 .reg{
     position: absolute;
-    background: #242026;
+    background: rgb(3, 3, 94);
     top: 20%;
     left: 35%;
     width: 500px;
@@ -58,6 +58,7 @@ body{
 }
 
 .btn:hover{
+    width: 20px;;
     background: #8f7cec;
     color: #fff;
     border-radius: 5px;
@@ -79,23 +80,55 @@ body{
     color: #8f7cec;
 }
 
-/* @media (min-width: 768px) {
-    .reg{
-        position: absolute;
-        top: 30%;
-        left: 40%;
-        overflow: hidden;
-    }
-    
-}
+.mode {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+  
+  .mode button {
+    background-color: black;
+    color: #fff;
+    text-transform: capitalize;
+    border-radius: 30px;
+    width: 100px;
+    height: 50px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .mode button:hover {
+    background-color: #fff;
+    color: black;
+  }
+  
+  .dark {
+    background-color: black;
+    color: #fff;
+  }
 
-@media (max-width: 1200px) {
-    .reg{
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        width: 450px;
-        overflow: hidden;
+  .light {
+    background-color: #fff;
+    color: black;
+  }
+
+@media (max-width: 768px) {
+    /* Collapse menu on mobile */
+    .navbar-collapse {
+      display: none !important;
     }
-    
-} */
+    /* Buttons on navbar */
+    .navbar-nav li a {
+      display: block !important;
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Collapse sidebar on mobile */
+    .sidebar {
+      display: none !important;
+    }
+  }

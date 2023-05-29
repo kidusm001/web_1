@@ -3,12 +3,13 @@
 }
 
 body{
-    background: #131315;
+    background: #fff;
 }
 
 .login{
     position: absolute;
-    background: #242026;
+    background: rgb(3, 3, 94);
+    ;
     top: 30%;
     left: 40%;
     width: 400px;
@@ -22,6 +23,11 @@ body{
     color: #fff;
     text-decoration: underline;
     text-align: center;
+}
+
+.login label{
+    text-transform: capitalize;
+    color: #fff;
 }
 
 .input input{
@@ -62,7 +68,7 @@ body{
 .register{
     font-size: 14px;
     text-decoration: none;
-    color: #cbbddb;
+    color: #8f7cec;
     margin: auto;
     width: 60%;
     text-align: center;
@@ -71,38 +77,58 @@ body{
 .register a{
     text-decoration: none;
     margin: auto;
-    color: #8f7cec;
+    color: #aba0e2;
 }
 
-.mode input{
-    text-align: center;
+.mode {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+  
+  .mode button {
     background-color: black;
-    color: white;
+    color: #fff;
+    text-transform: capitalize;
     border-radius: 30px;
     width: 100px;
     height: 50px;
     font-weight: bold;
-}
-
-.mode p:hover{
-    background-color: white;
+    cursor: pointer;
+  }
+  
+  .mode button:hover {
+    background-color: #fff;
     color: black;
-}
+  }
+  
+  .dark {
+    background-color: black;
+    color: #fff;
+  }
 
+  .light {
+    background-color: #fff;
+    color: black;
+  }
 
-
-/* @media(min-width:768px){
-    .login{
-        position: absolute;
-        top: 30%;
-        left: 40%;
+@media (max-width: 768px) {
+    /* Collapse menu on mobile */
+    .navbar-collapse {
+      display: none !important;
     }
-}
-
-@media(min-width:768px){
-    .login{
-        position: absolute;
-        top: 30%;
-        left: 40%;
+    /* Buttons on navbar */
+    .navbar-nav li a {
+      display: block !important;
+      width: 100%;
     }
-} */
+  }
+  
+  @media (max-width: 480px) {
+    /* Collapse sidebar on mobile */
+    .sidebar {
+      display: none !important;
+    }
+  }
