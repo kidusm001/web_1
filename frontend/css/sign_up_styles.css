@@ -74,6 +74,10 @@ body {
     gap: 2rem;
     flex-basis: 40%;
 }
+a{
+    text-decoration: underline;
+    color: #fff;
+}
 .signup-content-content{
     display: flex;
     flex-direction: column;
@@ -95,6 +99,27 @@ body {
     font-size: 1.2rem;
     font-weight: 300;
     line-height: 1.5;
+    display: flex;
+    flex-direction: row;
+}
+.signup-content-content p a{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.signup-content p svg#arrow-right{
+    width: 15px;
+    height: 15px;
+    fill: #fff;
+}
+.signup-content p a{
+    transition: font-size 200ms ease-in-out;
+}
+.signup-content p a:hover{
+    font-size: 1.3rem;
 }
 .signup-form{
     z-index: 2;

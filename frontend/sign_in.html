@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Sign In</title>
     <link rel="icon" href="assets\logo-mobile.svg">
     <link rel="stylesheet" href="css/sign_up_styles.css">
     <script src="..\frontend\js\sign_up.js" defer></script>
@@ -47,71 +47,32 @@
                 </svg>
             </div>
             <p>
-                Get started by creating an account. Or
-                <a href="sign_in.html">
-                    sign In
-                   <svg id="arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="#fff">
-                       <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
-                   </svg>
-               </a>
+                If you don't have an account please 
+                <a href="sign_up.html">
+                     sign up
+                    <svg id="arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="#fff">
+                        <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                    </svg>
+                </a>
             </p>
         </section>
         <section class="signup-form">
-            <h3>Sign Up</h3>
+            <h3>Sign In</h3>
             <div class="signup-form-content" data-carousel>
                 <form action="" method="post" data-slides>
                     <div class="form-content-card" data-active>
-                        <label for="firstname">First Name</label>
-                        <input type="text" name="firstname" id="firstname" placeholder="John" required data-required>
-                        <div class="error"></div>
-                        <label for="lastname">Last Name</label>
-                        <input type="text" name="lastname" id="lastname" placeholder="Doe" required data-required>
-                        <div class="error"></div>
-                        <label for="middlename">Middle Name</label>
-                        <input type="text" name="middlename" id="middlename" placeholder="Optional">
-                        <div class="error"></div>
-                        <div class="button-container">
-                            <button data-carousel-button="prev">Previous</button>
-                            <button data-carousel-button="next">Next</button>
-                        </div>
-                    </div>
-                    <div class="form-content-card">
                         <label for="email">Email Address</label>
                         <input type="email" name="email" id="email" placeholder="Eg. johndoe@mail.com" required data-required>
                         <div class="error"></div>
-                        <label for="dateofbirth">Date of Birth</label>
-                        <input type="datetime" name="dateofbirth" id="dateofbirth" placeholder="Select a Date" required data-required>
-                        <div class="error"></div>
-                        <label for="gender">Gender</label>
-                        <div class="gender-container">
-                            <div class="male-container">
-                                <input type="radio" name="gender" id="male" value="M" required>
-                                <label for="male">Male</label>
-                            </div>
-                            <div class="female-container">
-                                <input type="radio" name="gender" id="female" value="F">
-                                <label for="female">female</label>
-                            </div>
-                        </div>
-                        <div class="radio-error"></div>
-                        <div class="button-container">
-                            <button data-carousel-button="prev">Previous</button>
-                            <button data-carousel-button="next">Next</button>
-                        </div>
-                    </div>
-                    <div class="form-content-card">
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password" required data-required>
-                        <div class="error"></div>
-                        <label for="confirm-password">Confirm password</label>
-                        <input type="password" name="confirm-password" id="confirm-password">
                         <div class="error"></div>
                         <button type="submit" data-carousel-button="finish">Finish</button>
                     </div>
                 </form>
                 
             </div>
-            <div class="progress-indicator" data-progress>
+            <div class="progress-indicator" data-progress style="display: none;">
                 <span class="circle" data-progress-indicator>
                     <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
                         <circle cx="100" cy="100" r="80" stroke-width="40" />
