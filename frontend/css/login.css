@@ -5,7 +5,9 @@
 body{
     background: #fff;
 }
-
+html{
+  scroll-behavior: smooth;
+}
 .login{
     position: absolute;
     background: rgb(3, 3, 94);
@@ -115,11 +117,9 @@ body{
   }
 
 @media (max-width: 768px) {
-    /* Collapse menu on mobile */
     .navbar-collapse {
       display: none !important;
     }
-    /* Buttons on navbar */
     .navbar-nav li a {
       display: block !important;
       width: 100%;
@@ -127,7 +127,6 @@ body{
   }
   
   @media (max-width: 480px) {
-    /* Collapse sidebar on mobile */
     .sidebar {
       display: none !important;
     }
