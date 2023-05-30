@@ -1,0 +1,156 @@
+.wrapper {
+    /* max-width: 1200px; */
+    margin: 0 0;
+    background-color: #ffffff;
+    /* padding: 14px 2%; */
+}
+.hero{
+    background-image:none;
+    background-color: #ffffff;
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    color: #000;
+    height: 50vh;
+    align-items: flex-start;
+    padding-left: 5em;
+}
+.hero::before{
+    background-color: rgba(0, 0, 0, 0); /* Adjust the overlay color and opacity as desired */
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+}
+nav ul li a{
+    color: #000;
+}
+.logo .logo-desktop svg, .logo-mobile svg{
+    fill: #000;
+}
+.mobile-nav-toggle svg{
+    fill: #000;
+}
+#navbar{
+    border-bottom: #292929;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.account-welcome h1{
+    font-size: 4rem;
+}
+.account-welcome p{
+    color: #646464;
+    font-size: 1.3rem;
+}
+.main{
+    padding: 2rem 0;
+}
+.main-cards-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0 5em;
+    min-height: 50vh;
+}
+.main-card{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 200px;
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 1px solid #a8a8a8;
+    border-radius: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+.main-card h3{
+    font-size: 1.6em;
+    color: #000;
+}
+.icon-container i{
+    color: #000;
+    font-size: 2rem;
+}
+.main-card:hover{
+    border: 1px solid #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.main-card:hover .icon-container i{
+    color: #ff0000;
+}
+.account-detail{
+    display: none;
+}
+.navbar a .user-account-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    /* background-color: #ececec; */
+    padding: 5px;
+    border-radius: 50%;
+}
+.user-account-btn svg{
+    width: 20px;
+}
+/* .accoutn-btn-toggle-btn-container{
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-start;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+} */
+.mobile-nav-toggle{
+    position: relative;
+    top: 0rem;
+    right: 0rem;
+}
+.accoutn-btn-toggle-btn-container {
+    position: absolute;
+      /* background-color: transparent;
+      border: 0;
+      width: 1.5rem;
+      aspect-ratio: 1;
+      top: 2rem;
+      right: 2rem;
+      z-index: 9999; */
+      z-index: 9999;
+      top: 1rem;
+      right: 2rem;
+      width: 90px;
+}
+.accoutn-btn-toggle-btn-container .accoutn-btn-toggle{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-start;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+@media (max-width: 800px) {
+    .accoutn-btn-toggle-btn-container{
+        top: 2rem;
+    }
+    .main-cards-container{
+        padding: 0 1em;
+    }
+    .main-card{
+        /* width: 100%; */
+        font-size: 0.8rem;
+        width: 300px;
+    }
+}
+@media (max-width: 500px){
+    .main-cards-container{
+        justify-content: center;
+    }
+    .account-welcome h1{
+        font-size: 2.5rem;
+    }
+    .account-welcome p{
+        font-size: 1rem;
+    }
+}
