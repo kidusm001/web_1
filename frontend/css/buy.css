@@ -1,0 +1,256 @@
+body{
+    color: rgb(108, 95, 95);
+  }
+  .nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: darkblue;
+    z-index: 1000;
+  }
+  
+  .nav-bar a {
+    float: left;
+    text-decoration: none;
+    color: #333333;
+  }
+  
+  .w-container {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 940px;
+  }
+
+.table{
+    margin: 2em;
+    border-spacing: 10px;
+}
+
+th{
+    border: 1px solid;
+  }
+td{
+    border: 1px solid;
+    border-top: 0;
+    border-spacing: 10px;
+}
+
+  .w-nav {
+      position: relative;
+      background: #dddddd;
+      z-index: 1000;
+  }
+  .w-nav-brand {
+      position: relative;
+      float: none;
+      text-decoration: none;
+      color: #333333;
+  }
+  .w-nav-overlay {
+      position: absolute;
+      overflow: hidden;
+      display: none;
+      top: 100%;
+      left: 0;
+      right: 0;
+      width: 100%;
+  }
+  body {
+    background-image: url(img/music.png);
+      background-size: cover;
+      overflow: scroll;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-width: 320px;
+      max-width: 100%;
+      margin: 0 auto;
+  }
+  
+  .content-wrapper {
+      margin-top: 78px;
+  }
+  .w-container {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 940px;
+  }
+  .page-title {
+      margin-top: 0px;
+      margin-bottom: 86px;
+      font-size: 36px;
+      line-height: 51px;
+      font-weight: 300;
+      text-align: center;
+      text-transform: uppercase;
+  }
+  .footer {
+      padding-top: 43px;
+      padding-bottom: 43px;
+      background-color: transparent;
+      color: #222;
+      text-align: center;
+  }
+  .venue-list-item {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-top: 1px solid hsla(0, 0%, 100%, .3);
+      border-bottom: 1px solid hsla(0, 0%, 100%, .3);
+  }
+  
+
+/* Default styles */
+
+body{
+    color: rgb(108, 95, 95);
+  }
+  
+  .nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: darkblue;
+    z-index: 1000;
+  }
+  
+  .nav-bar a {
+    float: left;
+    text-decoration: none;
+    color: #333333;
+  }
+  
+  .w-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 940px;
+  }
+  
+  .table{
+    margin: 2em;
+    border-spacing: 10px;
+  }
+  
+  th{
+    border: 1px solid;
+  }
+  
+  td{
+    border: 1px solid;
+    border-top: 0;
+    border-spacing: 10px;
+  }
+  
+  .w-nav {
+    position: relative;
+    background: #dddddd;
+    z-index: 1000;
+  }
+  
+  .w-nav-brand {
+    position: relative;
+    float: none;
+    text-decoration: none;
+    color: #333333;
+  }
+  
+  .w-nav-overlay {
+    position: absolute;
+    overflow: hidden;
+    display: none;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+  
+  /* Responsive styles */
+  
+  /* Small screens */
+  @media (max-width: 767px) {
+    .nav-bar {
+      position: static;
+      background-color: #dddddd;
+    }
+    
+    .nav-bar a {
+      display: block;
+      text-align: center;
+      padding: 10px;
+      border-bottom: 1px solid #999999;
+    }
+    
+    .w-container {
+      max-width: 100%;
+      padding: 0 10px;
+    }
+    
+    .page-title {
+      font-size: 28px;
+      line-height: 40px;
+      margin-bottom: 50px;
+    }
+    
+    .venue-list-item {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border: none;
+    }
+  }
+  
+  /* Medium screens */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .nav-bar a {
+      padding: 15px;
+    }
+    
+    .w-container {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+    
+    .page-title {
+      font-size: 32px;
+      line-height: 45px;
+      margin-bottom: 60px;
+    }
+    
+    .venue-list-item {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
+  
+  /* Large screens */
+  @media (min-width: 992px) {
+    .nav-bar a {
+      padding: 20px;
+    }
+    
+    .w-container {
+      max-width: 940px;
+      padding: 0;
+    }
+    
+    .page-title {
+      font-size: 36px;
+      line-height: 51px;
+      margin-bottom: 86px;
+    }
+    
+    .venue-list-item {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-top: 1px solid hsla(0, 0%, 100%, .3);
+      border-bottom: 1px solid hsla(0, 0%, 100%, .3);
+    }
+  }
+  
+  /* Footer styles for all screen sizes */
+  .footer {
+    padding-top: 43px;
+    padding-bottom: 43px;
+    background-color: transparent;
+    color: #222;
+    text-align: center;
+  }
