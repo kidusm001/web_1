@@ -803,9 +803,7 @@ footer.footer{
     }
 }
 @media (max-width: 500px){
-  .hero{
-    /* font-size: 8px; */
-  }
+  
   .content-searchbar .content h1{
     font-size: 1.5rem;
   }
