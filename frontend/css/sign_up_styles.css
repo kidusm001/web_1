@@ -76,7 +76,7 @@ body {
 }
 a{
     text-decoration: underline;
-    color: #fff;
+    color: inherit;
 }
 .signup-content-content{
     display: flex;
