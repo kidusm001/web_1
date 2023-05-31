@@ -2,24 +2,22 @@ CREATE DATABASE if not exists project;
 USE project;
 
 CREATE TABLE IF NOT EXISTS Users (
-    user_id INT PRIMARY KEY,  
-    user_name VARCHAR(255),
+    user_name VARCHAR(255) PRIMARY KEY,
     password VARCHAR(255),
-    user_type ENUM('customer', 'merchant') NOT NULL,
-    UNIQUE KEY (user_name)
+    user_type ENUM('customer', 'merchant') NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Customers (
-    customer_id INT PRIMARY KEY,
+    customer_id VARCHAR(255) PRIMARY KEY,
     email VARCHAR(255),
     sex INT,
-    FOREIGN KEY (customer_id) REFERENCES Users(user_id)
+    FOREIGN KEY (customer_id) REFERENCES Users(user_name)
 );
 
 CREATE TABLE IF NOT EXISTS Merchants (
-    merchant_id INT PRIMARY KEY,
+    merchant_id VARCHAR(255) PRIMARY KEY,
     email VARCHAR(255),
-    FOREIGN KEY (merchant_id) REFERENCES Users(user_id)
+    FOREIGN KEY (merchant_id) REFERENCES Users(user_name)
 );
 
 CREATE TABLE IF NOT EXISTS Events (
