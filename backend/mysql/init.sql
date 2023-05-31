@@ -6,19 +6,18 @@ CREATE TABLE IF NOT EXISTS Users (
     password VARCHAR(255),
     firstName VARCHAR(60),
     lastName VARCHAR(60),
+    email VARCHAR(255),
     user_type ENUM('customer', 'merchant') NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Customers (
     customer_id VARCHAR(255) PRIMARY KEY,
-    email VARCHAR(255),
     sex INT,
     FOREIGN KEY (customer_id) REFERENCES Users(user_name)
 );
 
 CREATE TABLE IF NOT EXISTS Merchants (
     merchant_id VARCHAR(255) PRIMARY KEY,
-    email VARCHAR(255),
     FOREIGN KEY (merchant_id) REFERENCES Users(user_name)
 );
 
