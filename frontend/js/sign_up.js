@@ -13,7 +13,46 @@ function validateEmail(email) {
     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return regex.test(email);
 }
-  
+function validateCreditCardNumber(cardNumber) {
+  // Remove any spaces or dashes from the card number
+  cardNumber = cardNumber.replace(/\s+/g, '').replace(/-/g, '');
+
+  // Check if the card number contains only digits
+  if (!/^\d+$/.test(cardNumber)) {
+    return false;
+  }
+
+  // Convert the card number string to an array of digits
+  var digits = cardNumber.split('').map(Number);
+
+  var sum = 0;
+  var shouldDouble = false;
+
+  // Iterate over the digits from right to left
+  for (var i = digits.length - 1; i >= 0; i--) {
+    var digit = digits[i];
+
+    if (shouldDouble) {
+      // Double the digit
+      digit *= 2;
+
+      // If the doubled digit is greater than 9, subtract 9
+      if (digit > 9) {
+        digit -= 9;
+      }
+    }
+
+    // Add the digit to the sum
+    sum += digit;
+
+    // Toggle the flag for the next iteration
+    shouldDouble = !shouldDouble;
+  }
+
+  // The card number is valid if the sum is divisible by 10
+  return sum % 10 === 0;
+}
+ 
 function validateForm(card){
     const inputs = card.querySelectorAll("input[data-required]");
     let isValid = true;
@@ -39,6 +78,7 @@ function validateForm(card){
     }
     const password = card.querySelector('input[name="password"]');
     const confirmPassword = card.querySelector('input[name="confirm-password"]');
+    const currentPassword = card.querySelector('input[name="current-password"]');
     if(password && confirmPassword) {
         if(password.value !== confirmPassword.value) {
             const errorContainer = confirmPassword.nextElementSibling;
@@ -51,13 +91,23 @@ function validateForm(card){
         errorContainer.textContent = "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number and one special character";
         isValid = false;
     }
+    if(currentPassword && !validatePassword(currentPassword.value)) {
+        const errorContainer = currentPassword.nextElementSibling;
+        errorContainer.textContent = "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number and one special character";
+        isValid = false;
+    }
     const email = card.querySelector('input[name="email"]');
     if(email && !validateEmail(email.value)) {
         const errorContainer = email.nextElementSibling;
         errorContainer.textContent = "Email is invalid";
         isValid = false;
     }
-
+    const creditCardNumber= card.querySelector('input[name="credit-card"]');
+    if(creditCardNumber && !validateCreditCardNumber(creditCardNumber.value)) {
+        const errorContainer = creditCardNumber.nextElementSibling;
+        errorContainer.textContent = "Credit card number is invalid";
+        isValid = false;
+    }
     /* isValid = validatePassword(password); */      
     return isValid;
 }

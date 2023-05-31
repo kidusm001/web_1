@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css\styles.css">
+    <script src="..\frontend\js\sign_up.js" defer></script>
     <link rel="stylesheet" href="css\account_styles.css">
     <script src="js\toggle.js" defer></script>
+    <script src="js/account.js" defer></script>
     <title>My Account</title>
     <link rel="icon" href="assets\logo-mobile.svg">
     <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
@@ -138,43 +140,204 @@
             </div> -->
         </header>
         <main class="main">
-            <section class="main-cards-container">
-                <a href="">
-                    <div class="main-card">
+            <section class="main-cards-container" data-show-main>
+                
+                    <div class="main-card" data-personal-info data-target="personal-info-card">
                         <div class="icon-container">
                             <i class="fa-regular fa-user"></i>
                         </div>
                         <h3>Personal information</h3>
                         <p>Edit and verify peronal info</p>
                     </div>
-                </a>
-                <a href="">
-                    <div class="main-card">
+                
+                
+                    <div class="main-card" data-login-security data-target="login-security-card">
                         <div class="icon-container">
                             <i class="fa-solid fa-lock"></i>
                         </div>
                         <h3>Login and security</h3>
                         <p>Update and secure password</p>
                     </div>
-                </a>
-                <a href="">
-                    <div class="main-card">
+                
+                
+                    <div class="main-card" data-payment data-target="payment-delivery-card">
                         <div class="icon-container">
                             <i class="fa-regular fa-credit-card"></i>
                         </div>
                         <h3>Payment and shippment</h3>
                         <p>Manage payments and delivery</p>
                     </div>
-                </a>
-                <a href="">
-                    <div class="main-card">
+                
+                
+                    <div class="main-card" data-log-out data-target="logout-card">
                         <div class="icon-container">
                             <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         </div>
                         <h3>Log out</h3>
                         <p></p>
                     </div>
-                </a>
+                
+            </section>
+            <section class="module-cards-container">
+                <div class="personal-info-card module-card">
+                    <div class="module-card-header">
+                        <button class="back">
+                            <div class="back-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+                                </svg>
+                                <P>Back</P>
+                            </div>
+                        </button>
+                        <div class="module-card-header-content">
+                            <h2>Personal information</h2>
+                            <p>Edit and verify peronal info</p>
+                        </div>
+                    </div>
+                    <div class="module-card-main">
+                        <div class="signup-form-content" data-carousel>
+                            <form action="" method="post" data-slides>
+                                <div class="form-content-card" data-active>
+                                    <label for="firstname">First Name</label>
+                                    <input type="text" name="firstname" id="firstname" placeholder="John" required data-required>
+                                    <div class="error"></div>
+                                    <label for="lastname">Last Name</label>
+                                    <input type="text" name="lastname" id="lastname" placeholder="Doe" required data-required>
+                                    <div class="error"></div>
+                                    <label for="middlename">Middle Name</label>
+                                    <input type="text" name="middlename" id="middlename" placeholder="Optional">
+                                    <div class="error"></div>
+                                    <label for="email">Email Address</label>
+                                    <input type="email" name="email" id="email" placeholder="Eg. johndoe@mail.com" required data-required>
+                                    <div class="error"></div>
+                                    <label for="dateofbirth">Date of Birth</label>
+                                    <input type="datetime" name="dateofbirth" id="dateofbirth" placeholder="Select a Date" required data-required>
+                                    <div class="error"></div>
+                                    <label for="gender">Gender</label>
+                                    <div class="gender-container">
+                                        <div class="male-container">
+                                            <input type="radio" name="gender" id="male" value="M" required>
+                                            <label for="male">Male</label>
+                                        </div>
+                                        <div class="female-container">
+                                            <input type="radio" name="gender" id="female" value="F">
+                                            <label for="female">female</label>
+                                        </div>
+                                    </div>
+                                    <div class="radio-error"></div>
+                                    <button type="submit" data-carousel-button="finish">Finish</button>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="login-security-card module-card">
+                    <div class="module-card-header">
+                        <button class="back">
+                            <div class="back-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+                                </svg>
+                                <P>Back</P>
+                            </div>
+                        </button>
+                        <div class="module-card-header-content">
+                            <h2>Login and security</h2>
+                            <p>Update and secure password</p>
+                        </div>
+                    </div>
+                    <div class="module-card-main">
+                        <div class="signup-form-content" data-carousel>
+                            <form action=""  data-slides>
+                                <div class="form-content-card" data-active>
+                                    <label for="current-password">Current password</label>
+                                    <input type="password" name="current-password" id="current-password" required data-required>
+                                    <div class="error"></div>
+                                    <label for="password">New password</label>
+                                    <input type="password" name="password" id="password" required data-required>
+                                    <div class="error"></div>
+                                    <button type="submit" data-carousel-button="finish">Finish</button>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="payment-delivery-card module-card">
+                    <div class="module-card-header">
+                        <button class="back">
+                            <div class="back-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+                                </svg>
+                                <p>Back</p>
+                            </div>
+                        </button>
+                        <div class="module-card-header-content">
+                            <h2>Payment and delivery</h2>
+                            <p>Manage payments and delivery</p>
+                        </div>
+                    </div>
+                    <div class="module-card-main">
+                        <div class="signup-form-content" data-carousel>
+                            <form action=""  data-slides>
+                                <div class="form-content-card" data-active>
+                                    <label for="credit-card">Credit card Number</label>
+                                    <input type="text" name="credit-card" id="credit-card" placeholder="Eg. 4556 1904 2020 4058" required data-required>
+                                    <div class="error"></div>
+                                    <label for="address-line1">Address Line 1</label>
+                                    <input type="text" id="address-line1" name="address-line1" placeholder="Street address, P.O. box, company name" required data-required>
+                                    <div class="error"></div>
+                                    <label for="address-line2">Address Line 2</label>
+                                    <input type="text" id="address-line2" name="address-line2" placeholder="Apartment, suite, unit, building, floor, etc.">
+                                    <div class="error"></div>
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" name="city" placeholder="City" required data-required>
+                                    <div class="error"></div>
+                                    <label for="state">State/Province/Region</label>
+                                    <input type="text" id="state" name="state" placeholder="State/Province/Region" required data-required>
+                                    <div class="error"></div>
+                                    <label for="postal-code">Postal Code</label>
+                                    <input type="text" id="postal-code" name="postal-code" placeholder="Postal Code" required data-required>
+                                    <div class="error"></div>
+                                    <label for="country">Country</label>
+                                    <input type="text" id="country" name="country" placeholder="Country" required data-required>
+                                    <div class="error"></div>
+                                    <button type="submit" data-carousel-button="finish">Finish</button>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="logout-card module-card">
+                    <div class="module-card-header">
+                        <button class="back">
+                            <div class="back-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+                                </svg>
+                                <P>Back</P>
+                            </div>
+                        </button>
+                        <div class="module-card-header-content">
+                            <h2>Logout</h2>
+                        </div>
+                    </div>
+                    <div class="module-card-main">
+                        <div class="signup-form-content" data-carousel>
+                            <form action=""  data-slides>
+                                <div class="form-content-card" data-active>
+                                    <label for="log-out" style="font-size: 1.5rem;">Are you sure?</label>
+                                    
+                                    <button type="submit" data-carousel-button="log-out">Yes</button>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
         <footer class="footer">
@@ -237,5 +400,7 @@
             </div>
           </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+      
 </body>
 </html>
