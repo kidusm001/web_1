@@ -154,17 +154,17 @@
     <fieldset>
       <legend>Images</legend>
 
-      <label for="image1" class="form-label">Image 1:</label>
+      <label for="image1" class="form-label">Image 1: (required)</label>
       <input type="file" id="image1" name="image1" accept="image/*" required>
 
-      <label for="image2" class="form-label">Image 2:</label>
+      <label for="image2" class="form-label">Image 2: (required)</label>
       <input type="file" id="image2" name="image2" accept="image/*" required>
 
       <label for="image3" class="form-label">Image 3:</label>
-      <input type="file" id="image3" name="image3" accept="image/*" required>
+      <input type="file" id="image3" name="image3" accept="image/*">
 
       <label for="image4" class="form-label">Image 4:</label>
-      <input type="file" id="image4" name="image4" accept="image/*" required>
+      <input type="file" id="image4" name="image4" accept="image/*">
 
     </fieldset>
 
@@ -174,4 +174,29 @@
 
 </div>
 </body>
+<script>
+    // Get the form element
+const form = document.querySelector('form');
+
+// Add a submit event listener to the form
+form.addEventListener('submit', event => {
+  event.preventDefault(); // Prevent the form from submitting
+  
+  // Simulate a form submission delay of 2 seconds
+  setTimeout(() => {
+    const success = Math.random() < 0.5; // Generate a random success value
+    
+    if (success) {
+      form.style.backgroundColor = 'green'; // Change the form background color to green
+    } else {
+      form.style.backgroundColor = 'red'; // Change the form background color to red
+    }
+    
+    // Reset the form background color after 2 seconds
+    setTimeout(() => {
+      form.style.backgroundColor = '#f2f2f2';
+    }, 2000);
+  }, 2000);
+});
+</script>
 </html>
