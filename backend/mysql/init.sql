@@ -51,22 +51,22 @@ CREATE TABLE IF NOT EXISTS Tickets (
 
 -- Dummy data 
 INSERT INTO Users (user_id, user_name, password, user_type) VALUES
-(1, 'Abel', 'password1', 'customer'),
-(2, 'Biruk', 'password2', 'customer'),
-(3, 'Chaltu', 'password3', 'customer'),
-(4, 'Dawit', 'password4', 'customer'),
-(5, 'Ephrem', 'password5', 'merchant'),
-(6, 'Frehiwot', 'password6', 'merchant');
+('Abel', 'password1', 'customer'),
+('Biruk', 'password2', 'customer'),
+('Chaltu', 'password3', 'customer'),
+('Dawit', 'password4', 'customer'),
+('Ephrem', 'password5', 'merchant'),
+('Frehiwot', 'password6', 'merchant');
 
 INSERT INTO Customers (customer_id, email, sex) VALUES
-(1, 'abel@example.com', 1),
-(2, 'biruk@example.com', 2),
-(3, 'chaltu@example.com', 0),
-(4, 'dawit@example.com', 1);
+('Abel', 'abel@example.com', 1),
+('Biruk', 'biruk@example.com', 2),
+('Chaltu', 'chaltu@example.com', 0),
+('Dawit', 'dawit@example.com', 1);
 
 INSERT INTO Merchants (merchant_id, email) VALUES
-(5, 'ephrem@example.com'),
-(6, 'frehiwot@example.com');
+('Ephrem', 'ephrem@example.com'),
+('Frehiwot', 'frehiwot@example.com');
 
 INSERT INTO Tags (tag_id, tag_name) VALUES
 (1, 'Birthday'),
@@ -74,11 +74,11 @@ INSERT INTO Tags (tag_id, tag_name) VALUES
 (3, 'Concert');
 
 INSERT INTO Events (event_id, merchant_id, description, available_tickets, image) VALUES
-(1, 5, 'John\'s Birthday Party', 50, 'example.com/birthday.jpg'),
-(2, 6, 'Sarah and Mark\'s Wedding', 100, 'example.com/wedding.jpg'),
-(3, 5, 'Summer Concert Series', 200, 'example.com/concert1.jpg'),
-(4, 5, 'Hip Hop Festival', 150, 'example.com/concert2.jpg'),
-(5, 6, 'New Year\'s Eve Bash', 75, 'example.com/newyear.jpg');
+(1, 'Ephrem', 'John\'s Birthday Party', 50, 'example.com/birthday.jpg'),
+(2, 'Frehiwot', 'Sarah and Mark\'s Wedding', 100, 'example.com/wedding.jpg'),
+(3, 'Ephrem', 'Summer Concert Series', 200, 'example.com/concert1.jpg'),
+(4, 'Ephrem', 'Hip Hop Festival', 150, 'example.com/concert2.jpg'),
+(5, 'Frehiwot', 'New Year\'s Eve Bash', 75, 'example.com/newyear.jpg');
 
 INSERT INTO Event_Tags (event_id, tag_id) VALUES
 (1, 1),
@@ -89,11 +89,11 @@ INSERT INTO Event_Tags (event_id, tag_id) VALUES
 (5, 3);
 
 INSERT INTO Tickets (customer_id, event_id) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(1, 5),
-(2, 5),
-(3, 5);
+('Abel', 1),
+('Biruk', 2),
+('Chaltu', 3),
+('Dawit', 4),
+('Abel', 5),
+('Biruk', 5),
+('Chaltu', 5);
 
