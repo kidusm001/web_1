@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <form id="new-event-form" method="POST" action="/submit-event">
+      <div>
+        <label for="title">Title*</label>
+        <input type="text" id="title" name="title" required maxlength="60">
+      </div>
+      <div>
+        <label for="datetime">Date and Time:</label>
+        <input type="datetime-local" id="datetime" name="datetime">
+      </div>
+      <div>
+        <label for="num-tickets">Number of Tickets*</label>
+        <input type="number" id="num-tickets" min="1" name="num-tickets" required>
+      </div>
+      <div>
+        <label for="image">Image URL</label>
+        <input type="url" id="image-url" name="image-url" pattern=".*\.(png|jpeg|jpg|gif)$">
+      </div>
+      <div>
+        <label for="description">Description</label>
+        <textarea id="description" name="description" maxlength="255"></textarea>
+      </div>
+      <div>
+        <label for="tags">Available Tags (up to 8)</label>
+        <div id="tags">
+          <input type="text" name="tags" id="tag-input" placeholder="Enter tags">
+          <button type="button" id="add-tag-btn" style="background: green;">+</button>
+          <div id="added-tags"></div>
+        </div>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <script src="./create-event.js"></script>
+  </body>
+</html> 
