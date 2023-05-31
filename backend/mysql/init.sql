@@ -4,6 +4,8 @@ USE project;
 CREATE TABLE IF NOT EXISTS Users (
     user_name VARCHAR(255) PRIMARY KEY,
     password VARCHAR(255),
+    firstName VARCHAR(60),
+    lastName VARCHAR(60),
     user_type ENUM('customer', 'merchant') NOT NULL
 );
 
@@ -27,6 +29,7 @@ CREATE TABLE IF NOT EXISTS Events (
     title VARCHAR(60),
     description VARCHAR(700), 
     available_tickets INT,
+    price INT,
     image VARCHAR(255) NOT NULL
 );
 
