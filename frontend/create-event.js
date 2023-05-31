@@ -42,7 +42,6 @@ function handleNewTag(){
     addedTags.removeChild(tag)
     tagCount--
     updateAddTagBtn()
-    console.log('delted' + tag.textContent)
     tags.delete(tag_text.textContent)
   })
 
@@ -63,7 +62,7 @@ form.addEventListener('submit', (event) => {
   tagInput.value = JSON.stringify([...tags]) 
   const formData = new FormData(form);
 
-  for(let [name, value] of formData) console.log(`${name}: ${value}`)
+  // for(let [name, value] of formData) console.log(`${name}: ${value}`)
   fetch('../backend/php/events/create_event.php', {
     method: 'POST',
     body: formData
