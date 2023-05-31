@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS Events (
     description VARCHAR(700), 
     available_tickets INT,
     price INT,
+    date_and_time DATETIME,
     image VARCHAR(255) NOT NULL
 );
 
