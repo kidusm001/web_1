@@ -4,19 +4,20 @@ USE project;
 CREATE TABLE IF NOT EXISTS Users (
     user_name VARCHAR(255) PRIMARY KEY,
     password VARCHAR(255),
+    firstName VARCHAR(60),
+    lastName VARCHAR(60),
+    email VARCHAR(255),
     user_type ENUM('customer', 'merchant') NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Customers (
     customer_id VARCHAR(255) PRIMARY KEY,
-    email VARCHAR(255),
     sex INT,
     FOREIGN KEY (customer_id) REFERENCES Users(user_name)
 );
 
 CREATE TABLE IF NOT EXISTS Merchants (
     merchant_id VARCHAR(255) PRIMARY KEY,
-    email VARCHAR(255),
     FOREIGN KEY (merchant_id) REFERENCES Users(user_name)
 );
 
@@ -27,6 +28,7 @@ CREATE TABLE IF NOT EXISTS Events (
     title VARCHAR(60),
     description VARCHAR(700), 
     available_tickets INT,
+    price INT,
     image VARCHAR(255) NOT NULL
 );
 
