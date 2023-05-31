@@ -22,8 +22,9 @@ CREATE TABLE IF NOT EXISTS Merchants (
 
 CREATE TABLE IF NOT EXISTS Events (
     event_id INT PRIMARY KEY,
-    merchant_id VARCHAR(255), 
+    merchant_id VARCHAR(255),
     FOREIGN KEY (merchant_id) REFERENCES Merchants(merchant_id),
+    title VARCHAR(60),
     description VARCHAR(700), 
     available_tickets INT,
     image VARCHAR(255) NOT NULL
