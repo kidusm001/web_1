@@ -9,6 +9,8 @@ services:
     ports:
       - 3306:3306
   app:
+    volumes:
+      - ./php:/php
     build:
       context: .
       dockerfile: ./php/Dockerfile

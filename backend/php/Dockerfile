@@ -1,10 +1,8 @@
 FROM php:7.4-cli
 
-# Move our PHP file into the container
-COPY ./php/index.php /usr/src/app/index.php
 
-# Make things easier if you shell in
-WORKDIR /usr/src/app
+
+WORKDIR ./php
 
 # Our PHP will be running on port 8000
 EXPOSE 8000
@@ -13,4 +11,4 @@ EXPOSE 8000
 RUN docker-php-ext-install pdo_mysql
 
 # Set up a web server
-CMD ["php", "-S", "0.0.0.0:8000"]
+CMD ["php", "-S", "0.0.0.0:8000", "-t", "."]
