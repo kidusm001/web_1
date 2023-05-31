@@ -67,8 +67,8 @@ form.addEventListener('submit', (event) => {
     method: 'POST',
     body: formData
   }).then(response => {
-    console.log(response)
+    alert(response)
   }).catch(error => {
-    console.error(error);
+    alert(error);
   })
 })
