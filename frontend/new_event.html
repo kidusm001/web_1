@@ -1,131 +1,200 @@
 <!DOCTYPE html>
+<html lang="en"></html>
 <html>
 <head>
-  <title>New Event adding page</title>
+    <meta charset="UTF-8">
+    <title>New Event adding page</title>
   <style>
     /* Style the header */
-    header {
-      background-color: #333;
-      color: white;
-      padding: 10px;
-      text-align: center;
-    }
+/* Base styles */
 
-    /* Style the navigation bar */
-    nav {
-      background-color: #f2f2f2;
-      overflow: hidden;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
 
-    nav a {
-      float: left;
-      display: block;
-      color: #333;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
+/* Header styles */
 
-    nav a:hover {
-      background-color: #ddd;
-      color: black;
-    }
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
 
-    .active {
-      background-color: #4CAF50;
-      color: white;
-    }
+/* Navigation styles */
+
+nav {
+  background-color: #f2f2f2;
+  overflow: hidden;
+}
+
+nav a {
+  float: left;
+  display: block;
+  color: #333;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Form styles */
+
+.form-container {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #ccc;
+  margin: 50px auto;
+  max-width: 500px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px #ccc;
+}
+
+input[type="file"] {
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 20px;
+}
+
+legend {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.form-error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Media queries */
+
+@media only screen and (min-width: 500px) {
+  .form-container {
+    max-width: 80%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  header {
+    padding: 20px;
+    font-size: 24px;
+  }
+
+  nav a {
+    padding: 14px 20px;
+  }
+
+  .form-container {
+    max-width: 70%;
+  }
+
+  label {
+    font-size: 18px;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  textarea {
+    font-size: 18px;
+  }
+
+  input[type="submit"] {
+    padding: 12px 24px;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  header {
+    padding: 30px;
+    font-size: 32px;
+  }
+
+  nav a {
+    padding: 14px 30px;
+  }
+
+  .form-container {
+    max-width: 60%;
+  }
+
+  label {
+    font-size: 22px;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  textarea {
+    font-size: 22px;
+  }
+
+  input[type="submit"] {
+    padding: 14px 28px;
+    font-size: 22px;
+  }
+}
   </style>
 </head>
 <body>
-
-<header>
-  <h1>Example Header</h1>
-</header>
-
-<nav>
-  <a class="active" href="#">Home</a>
-  <a href="#">About</a>
-  <a href="#">Contact</a>
-</nav>
-
-  <style>
-    /* Style the form container */
-    .form-container {
-      background-color: #f2f2f2;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0px 0px 10px #ccc;
-      margin: 50px auto;
-      max-width: 500px;
-    }
-
-    /* Style the form fields */
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    input[type="text"],
-    input[type="date"],
-    input[type="number"],
-    textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: none;
-      border-radius: 3px;
-      box-shadow: 0px 0px 5px #ccc;
-    }
-
-    input[type="file"] {
-      margin-bottom: 20px;
-    }
-
-    /* Style the submit button */
-    input[type="submit"] {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-
-    input[type="submit"]:hover {
-      background-color: #3e8e41;
-    }
-
-    /* Style the form labels */
-    .form-label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    /* Style the form fieldsets */
-    fieldset {
-      border: none;
-      margin-bottom: 20px;
-    }
-
-    /* Style the form legend */
-    legend {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    /* Style the form error messages */
-    .form-error {
-      color: red;
-      font-size: 14px;
-      margin-top: 5px;
-    }
-  </style>
-</head>
-<body>
+    <header>
+        <h3>New Event adding page</h3>
+    </header>
 
 <div class="form-container">
 
