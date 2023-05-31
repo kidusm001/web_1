@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>New Event adding page</title>
+  <style>
+    /* Style the header */
+/* Base styles */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Header styles */
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Navigation styles */
+
+nav {
+  background-color: #f2f2f2;
+  overflow: hidden;
+}
+
+nav a {
+  float: left;
+  display: block;
+  color: #333;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Form styles */
+
+.form-container {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #ccc;
+  margin: 50px auto;
+  max-width: 500px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px #ccc;
+}
+
+input[type="file"] {
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 20px;
+}
+
+legend {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.form-error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Media queries */
+
+@media only screen and (min-width: 500px) {
+  .form-container {
+    max-width: 80%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  header {
+    padding: 20px;
+    font-size: 24px;
+  }
+
+  nav a {
+    padding: 14px 20px;
+  }
+
+  .form-container {
+    max-width: 70%;
+  }
+
+  label {
+    font-size: 18px;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  textarea {
+    font-size: 18px;
+  }
+
+  input[type="submit"] {
+    padding: 12px 24px;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  header {
+    padding: 30px;
+    font-size: 32px;
+  }
+
+  nav a {
+    padding: 14px 30px;
+  }
+
+  .form-container {
+    max-width: 60%;
+  }
+
+  label {
+    font-size: 22px;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  textarea {
+    font-size: 22px;
+  }
+
+  input[type="submit"] {
+    padding: 14px 28px;
+    font-size: 22px;
+  }
+}
+  </style>
+</head>
+<body>
+    <header>
+        <h3>New Event adding page</h3>
+    </header>
+
+<div class="form-container">
+
+  <form enctype="multipart/form-data" method="post" action="submit-form.php">
+
+    <fieldset>
+      <legend>Item Details</legend>
+
+      <label for="title" class="form-label">Title:</label>
+      <input type="text" id="title" name="title" required>
+
+      <label for="description" class="form-label">Description:</label>
+      <textarea id="description" name="description" rows="5" required></textarea>
+
+      <label for="date" class="form-label">Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      <labelfor="tags" class="form-label">Tags:</label>
+      <input type="text" id="tags" name="tags" required>
+
+      <label for="money" class="form-label">Money:</label>
+      <input type="number" id="money" name="money" required>
+
+    </fieldset>
+
+    <fieldset>
+      <legend>Images</legend>
+
+      <label for="image1" class="form-label">Image 1: (required)</label>
+      <input type="file" id="image1" name="image1" accept="image/*" required>
+
+      <label for="image2" class="form-label">Image 2: (required)</label>
+      <input type="file" id="image2" name="image2" accept="image/*" required>
+
+      <label for="image3" class="form-label">Image 3:</label>
+      <input type="file" id="image3" name="image3" accept="image/*">
+
+      <label for="image4" class="form-label">Image 4:</label>
+      <input type="file" id="image4" name="image4" accept="image/*">
+
+    </fieldset>
+
+    <input type="submit" value="Submit">
+
+  </form>
+
+</div>
+</body>
+<script>
+    // Get the form element
+const form = document.querySelector('form');
+
+// Add a submit event listener to the form
+form.addEventListener('submit', event => {
+  event.preventDefault(); // Prevent the form from submitting
+  
+  // Simulate a form submission delay of 2 seconds
+  setTimeout(() => {
+    const success = Math.random() < 0.5; // Generate a random success value
+    
+    if (success) {
+      form.style.backgroundColor = 'green'; // Change the form background color to green
+    } else {
+      form.style.backgroundColor = 'red'; // Change the form background color to red
+    }
+    
+    // Reset the form background color after 2 seconds
+    setTimeout(() => {
+      form.style.backgroundColor = '#f2f2f2';
+    }, 2000);
+  }, 2000);
+});
+</script>
+</html>
