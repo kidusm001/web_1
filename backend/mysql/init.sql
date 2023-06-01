@@ -67,13 +67,13 @@ INSERT INTO Users (user_name, password, user_type, firstName, lastName, email) V
 ('Ephrem', 'password5', 'merchant', 'Ephrem', 'Diriba', 'ephrem@example.com'),
 ('Frehiwot', 'password6', 'merchant', 'Frehiwot', 'Alem', 'frehiwot@example.com');
 
-INSERT INTO Customers (customer_id, email, sex) VALUES
+INSERT INTO Customers (customer_id, sex) VALUES
 ('Abel', 1),
 ('Biruk', 2),
 ('Chaltu', 0),
 ('Dawit', 1);
 
-INSERT INTO Merchants (merchant_id, email) VALUES
+INSERT INTO Merchants (merchant_id) VALUES
 ('Ephrem'),
 ('Frehiwot');
 
