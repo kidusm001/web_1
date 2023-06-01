@@ -1,4 +1,9 @@
-SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));CREATE DATABASE if not exists project;
+
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
+DROP DATABASE project;
+CREATE DATABASE project;
+
 USE project;
 
 CREATE TABLE IF NOT EXISTS Users (
