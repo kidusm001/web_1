@@ -7,7 +7,7 @@
     <title>Sign In</title>
     <link rel="icon" href="assets\logo-mobile.svg">
     <link rel="stylesheet" href="css/sign_up_styles.css">
-    <script src="..\frontend\js\sign_up.js" defer></script>
+    <script src="./js/sign_in.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
     
@@ -59,10 +59,10 @@
         <section class="signup-form">
             <h3>Sign In</h3>
             <div class="signup-form-content" data-carousel>
-                <form action="" method="post" data-slides>
+                <form action="" method="post" id="sign-in-form" data-slides>
                     <div class="form-content-card" data-active>
                         <label for="email">Email Address</label>
-                        <input type="email" name="email" id="email" placeholder="Eg. johndoe@mail.com" required data-required>
+                        <input type="name" name="user_name" id="email" placeholder="Eg. johndoe@mail.com" required data-required>
                         <div class="error"></div>
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password" required data-required>
