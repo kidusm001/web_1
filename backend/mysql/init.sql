@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS Tickets (
 );
 
 -- Dummy data 
-INSERT INTO Users (user_id, user_name, password, user_type) VALUES
+INSERT INTO Users (user_name, password, user_type) VALUES
 ('Abel', 'password1', 'customer'),
 ('Biruk', 'password2', 'customer'),
 ('Chaltu', 'password3', 'customer'),
