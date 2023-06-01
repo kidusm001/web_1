@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS Merchants (
 );
 
 CREATE TABLE IF NOT EXISTS Events (
-    event_id INT PRIMARY KEY,
+    event_id INT PRIMARY KEY AUTO_INCREMENT,
     merchant_id VARCHAR(255),
     FOREIGN KEY (merchant_id) REFERENCES Merchants(merchant_id),
     title VARCHAR(60),
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS Events (
 );
 
 CREATE TABLE Tags (
-    tag_id INT PRIMARY KEY,
+    tag_id INT PRIMARY KEY AUTO_INCREMENT,
     tag_name VARCHAR(50) UNIQUE
 );
 
