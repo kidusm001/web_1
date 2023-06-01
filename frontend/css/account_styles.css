@@ -332,6 +332,20 @@ button.back:hover{
 .module-card[data-show]{
     display: flex;
 }
+.inventory-container-card .signup-form-content ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 2rem;
+    list-style: none;
+}
+.inventory-container-card .signup-form-content ul li{
+    cursor: pointer;
+}
+.active {
+    color: #f34242;
+}
 @media (max-width: 800px) {
     .accoutn-btn-toggle-btn-container{
         top: 2rem;
@@ -376,5 +390,8 @@ button.back:hover{
     }
     .form-content-card button{
         font-size: 0.95rem;
+    }
+    .inventory-container-card .signup-form-content ul span.mobile-no-display{
+        display: none;
     }
 }

@@ -17,7 +17,7 @@ function handleNewTag(){
   const updateAddTagBtn = () => {
     if(tagCount < maxTags){
       addTagButton.disabled = false;
-      addTagButton.style.background = 'green'
+      addTagButton.style.background = '#b17cc4'
     }else{
       addTagButton.disabled = true
       addTagButton.style.background = 'grey'

@@ -1,5 +1,5 @@
-const mainCards = document.querySelectorAll('[data-personal-info], [data-login-security], [data-payment], [data-log-out]');
-  const moduleCards = document.querySelectorAll('.personal-info-card, .login-security-card, .payment-delivery-card, .logout-card');
+const mainCards = document.querySelectorAll('.main-card');
+  const moduleCards = document.querySelectorAll('.module-card');
   const backButton = document.querySelectorAll('.back');
 
   // Add event listeners to the main cards to show the corresponding module card

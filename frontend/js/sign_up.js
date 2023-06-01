@@ -70,7 +70,7 @@ function validateForm(card){
     if(radios.length > 0) {
         if(![...radios].some((radio) => radio.checked)) {
             const errorContainer = radios[0].closest(".gender-container").querySelector(".radio-error");
-            if(input.required && !input.value.trim()){
+            if([...radios].some((radio) => radio.checked).required && ![...radios].some((radio) => radio.checked).value.trim()){
                 errorContainer.textContent=`${radios[0].closest(".gender-container").parentElement.textContent} is required`;
                 isValid = false;
             }
