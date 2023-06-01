@@ -27,7 +27,7 @@ function check_event_ownership()
 
 function delete_event()
 {
-    global $user, $pass, $email, $user_name;
+    global $user, $pass, $event_id;
     $dbh = new PDO('mysql:host=db;port=3306;dbname=project', $user, $pass);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -36,12 +36,7 @@ function delete_event()
     $stmt->execute();
 
 
-    $stmt->bindParam(':merchant_id', $user_name);
-    $stmt->bindParam(':email', $email);
-    $stmt->execute();
     $dbh = null;
-
-    echo json_encode(array('message' => 'Event deleted'));
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -53,8 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         delete_event();
-        
-        echo check_event_ownership();
+        echo json_encode(array('message' => 'Event deleted'));
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
