@@ -18,18 +18,18 @@ CREATE TABLE IF NOT EXISTS Users (
 CREATE TABLE IF NOT EXISTS Customers (
     customer_id VARCHAR(255) PRIMARY KEY,
     sex INT,
-    FOREIGN KEY (customer_id) REFERENCES Users(user_name)
+    FOREIGN KEY (customer_id) REFERENCES Users(user_name) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Merchants (
     merchant_id VARCHAR(255) PRIMARY KEY,
-    FOREIGN KEY (merchant_id) REFERENCES Users(user_name)
+    FOREIGN KEY (merchant_id) REFERENCES Users(user_name) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Events (
     event_id INT PRIMARY KEY AUTO_INCREMENT,
     merchant_id VARCHAR(255),
-    FOREIGN KEY (merchant_id) REFERENCES Merchants(merchant_id),
+    FOREIGN KEY (merchant_id) REFERENCES Merchants(merchant_id) ON DELETE CASCADE,
     title VARCHAR(60),
     description VARCHAR(700), 
     available_tickets INT,
@@ -46,16 +46,16 @@ CREATE TABLE Tags (
 CREATE TABLE IF NOT EXISTS Event_Tags (
     event_id INT,
     tag_id INT,
-    FOREIGN KEY (event_id) REFERENCES Events(event_id),
-    FOREIGN KEY (tag_id) REFERENCES Tags(tag_id)
+    FOREIGN KEY (event_id) REFERENCES Events(event_id) ON DELETE CASCADE,
+    FOREIGN KEY (tag_id) REFERENCES Tags(tag_id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Tickets (
     customer_id VARCHAR(255),
     event_id INT,
     PRIMARY KEY(customer_id, event_id),
-    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
-    FOREIGN KEY (event_id) REFERENCES Events(event_id) 
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id) ON DELETE CASCADE,
+    FOREIGN KEY (event_id) REFERENCES Events(event_id) ON DELETE CASCADE
 );
 
 -- Dummy data 
