@@ -5,189 +5,101 @@
     <meta charset="UTF-8">
     <title>New Event adding page</title>
   <style>
-    /* Style the header */
-/* Base styles */
-
+/* Set default font family and size */
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
   font-size: 16px;
-  line-height: 1.5;
 }
 
-/* Header styles */
-
+/* Style the header */
 header {
   background-color: #333;
-  color: white;
+  color: #fff;
   padding: 10px;
-  text-align: center;
 }
 
-/* Navigation styles */
-
-nav {
-  background-color: #f2f2f2;
-  overflow: hidden;
-}
-
-nav a {
-  float: left;
-  display: block;
-  color: #333;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-nav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-/* Form styles */
-
+/* Style the form container */
 .form-container {
-  background-color: #f2f2f2;
+  max-width: 600px;
+  margin: 0 auto;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px #ccc;
-  margin: 50px auto;
-  max-width: 500px;
 }
 
+/* Style the form input fields */
 label {
   display: block;
-  font-weight: bold;
   margin-bottom: 5px;
-
 }
 
 input[type="text"],
-input[type="date"],
+input[type="email"],
+input[type="url"],
 input[type="number"],
 textarea {
   width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
-  border: none;
-  border-radius: 3px;
-  box-shadow: 0px 0px 5px #ccc;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
-input[type="file"] {
-  margin-bottom: 20px;
-}
-
-input[type="submit"] {
+/* Style the submit button */
+button[type="submit"] {
   background-color: #4CAF50;
-  color: white;
+  color: #fff;
   padding: 10px 20px;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover {
+button[type="submit"]:hover {
   background-color: #3e8e41;
 }
 
-.form-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-fieldset {
-  border: none;
-  margin-bottom: 20px;
-}
-
-legend {
-  font-size: 20px;
-  font-weight: bold;
+/* Style the tag input and button */
+#tag-input {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
-.form-error {
+#add-tag-btn {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#add-tag-btn:hover {
+  background-color: #3e8e41;
+}
+
+/* Style the added tags */
+.added-tag {
+  display: inline-block;
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Style the error message */
+.error {
   color: red;
   font-size: 14px;
-  margin-top: 5px;
-}
-
-/* Media queries */
-
-@media only screen and (min-width: 500px) {
-  .form-container {
-    max-width: 80%;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  header {
-    padding: 20px;
-    font-size: 24px;
-  }
-
-  nav a {
-    padding: 14px 20px;
-  }
-
-  .form-container {
-    max-width: 70%;
-  }
-
-  label {
-    font-size: 18px;
-  }
-
-  input[type="text"],
-  input[type="date"],
-  input[type="number"],
-  textarea {
-    font-size: 18px;
-  }
-
-  input[type="submit"] {
-    padding: 12px 24px;
-    font-size: 18px;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  header {
-    padding: 30px;
-    font-size: 32px;
-  }
-
-  nav a {
-    padding: 14px 30px;
-  }
-
-  .form-container {
-    max-width: 60%;
-  }
-
-  label {
-    font-size: 22px;
-  }
-
-  input[type="text"],
-  input[type="date"],
-  input[type="number"],
-  textarea {
-    font-size: 22px;
-  }
-
-  input[type="submit"] {
-    padding: 14px 28px;
-    font-size: 22px;
-  }
+  margin-bottom: 10px;
 }
   </style>
 </head>
@@ -198,51 +110,46 @@ legend {
 
 <div class="form-container">
 
-  <form enctype="multipart/form-data" method="post" action="submit-form.php">
-
-    <fieldset>
-      <legend>Item Details</legend>
-
-      <label for="title" class="form-label">Title:</label>
-      <input type="text" id="title" name="title" required>
-
-      <label for="description" class="form-label">Description:</label>
-      <textarea id="description" name="description" rows="5" required></textarea>
-
-      <label for="date" class="form-label">Date:</label>
-      <input type="date" id="date" name="date" required>
-
-      <labelfor="tags" class="form-label">Tags:</label>
-      <input type="text" id="tags" name="tags" required>
-
-      <label for="money" class="form-label">Money:</label>
-      <input type="number" id="money" name="money" required>
-
-    </fieldset>
-
-    <fieldset>
-      <legend>Images</legend>
-
-      <label for="image1" class="form-label">Image 1: (required)</label>
-      <input type="file" id="image1" name="image1" accept="image/*" required>
-
-      <label for="image2" class="form-label">Image 2: (required)</label>
-      <input type="file" id="image2" name="image2" accept="image/*" required>
-
-      <label for="image3" class="form-label">Image 3:</label>
-      <input type="file" id="image3" name="image3" accept="image/*">
-
-      <label for="image4" class="form-label">Image 4:</label>
-      <input type="file" id="image4" name="image4" accept="image/*">
-
-    </fieldset>
-
-    <input type="submit" value="Submit">
-
+  <form id="new-event-form" method="POST" action="/submit-event">
+    <div>
+      <label for="title">Title:*</label>
+      <input type="text" id="title" name="title" required maxlength="60">
+    </div>
+    <div>
+      <label for="datetime">Date and Time:*</label>
+      <input type="datetime-local" id="datetime" name="datetime" required>
+    </div>
+    <div>
+      <label for="price">Price:*</label>
+      <input type="number" id="price" min="0" name="ticket-prices" required>
+    </div>
+    <div>
+      <label for="num-tickets">Number of Tickets*</label>
+      <input type="number" id="num-tickets" min="1" name="num-tickets" required>
+    </div>
+    <div>
+      <label for="image">Image URL</label>
+      <input type="url" id="image-url" name="image-url" pattern=".*\.(png|jpeg|jpg|gif)$">
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <textarea id="description" name="description" maxlength="255"></textarea>
+    </div>
+    <div>
+      <label for="tags">Available Tags (up to 8)</label>
+      <div id="tags">
+        <input type="text" name="tags" id="tag-input" placeholder="Enter tags">
+        <button type="button" id="add-tag-btn" style="background: green;">+</button>
+        <div id="added-tags"></div>
+      </div>
+    </div>
+    <button type="submit">Submit</button>
   </form>
 
 </div>
 </body>
+<script src="./create-event.js"></script>
+
 <script>
     // Get the form element
 const form = document.querySelector('form');
