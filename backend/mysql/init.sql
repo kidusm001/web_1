@@ -9,8 +9,8 @@ USE project;
 CREATE TABLE IF NOT EXISTS Users (
     user_name VARCHAR(255) PRIMARY KEY,
     password VARCHAR(255),
-    firstName VARCHAR(60),
-    lastName VARCHAR(60),
+    first_name VARCHAR(60),
+    last_name VARCHAR(60),
     email VARCHAR(255),
     user_type ENUM('customer', 'merchant') NOT NULL
 );
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS Tickets (
 );
 
 -- Dummy data 
-INSERT INTO Users (user_name, password, user_type, firstName, lastName, email) VALUES
+INSERT INTO Users (user_name, password, user_type, first_name, last_name, email) VALUES
 ('Abel', 'password1', 'customer', 'Abel', 'Zewde','abel@example.com'),
 ('Biruk', 'password2', 'customer', 'Biruk', 'Tamirat','biruk@example.com'),
 ('Chaltu', 'password3', 'customer', 'Chaltu', 'Aramde','chaltu@example.com'),
