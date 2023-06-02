@@ -186,6 +186,9 @@ buttons.forEach((button) => {
           delete progIndicators.children[newIndex + 1].dataset.progressIndicator;
         }
   
+      if(document.querySelector('#merchant').checked){
+        document.querySelector('#gender-selection').remove()
+      }
         // Additional code to handle removing gender portion if Merchant is selected
         if (slides.children[newIndex].querySelector("#merchant:checked")) {
           const genderSection = slides.querySelector("[data-gender-section]");

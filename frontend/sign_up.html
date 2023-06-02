@@ -7,7 +7,6 @@
     <title>Sign Up</title>
     <link rel="icon" href="assets\logo-mobile.svg">
     <link rel="stylesheet" href="css/sign_up_styles.css">
-    <script src="..\frontend\js\sign_up.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
     
@@ -64,7 +63,7 @@
                         <label for="account-type">Type of account</label>
                         <div class="account-type-container">
                             <div class="male-container">
-                                <input type="radio" name="account-type" id="merchant" value="merchant">
+                                <input type="radio" name="account-type" id="customer" value="customer">
                                 <label for="customer">Customer</label>
                             </div>
                             <div class="female-container">
@@ -97,7 +96,7 @@
                         <div class="error"></div>
                         
                         
-                        <div class="gender-container" data-gender-section>
+                        <div class="gender-container" id="gender-selection" data-gender-section>
                             <label for="gender">Sex</label>
                             <div class="male-container">
                                 <input type="radio" name="gender" id="male" value="M" required>
@@ -153,6 +152,6 @@
         </section>      
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    
+    <script src="..\frontend\js\sign_up.js" defer></script>
 </body>
 </html>
