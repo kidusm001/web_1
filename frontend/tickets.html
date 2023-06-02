@@ -107,7 +107,11 @@
           <h1 class="Ticket- type">Basic</h1>
           <h2 class="ticket-band-name">Ghost Mice</h2>
           <h3 class="ticket-tour-name">Home Tour</h3>
-          <img class="ticket-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/concert.png" alt="Concert Image">
+          <div class="ticket-img">
+            <img class="ticket-image" src="img/cine.jpg" alt="Concert Image">
+            <p class="ticket-event-desc"> <span>Description: </span>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque architecto placeat pariatur unde itaque, hic sequi possimus consectetur veritatis delectus!</p>
+          </div>
           <div class="ticket-details">
             <div class="ticket-event-details">
               <p class="ticket-event-date">3rd March 2017</p>
@@ -119,124 +123,6 @@
             </div>
           </div>
         </header>
-        <div class="ticket-rip"></div>
-        <footer class="ticket-footer">
-          <div class="num">
-            <label for="num">Number of Tickets:</label>
-            <input type="number" id="num" name="num" value="1">
-          </div>
-          <button class="btn">Buy Ticket</button>
-        </footer>
-      </div>
-
-      <div class="ticket-widget">
-        <header class="ticket-header">
-          <h1 class="Ticket- type">Regular</h1>
-          <h2 class="ticket-band-name">Ghost Mice</h2>
-          <h3 class="ticket-tour-name">Home Tour</h3>
-          <img class="ticket-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/concert.png" alt="Concert Image">
-          <div class="ticket-details">
-            <div class="ticket-event-details">
-              <p class="ticket-event-date">3rd March 2017</p>
-              <p class="ticket-event-location">Bloomington, Indiana</p>
-            </div>
-            <div class="ticket-price-details">
-              <p class="ticket-price-label">Price</p>
-              <p class="ticket-price-cost">$30</p>
-            </div>
-          </div>
-        </header>
-        <div class="ticket-rip"></div>
-        <footer class="ticket-footer">
-          <div class="num">
-            <label for="num">Number of Tickets:</label>
-            <input type="number" id="num" name="num" value="1">
-          </div>
-          <button class="btn">Buy Ticket</button>
-        </footer>
-      </div>
-
-      <div class="ticket-widget">
-        <header class="ticket-header">
-          <h1 class="Ticket- type">Vip</h1>
-          <h2 class="ticket-band-name">Ghost Mice</h2>
-          <h3 class="ticket-tour-name">Home Tour</h3>
-          <img class="ticket-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/concert.png" alt="Concert Image">
-          <div class="ticket-details">
-            <div class="ticket-event-details">
-              <p class="ticket-event-date">3rd March 2017</p>
-              <p class="ticket-event-location">Bloomington, Indiana</p>
-              <p class="ticket_left">Number of Tickets Left: 13 Left</p>
-            </div>
-            <div class="ticket-price-details">
-              <p class="ticket-price-label">Price</p>
-              <p class="ticket-price-cost">$30</p>
-            </div>
-          </div>
-        </header>
-        <div class="ticket-rip"></div>
-        <footer class="ticket-footer">
-          <div class="num">
-            <label for="num">Number of Tickets:</label>
-            <input type="number" id="num" name="num" value="1">
-          </div>
-          <button class="btn">Buy Ticket</button>
-        </footer>
-      </div>
-
-      <div class="ticket-widget">
-        <header class="ticket-header">
-          <h1 class="Ticket- type">Premium</h1>
-          <h2 class="ticket-band-name">Ghost Mice</h2>
-          <h3 class="ticket-tour-name">Home Tour</h3>
-          <img class="ticket-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/concert.png" alt="Concert Image">
-          <div class="ticket-details">
-            <div class="ticket-event-details">
-              <p class="ticket-event-date">3rd March 2017</p>
-              <p class="ticket-event-location">Bloomington, Indiana</p>
-              <p class="ticket_left">Number of Tickets Left: 13 Left</p>
-            </div>
-            <div class="ticket-price-details">
-              <p class="ticket-price-label">Price</p>
-              <p class="ticket-price-cost">$30</p>
-            </div>
-          </div>
-        </header>
-        <div class="ticket-rip"></div>
-        <footer class="ticket-footer">
-          <div class="num">
-            <label for="num">Number of Tickets:</label>
-            <input type="number" id="num" name="num" value="1">
-          </div>
-          <button class="btn">Buy Ticket</button>
-        </footer>
-      </div>
-
-      <div class="ticket-widget">
-        <header class="ticket-header">
-          <h2 class="ticket-band-name">Ghost Mice</h2>
-          <h3 class="ticket-tour-name">Home Tour</h3>
-          <img class="ticket-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/concert.png" alt="Concert Image">
-          <div class="ticket-details">
-            <div class="ticket-event-details">
-              <p class="ticket-event-date">3rd March 2017</p>
-              <p class="ticket-event-location">Bloomington, Indiana</p>
-              <p class="ticket_left">Number of Tickets Left: 13 Left</p>
-            </div>
-            <div class="ticket-price-details">
-              <p class="ticket-price-label">Price</p>
-              <p class="ticket-price-cost">$30</p>
-            </div>
-          </div>
-        </header>
-        <div class="ticket-rip"></div>
-        <div class="ticket-footer">
-          <div class="num">
-            <label for="num">Number of Tickets:</label>
-            <input type="number" id="num" name="num" value="1">
-          </div>
-          <button class="btn">Buy Ticket</button>
-        </div>
       </div>
 
       <footer class="footer">
@@ -299,39 +185,4 @@
         </div>
       </footer>
   </body>
-  <script>
-    // Get all the "Buy Ticket" buttons on the page
-const buyButtons = document.querySelectorAll('.btn');
-
-// Loop through each button and add a click event listener
-buyButtons.forEach(button => {
-  button.addEventListener('click', event => {
-    event.preventDefault(); // Prevent the form from submitting
-    
-    const numTickets = parseInt(button.parentNode.querySelector('input').value); // Get the number of tickets from the input field
-    const pricePerTicket = parseInt(button.parentNode.parentNode.querySelector('.ticket-price-cost').textContent.slice(1)); // Get the price per ticket from the ticket widget
-    
-    const totalPrice = numTickets * pricePerTicket; // Calculate the total price
-    
-    // Simulate a payment processing delay of 2 seconds
-    setTimeout(() => {
-      const success = Math.random() < 0.5; // Generate a random success value
-      
-      if (success) {
-        button.textContent = '✔'; // Change the button text to a green tick mark
-        button.style.backgroundColor = 'green'; // Change the button background color to green
-      } else {
-        button.textContent = '✘'; // Change the button text to a red x sign
-        button.style.backgroundColor = 'red'; // Change the button background color to red
-      }
-      
-      // Reset the button text and background color after 2 seconds
-      setTimeout(() => {
-        button.textContent= 'Buy Ticket';
-        button.style.backgroundColor = '#007bff';
-      }, 2000);
-    }, 2000);
-  });
-});
-  </script>
 </html>
