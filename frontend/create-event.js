@@ -3,6 +3,9 @@ const addTagButton = document.querySelector('#add-tag-btn')
 const tagInput = document.querySelector('#tag-input')
 const addedTags = document.querySelector('#added-tags')
 
+sessionStorage.setItem('user_id', 'Abel')
+const merchantId = sessionStorage.getItem('user_id')
+
 const tags = new Set()
 const maxTags = 8
 
@@ -60,10 +63,18 @@ tagInput.addEventListener('keydown', (event) => {
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   tagInput.value = JSON.stringify([...tags]) 
+
+  const merchantData = document.createElement('input') 
+  merchantData.setAttribute("type", "text")
+  merchantData.setAttribute("name", "user_name")
+  merchantData.value = merchantId
+  merchantData.setAttribute("style", "display: none;")
+  form.appendChild(merchantData)
+
   const formData = new FormData(form);
 
-  // for(let [name, value] of formData) console.log(`${name}: ${value}`)
-  fetch('../backend/php/events/create_event.php', {
+  for(let [name, value] of formData) console.log(`${name}: ${value}`)
+  fetch('../backend/php/events/create.php', {
     method: 'POST',
     body: formData
   }).then(response => {
