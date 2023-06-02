@@ -1,46 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title></title>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/styles.css" rel="stylesheet">
+    <title>Create Event</title>
+    <link rel="icon" href="assets\logo-mobile.svg">
+    <!-- <link href="css/styles.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="css/sign_up_styles.css">
     <link rel="stylesheet" href="css/create-event-styles.css">
-    <script src="..\frontend\js\sign_up.js" defer></script>
+    <!-- <script src="..\frontend\js\sign_up.js" defer></script> -->
+    <script src="js/create-event-UI.js" defer></script>
+    <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <form id="new-event-form" method="POST" action="/submit-event">
-      <div>
-        <label for="title">Title*</label>
-        <input type="text" id="title" name="title" required maxlength="60">
+    <div class="wapper">
+      <section class="signup-content">
+        <a href="index.html">
+            <div class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+                </svg>
+                <P>Back</P>
+            </div>
+        </a>
+        <div class="signup-content-content">
+            <h1>
+              <i class="fa-solid fa-circle-plus"></i>
+              Create Event
+            </h1>
+            
+        </div>
+        <p>
+            Create your event here 
+        </p>
+    </section>
+    <section class="signup-form">
+      <h3>Create Event</h3>
+      <div class="signup-form-content" data-carousel>
+          <form id="new-event-form" method="POST" action="/submit-event"  data-slides>
+              <div class="form-content-card" data-active>
+                  <label for="title">Title*</label>
+                  <input type="text" id="title" name="title" required maxlength="60" data-required>
+                  <div class="error"></div>
+                  <label for="datetime">Date and Time:</label>
+                  <input type="datetime-local" id="datetime" name="date_and_time">
+                  <div class="error"></div>
+                  <label for="price">Price</label>
+                  <input type="number" id="price" min="0" name="ticket-prices" required data-required>
+                  <div class="error"></div>
+                  <div class="button-container">
+                      <button data-carousel-button="prev" type="button">Previous</button>
+                      <button data-carousel-button="next" type="button">Next</button>
+                  </div>
+              </div>
+              <div class="form-content-card">
+                  <label for="num-tickets">Number of Tickets*</label>
+                  <input type="number" id="num-tickets" min="1" name="available-tickets" required>
+                  <div class="error"></div>
+                  <label for="image">Image URL</label>
+                  <input type="url" id="image-url" name="image" pattern=".*\.(png|jpeg|jpg|gif)$">
+                  <div class="error"></div>
+                  <label for="description">Description</label>
+                  <textarea id="description" name="description" maxlength="255"></textarea>
+                  <div class="button-container">
+                      <button data-carousel-button="prev" type="button">Previous</button>
+                      <button data-carousel-button="next" type="button">Next</button>
+                  </div>
+              </div>
+              <div class="form-content-card">
+                <label for="tags">Available Tags (up to 8)</label>
+                <div id="tags">
+                  <div class="tag-input-container">
+                    <input type="text" name="tags" id="tag-input" placeholder="Enter tags">
+                  <button type="button" id="add-tag-btn" class="add-tag-btn"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></button>
+                  </div>
+                  <div id="added-tags" class="added-tags"></div>
+                </div>
+                <button type="submit" data-carousel-button="finish">Finish</button>
+              </div>
+          </form>
+          
       </div>
-      <div>
-        <label for="datetime">Date and Time:</label>
-        <input type="datetime-local" id="datetime" name="date_and_time">
+      <div class="progress-indicator" data-progress>
+          <span class="circle" data-progress-indicator>
+              <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+                  <circle cx="100" cy="100" r="80" stroke-width="40" />
+                </svg>                                            
+          </span>
+          <span class="circle"> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+                  <circle cx="100" cy="100" r="80" stroke-width="40" />
+                </svg>
+                
+          </span>
+          <span class="circle"> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+                  <circle cx="100" cy="100" r="80"  stroke-width="40" />
+                </svg>                                            
+          </span>
       </div>
-      <div>
-        <label for="price">Price</label>
-        <input type="number" id="price" min="0" name="prices" required>
-      </div>
-      <div>
-        <label for="num-tickets">Number of Tickets*</label>
-        <input type="number" id="num-tickets" min="1" name="available-tickets" required>
-      </div>
-      <div>
-        <label for="image">Image URL</label>
-        <input type="url" id="image-url" name="image" pattern=".*\.(png|jpeg|jpg|gif)$">
-      </div>
-      <div>
-        <label for="description">Description</label>
-        <textarea id="description" name="description" maxlength="255"></textarea>
-      </div>
-      <div>
-        <label for="tags">Available Tags (up to 8)</label>
-        <div id="tags">
-          <input type="text" name="tags" id="tag-input" placeholder="Enter tags">
-          <button type="button" id="add-tag-btn" style="background: green;">+</button>
-          <div id="added-tags"></div>
-    <div class="carousel" data-carousel>
+      
+    </section>
+    </div>
+    <!-- <div class="carousel" data-carousel>
       <form id="new-event-form" method="POST" action="/submit-event" class="form-content-card" data-slides>
         <div class="create-event-card" data-active>
           <div class="input-container">
@@ -50,7 +113,7 @@
           </div>
           <div class="input-container">
             <label for="datetime">Date and Time:</label>
-            <input type="datetime-local" id="datetime" name="datetime">
+            <input type="datetime-local" id="datetime" name="date_and_time">
             <div class="error"></div>
           </div>
           <div class="input-container">
@@ -59,12 +122,12 @@
           </div>
           <div class="input-container">
             <label for="num-tickets">Number of Tickets*</label>
-            <input type="number" id="num-tickets" min="1" name="num-tickets" required>
+            <input type="number" id="num-tickets" min="1" name="available-tickets" required>
             <div class="error"></div>
           </div>
           <div class="input-container">
             <label for="image">Image URL</label>
-            <input type="url" id="image-url" name="image-url" pattern=".*\.(png|jpeg|jpg|gif)$">
+            <input type="url" id="image-url" name="image" pattern=".*\.(png|jpeg|jpg|gif)$">
           </div>
           <div class="input-container">
             <label for="description">Description</label>
@@ -73,8 +136,10 @@
           <div class="input-container">
             <label for="tags">Available Tags (up to 8)</label>
             <div id="tags">
-              <input type="text" name="tags" id="tag-input" placeholder="Enter tags">
-              <button type="button" id="add-tag-btn" class="add-tag-btn">+</button>
+              <div class="tag-input-container">
+                <input type="text" name="tags" id="tag-input" placeholder="Enter tags">
+              <button type="button" id="add-tag-btn" class="add-tag-btn"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></button>
+              </div>
               <div id="added-tags" class="added-tags"></div>
             </div>
           </div>
@@ -82,7 +147,7 @@
         </div>
         
       </form>
-    </div>
+    </div> -->
     <script src="./create-event.js"></script>
     <script src="js/sign_up.js"></script>
   </body>
