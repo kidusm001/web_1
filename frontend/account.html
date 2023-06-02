@@ -167,7 +167,13 @@
                         <h3>Payment and shippment</h3>
                         <p>Manage payments and delivery</p>
                     </div>
-                
+                    <div class="main-card" data-payment data-target="delete-account-card">
+                        <div class="icon-container">
+                            <i class="fa-solid fa-user-slash" ></i>
+                        </div>
+                        <h3>Delete Account</h3>
+                        <p>Delete your account</p>
+                    </div>
                 
                     <div class="main-card" data-log-out data-target="logout-card">
                         <div class="icon-container">
@@ -213,9 +219,7 @@
                                     <label for="email">Email Address</label>
                                     <input type="email" name="email" id="email" placeholder="Eg. johndoe@mail.com" required data-required>
                                     <div class="error"></div>
-                                    <label for="dateofbirth">Date of Birth</label>
-                                    <input type="datetime" name="dateofbirth" id="dateofbirth" placeholder="Select a Date" required data-required>
-                                    <div class="error"></div>
+                                    
                                     <label for="gender">Gender</label>
                                     <div class="gender-container">
                                         <div class="male-container">
@@ -326,6 +330,33 @@
                         </button>
                         <div class="module-card-header-content">
                             <h2>Logout</h2>
+                        </div>
+                    </div>
+                    <div class="module-card-main">
+                        <div class="signup-form-content" data-carousel>
+                            <form action=""  data-slides>
+                                <div class="form-content-card" data-active>
+                                    <label for="log-out" style="font-size: 1.5rem;">Are you sure?</label>
+                                    
+                                    <button type="submit" data-carousel-button="log-out">Yes</button>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="delete-account-card module-card">
+                    <div class="module-card-header">
+                        <button class="back">
+                            <div class="back-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+                                </svg>
+                                <P>Back</P>
+                            </div>
+                        </button>
+                        <div class="module-card-header-content">
+                            <h2>Delete Account</h2>
                         </div>
                     </div>
                     <div class="module-card-main">

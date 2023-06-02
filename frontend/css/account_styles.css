@@ -337,7 +337,7 @@ button.back:hover{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 2rem;
+    gap: 3rem;
     list-style: none;
 }
 .inventory-container-card .signup-form-content ul li{
@@ -345,6 +345,14 @@ button.back:hover{
 }
 .active {
     color: #f34242;
+}
+.inventory-container-card a{
+    text-decoration: none;
+    color: #000;
+    font-size: 1.5em;
+    border: 2px solid #8b8b8b;
+    padding: 10px;
+    border-radius: 12px;
 }
 @media (max-width: 800px) {
     .accoutn-btn-toggle-btn-container{
@@ -361,8 +369,20 @@ button.back:hover{
     .nav-sec ul{
         display: none;
     }
+    .form-content-card input{
+        width: 100%;
+    }
+    .form-content-card button{
+        width: 70px;
+    }
 }
 @media (max-width: 500px){
+    .navbar{
+        padding: 1.5rem 1.5rem;
+    }
+    .contain-logo-nav-sec{
+        gap: 1rem;
+    }
     .main-cards-container{
         justify-content: center;
     }
@@ -373,8 +393,25 @@ button.back:hover{
         font-size: 1rem;
     }
     .nav-sec .search-bar input[type="text"]{
-        width: 180px;
+        width: 100px;
+        transition: all 0.2s ease-in-out;
+        background-color: transparent;
     }
+    .nav-sec .search-bar input[type="text"]:focus{
+        width: 180px;
+        z-index: 100000;
+    }
+    .user-account-btn {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+      .user-account-btn.hidden {
+        opacity: 0;
+      }
+
+      .module-card-header{
+        gap: 1rem;
+      }      
     .module-card-header-content h2{
         font-size: 1.6rem;
         font-weight: 700;
@@ -385,9 +422,7 @@ button.back:hover{
     .module-card-main{
         padding-left: 0;
     }
-    .form-content-card input{
-        width: 70%;
-    }
+    
     .form-content-card button{
         font-size: 0.95rem;
     }

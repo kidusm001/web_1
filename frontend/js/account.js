@@ -36,3 +36,28 @@ const mainCards = document.querySelectorAll('.main-card');
     });
     document.querySelector('.main-cards-container').setAttribute('data-show-main', '');
   }
+  // Get the search input element and user-account-btn element
+var searchInput = document.querySelector('input[name="search"]');
+var userAccountBtn = document.querySelector('.user-account-btn');
+
+
+
+// Add event listener for focus event on search input
+searchInput.addEventListener('focus', function() {
+  if (window.innerWidth <= 500) {
+    userAccountBtn.classList.add('hidden');
+  }
+});
+
+// Add event listener for blur event on search input
+searchInput.addEventListener('blur', function() {
+  if (window.innerWidth <= 500) {
+    userAccountBtn.classList.remove('hidden');
+  }
+});
+
+// Add event listener for window resize event
+window.addEventListener('resize', handleResize);
+
+// Call handleResize initially to check the initial window size
+

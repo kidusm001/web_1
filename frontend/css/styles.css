@@ -17,6 +17,7 @@ body {
 }
 .wrapper {
     /* max-width: 1200px; */
+    width: 100vw;
     margin: 0 0;
     background-color: #000507;
     /* padding: 14px 2%; */
@@ -478,7 +479,7 @@ section a{
     flex-direction: column;
     gap: 1.5rem;
     width: 100%;
-    height: 500px;
+    height: 600px;
     justify-content: space-between;
     align-items: center;
     position: relative;
@@ -754,9 +755,22 @@ footer.footer{
       font-size: 1.3em;
     }
     .search-box{
-      /* width: 95%; */
+      width: 80%;
       /* flex-direction: column; */
+      flex-direction: column;
       padding: 0.3em 0;
+    }
+    .search-box .search{
+      width: 100%;
+      /* flex-direction: column; */
+      flex-direction: column;
+      padding: 0.3em 0;
+    }
+    .search .vl{
+      display: none;
+    }
+    .location-date-container{
+      border-bottom: 2px solid #8b8d99;
     }
     .top-events-container, .concert-cards-container{
       flex-direction: column;
@@ -803,18 +817,28 @@ footer.footer{
     }
 }
 @media (max-width: 500px){
-  
+  .main{
+    padding: 1rem 1rem;
+  }
   .content-searchbar .content h1{
     font-size: 1.5rem;
   }
+  
   .search-box{
+    width: 90%;
     flex-direction: column;
     gap: 0.5em;
+    padding: 0 10px;
+  }
+  .vl{
+    margin: 0 0;
   }
   .search .vl{
     display: none;
   }
   .location-date-container{
+    width: 90%;
+    padding: 0;
     border-bottom: 2px solid #8b8d99;
   }
   .event-card {
@@ -834,12 +858,14 @@ footer.footer{
     height: 600px;
   }
   .event-category{
-    height: 500px;
+    height: 300px;
   }
+  
   .category-cards-container{
     /* flex-direction: column;
     justify-content: flex-start;
     flex-wrap: wrap; */
+    height: 50%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
@@ -859,12 +885,13 @@ footer.footer{
     width: 8rem;
     height: 2rem;
   }
-  /* .footer-content{
+  .footer-content{
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
-  } */
+    padding-left: 2rem;
+  }
 }
 /* 
 .event-card {
