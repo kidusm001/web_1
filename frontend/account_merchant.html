@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css\account_styles.css">
     <script src="js\toggle.js" defer></script>
     <script src="js/account.js" defer></script>
+    <script src="js/account_merchant.js" defer></script>
+    <script src="./create-event.js" defer></script>
     <title>My Account</title>
     <link rel="icon" href="assets\logo-mobile.svg">
     <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
@@ -162,12 +164,18 @@
                 
                     <div class="main-card" data-payment data-target="payment-delivery-card">
                         <div class="icon-container">
-                            <i class="fa-regular fa-credit-card"></i>
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
                         </div>
                         <h3>Payment and shippment</h3>
                         <p>Manage payments and delivery</p>
                     </div>
-                
+                    <div class="main-card" data-inventory data-target="inventory-container-card">
+                        <div class="icon-container">
+                            <i class="fa-solid fa-ticket"></i>
+                        </div>
+                        <h3>Inventory</h3>
+                        <p>Manage events</p>
+                    </div>
                 
                     <div class="main-card" data-log-out data-target="logout-card">
                         <div class="icon-container">
@@ -198,9 +206,6 @@
                         <div class="signup-form-content" data-carousel>
                             <form action="" method="post" data-slides>
                                 <div class="form-content-card" data-active>
-                                    <div class="wrap">
-                                        
-                                    </div>
                                     <label for="firstname">First Name</label>
                                     <input type="text" name="firstname" id="firstname" placeholder="John" required data-required>
                                     <div class="error"></div>
@@ -335,6 +340,100 @@
                                     <label for="log-out" style="font-size: 1.5rem;">Are you sure?</label>
                                     
                                     <button type="submit" data-carousel-button="log-out">Yes</button>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="inventory-container-card module-card">
+                    <div class="module-card-header">
+                        <button class="back">
+                            <div class="back-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+                                </svg>
+                                <P>Back</P>
+                            </div>
+                        </button>
+                        <div class="module-card-header-content">
+                            <h2>Inventory</h2>
+                            <p>Manage events</p>
+                        </div>
+                    </div>
+                    <div class="module-card-main">
+                        <div class="signup-form-content" data-carousel>
+                            <ul>
+                                <li id="create-event">
+                                    <i class="fa-solid fa-circle-plus"></i>
+                                    <span>Create <span class="mobile-no-display">Event</span></span>
+                                </li>
+                                <li id="all-events">
+                                    <i class="fa-solid fa-list"></i>
+                                    <span>All <span class="mobile-no-display">your events</span></span>
+                                </li>
+                                <li id="edit-events">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <span>Edit <span class="mobile-no-display">events</span></span>
+                                </li>
+                            </ul>
+                            <div id="create-event-content" class="form-content-card" data-active>
+                                <!-- Content for "Create Event" option -->
+                                <div class="carousel" data-carousel>
+                                    <form id="new-event-form" method="POST" action="/submit-event" class="" data-slides>
+                                      <div class="create-event-card" data-active>
+                                        <div class="input-container">
+                                          <label for="title">Title*</label>
+                                          <input type="text" id="title" name="title" required maxlength="60" data-required>
+                                          <div class="error"></div>
+                                        </div>
+                                        <div class="input-container">
+                                          <label for="datetime">Date and Time:</label>
+                                          <input type="datetime-local" id="datetime" name="datetime">
+                                          <div class="error"></div>
+                                        </div>
+                                        <div class="input-container">
+                                          <label for="price">Price</label>
+                                          <input type="number" id="price" min="0" name="ticket-prices" required>
+                                        </div>
+                                        <div class="input-container">
+                                          <label for="num-tickets">Number of Tickets*</label>
+                                          <input type="number" id="num-tickets" min="1" name="num-tickets" required>
+                                          <div class="error"></div>
+                                        </div>
+                                        <div class="input-container">
+                                          <label for="image">Image URL</label>
+                                          <input type="url" id="image-url" name="image-url" pattern=".*\.(png|jpeg|jpg|gif)$">
+                                        </div>
+                                        <div class="input-container">
+                                          <label for="description">Description</label>
+                                          <textarea id="description" name="description" maxlength="255"></textarea>
+                                        </div>
+                                        <div class="input-container">
+                                          <label for="tags">Available Tags (up to 8)</label>
+                                          <div id="tags">
+                                            <input type="text" name="tags" id="tag-input" placeholder="Enter tags">
+                                            <button type="button" id="add-tag-btn" class="add-tag-btn">+</button>
+                                            <div id="added-tags" class="added-tags"></div>
+                                          </div>
+                                        </div>
+                                        <button type="submit" data-carousel-button="finish">Submit</button>
+                                      </div>
+                                      
+                                    </form>
+                                  </div>
+                            </div>
+                            <div id="all-events-content" class="form-content-card">
+                                <!-- Content for "All your events" option -->
+                                <h1>Alll</h1>
+                            </div>
+                            <div id="edit-events-content" class="form-content-card">
+                                <!-- Content for "Edit events" option -->
+                                <h1>Edit</h1>
+                            </div>
+                            <form action=""  data-slides>
+                                <div class="form-content-card" data-active>
+                                    
                                 </div>
                                 
                             </form>

@@ -61,15 +61,31 @@
             <div class="signup-form-content" data-carousel>
                 <form action="" method="post" data-slides>
                     <div class="form-content-card" data-active>
+                        <label for="account-type">Type of account</label>
+                        <div class="account-type-container">
+                            <div class="male-container">
+                                <input type="radio" name="account-type" id="merchant" value="merchant">
+                                <label for="customer">Customer</label>
+                            </div>
+                            <div class="female-container">
+                                <input type="radio" name="account-type" id="merchant" value="merchant">
+                                <label for="merchant">Merchant</label>
+                            </div>
+                        </div>
+                        <div class="radio-error"></div>
+                        <div class="button-container">
+                            <button data-carousel-button="prev">Previous</button>
+                            <button data-carousel-button="next">Next</button>
+                        </div>
+                    </div>
+                    <div class="form-content-card" >
                         <label for="firstname">First Name</label>
                         <input type="text" name="firstname" id="firstname" placeholder="John" required data-required>
                         <div class="error"></div>
                         <label for="lastname">Last Name</label>
                         <input type="text" name="lastname" id="lastname" placeholder="Doe" required data-required>
                         <div class="error"></div>
-                        <label for="middlename">Middle Name</label>
-                        <input type="text" name="middlename" id="middlename" placeholder="Optional">
-                        <div class="error"></div>
+                        
                         <div class="button-container">
                             <button data-carousel-button="prev">Previous</button>
                             <button data-carousel-button="next">Next</button>
@@ -79,11 +95,10 @@
                         <label for="email">Email Address</label>
                         <input type="email" name="email" id="email" placeholder="Eg. johndoe@mail.com" required data-required>
                         <div class="error"></div>
-                        <label for="dateofbirth">Date of Birth</label>
-                        <input type="datetime" name="dateofbirth" id="dateofbirth" placeholder="Select a Date" required data-required>
-                        <div class="error"></div>
-                        <label for="gender">Gender</label>
-                        <div class="gender-container">
+                        
+                        
+                        <div class="gender-container" data-gender-section>
+                            <label for="gender">Sex</label>
                             <div class="male-container">
                                 <input type="radio" name="gender" id="male" value="M" required>
                                 <label for="male">Male</label>
@@ -128,10 +143,13 @@
                         <circle cx="100" cy="100" r="80"  stroke-width="40" />
                       </svg>                                            
                 </span>
+                <span class="circle"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="80"  stroke-width="40" />
+                      </svg>                                            
+                </span>
             </div>
-            <div class="sign-in-merchant">
-                <p>Are you a merchant? <a href="sign_up_merchant.html">Sign Up here</a></p>
-            </div>
+            
         </section>      
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

@@ -228,7 +228,7 @@ a{
 .circle[data-progress-indicator] svg{
     fill: #b17cc4;
 }
-.gender-container{
+.gender-container, .account-type-container{
     display: flex;
     flex-direction: column;
     gap: 0.5em;
@@ -242,7 +242,7 @@ a{
     justify-content: center;
     align-items: center;
 }
-.gender-container input[type="radio"]{
+ input[type="radio"]{
     accent-color: #b17cc4;
 }
 .button-container{
