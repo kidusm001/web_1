@@ -15,6 +15,13 @@
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   width: 30%;
+  cursor: pointer;
+  
+  }
+
+  .ticket-widget:hover {
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.2s;
   }
   
   /* Style the header section */
