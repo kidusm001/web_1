@@ -14,45 +14,6 @@ function validateEmail(email) {
     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return regex.test(email);
 }
-function validateCreditCardNumber(cardNumber) {
-  // Remove any spaces or dashes from the card number
-  cardNumber = cardNumber.replace(/\s+/g, '').replace(/-/g, '');
-
-  // Check if the card number contains only digits
-  if (!/^\d+$/.test(cardNumber)) {
-    return false;
-  }
-
-  // Convert the card number string to an array of digits
-  var digits = cardNumber.split('').map(Number);
-
-  var sum = 0;
-  var shouldDouble = false;
-
-  // Iterate over the digits from right to left
-  for (var i = digits.length - 1; i >= 0; i--) {
-    var digit = digits[i];
-
-    if (shouldDouble) {
-      // Double the digit
-      digit *= 2;
-
-      // If the doubled digit is greater than 9, subtract 9
-      if (digit > 9) {
-        digit -= 9;
-      }
-    }
-
-    // Add the digit to the sum
-    sum += digit;
-
-    // Toggle the flag for the next iteration
-    shouldDouble = !shouldDouble;
-  }
-
-  // The card number is valid if the sum is divisible by 10
-  return sum % 10 === 0;
-}
  
 function validateForm(card){
     const inputs = card.querySelectorAll("input[data-required]");
@@ -79,7 +40,6 @@ function validateForm(card){
     }
     const password = card.querySelector('input[name="password"]');
     const confirmPassword = card.querySelector('input[name="confirm-password"]');
-    const currentPassword = card.querySelector('input[name="current-password"]');
     if(password && confirmPassword) {
         if(password.value !== confirmPassword.value) {
             const errorContainer = confirmPassword.nextElementSibling;
@@ -92,149 +52,97 @@ function validateForm(card){
         errorContainer.textContent = "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number and one special character";
         isValid = false;
     }
-    if(currentPassword && !validatePassword(currentPassword.value)) {
-        const errorContainer = currentPassword.nextElementSibling;
-        errorContainer.textContent = "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number and one special character";
-        isValid = false;
-    }
     const email = card.querySelector('input[name="email"]');
     if(email && !validateEmail(email.value)) {
         const errorContainer = email.nextElementSibling;
         errorContainer.textContent = "Email is invalid";
         isValid = false;
     }
-    const creditCardNumber= card.querySelector('input[name="credit-card"]');
-    if(creditCardNumber && !validateCreditCardNumber(creditCardNumber.value)) {
-        const errorContainer = creditCardNumber.nextElementSibling;
-        errorContainer.textContent = "Credit card number is invalid";
-        isValid = false;
-    }
-    /* isValid = validatePassword(password); */      
     return isValid;
 }
-/* const buttons = document.querySelectorAll("[data-carousel-button]");
+const buttons = document.querySelectorAll("[data-carousel-button]");
+const progressIndicatorCircles = document.querySelectorAll(".circle");
 
 buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const offset = button.dataset.carouselButton === "next" ? 1 :button.dataset.carouselButton === "prev"? -1: 0;
-      const slides = button.closest("[data-carousel]").querySelector("[data-slides]");
-      const progIndicators = button.closest("[data-carousel]").parentElement.querySelector("[data-progress]");
-      const activeSlide = slides.querySelector("[data-active]");
-  
-      if (activeSlide) {
-        const isValid = validateForm(activeSlide);
-  
-        if (!isValid) {
-          // Validation failed, prevent navigation to the next slide
-          return;
-        }
-  
-        let newIndex = [...slides.children].indexOf(activeSlide) + offset;
-        if (newIndex < 0) newIndex = slides.children.length - 1;
-        if (newIndex >= slides.children.length) newIndex = 0;
-  
-        if (offset === -1 && newIndex === slides.children.length - 1 && activeSlide === slides.firstElementChild) {
-          // Do nothing if the active slide is the first slide and the previous button is clicked
-          return;
-        }
-  
-        slides.children[newIndex].dataset.active = true;
-        delete activeSlide.dataset.active;
-        progIndicators.children[newIndex].dataset.progressIndicator = true;
-        if(button.dataset.carouselButton === "prev"){
-            delete progIndicators.children[newIndex+1].dataset.progressIndicator;
-        }
-        if (button.dataset.carouselButton === "finish") {
-          const form = button.closest("form");
-          form.submit();
+  button.addEventListener("click",async () => {
+    const offset = button.dataset.carouselButton === "next" ? 1 : button.dataset.carouselButton === "prev" ? -1 : 0;
+    const slides = button.closest("[data-carousel]").querySelector("[data-slides]");
+    const progIndicators = button.closest("[data-carousel]").parentElement.querySelector("[data-progress]");
+    const activeSlide = slides.querySelector("[data-active]");
+
+    if (activeSlide) {
+      const isValid = validateForm(activeSlide);
+
+      if (!isValid) {
+        // Validation failed, prevent navigation to the next slide
+        return;
+      }
+
+      let newIndex = [...slides.children].indexOf(activeSlide) + offset;
+      if (newIndex < 0) newIndex = slides.children.length - 1;
+      if (newIndex >= slides.children.length) newIndex = 0;
+
+      if (offset === -1 && newIndex === slides.children.length - 1 && activeSlide === slides.firstElementChild) {
+        // Do nothing if the active slide is the first slide and the previous button is clicked
+        return;
+      }
+
+      slides.children[newIndex].dataset.active = true;
+      delete activeSlide.dataset.active;
+      progIndicators.children[newIndex].dataset.progressIndicator = true;
+      if (button.dataset.carouselButton === "prev") {
+        delete progIndicators.children[newIndex + 1].dataset.progressIndicator;
+      }
+
+    if(document.querySelector('#merchant').checked){
+      let section = document.querySelector('#gender-selection')
+      if(section !== null) section.remove()
+    }
+      // Additional code to handle removing gender portion if Merchant is selected
+      if (slides.children[newIndex].querySelector("#merchant:checked")) {
+        const genderSection = slides.querySelector("[data-gender-section]");
+        if (genderSection) {
+          genderSection.remove();
         }
       }
-    });
-  });
- */
-  const buttons = document.querySelectorAll("[data-carousel-button]");
-  const progressIndicatorCircles = document.querySelectorAll(".circle");
-  
-  buttons.forEach((button) => {
-    button.addEventListener("click",async () => {
-      const offset = button.dataset.carouselButton === "next" ? 1 : button.dataset.carouselButton === "prev" ? -1 : 0;
-      const slides = button.closest("[data-carousel]").querySelector("[data-slides]");
-      const progIndicators = button.closest("[data-carousel]").parentElement.querySelector("[data-progress]");
-      const activeSlide = slides.querySelector("[data-active]");
-  
-      if (activeSlide) {
-        const isValid = validateForm(activeSlide);
-  
-        if (!isValid) {
-          // Validation failed, prevent navigation to the next slide
-          return;
+      if (button.dataset.carouselButton === "finish") {
+        const form = button.closest("form");
+        password.value = await sha256(password.value)
+        const user_name = document.createElement('input')
+        const first_name = document.querySelector('#firstname')
+        user_name.setAttribute('type', 'hidden')
+        user_name.setAttribute('name', 'user_name')
+        user_name.setAttribute('value', `${first_name.value}#${Math.floor(Math.random() * 9000) + 1000}`)
+        form.appendChild(user_name)
+        const formData = new FormData(form);
+        formData.delete('confirm-password')
+        if(document.querySelector('#customer').checked){
+          let val = formData.get('sex') == 'M' ? 0 : 1;
+          formData.set('sex', val)
         }
-  
-        let newIndex = [...slides.children].indexOf(activeSlide) + offset;
-        if (newIndex < 0) newIndex = slides.children.length - 1;
-        if (newIndex >= slides.children.length) newIndex = 0;
-  
-        if (offset === -1 && newIndex === slides.children.length - 1 && activeSlide === slides.firstElementChild) {
-          // Do nothing if the active slide is the first slide and the previous button is clicked
-          return;
-        }
-  
-        slides.children[newIndex].dataset.active = true;
-        delete activeSlide.dataset.active;
-        progIndicators.children[newIndex].dataset.progressIndicator = true;
-        if (button.dataset.carouselButton === "prev") {
-          delete progIndicators.children[newIndex + 1].dataset.progressIndicator;
-        }
-  
-      if(document.querySelector('#merchant').checked){
-        let section = document.querySelector('#gender-selection')
-        if(section !== null) section.remove()
-      }
-        // Additional code to handle removing gender portion if Merchant is selected
-        if (slides.children[newIndex].querySelector("#merchant:checked")) {
-          const genderSection = slides.querySelector("[data-gender-section]");
-          if (genderSection) {
-            genderSection.remove();
+        for(let [name, value] of formData) console.log(`${name}: ${value}`)
+        let address = document.querySelector('#merchant').checked
+                            ? '../../backend/php/users/create_merchant.php'
+                            : '../../backend/php/users/create_customer.php';
+        fetch(address, {
+         method: 'POST',
+         body: formData
+        }).then(response => {
+          if(response.ok){
+            alert(`Account with User name ${user_name.value} created successfully`)
+            sessionStorage.setItem('user_id', user_name.value) 
+          }else{
+            alert(" Failed !")
           }
-        }
-        if (button.dataset.carouselButton === "finish") {
-          const form = button.closest("form");
-          password.value = await sha256(password.value)
-          const user_name = document.createElement('input')
-          const first_name = document.querySelector('#firstname')
-          user_name.setAttribute('type', 'hidden')
-          user_name.setAttribute('name', 'user_name')
-          user_name.setAttribute('value', `${first_name.value}#${Math.floor(Math.random() * 9000) + 1000}`)
-          form.appendChild(user_name)
-          const formData = new FormData(form);
-          formData.delete('confirm-password')
-          if(document.querySelector('#customer').checked){
-            let val = formData.get('sex') == 'M' ? 0 : 1;
-            formData.set('sex', val)
-          }
-          for(let [name, value] of formData) console.log(`${name}: ${value}`)
-          let address = document.querySelector('#merchant').checked
-                              ? '../../backend/php/users/create_merchant.php'
-                              : '../../backend/php/users/create_customer.php';
-          fetch(address, {
-           method: 'POST',
-           body: formData
-          }).then(response => {
-            if(response.ok){
-              alert(`Account with User name ${user_name.value} created successfully`)
-              sessionStorage.setItem('user_id', user_name.value) 
-            }else{
-              alert(" Failed !")
-            }
-          }).catch(error => {
-            alert(error);
-          })
-        }
+        }).catch(error => {
+          alert(error);
+        })
       }
-    });
+    }
   });
-  
-  progressIndicatorCircles.forEach((circle, index) => {
+});
+
+progressIndicatorCircles.forEach((circle, index) => {
   circle.addEventListener("click", () => {
     const slides = circle.parentElement.previousElementSibling.querySelector("[data-slides]");
     const progIndicators = circle.parentElement;
@@ -242,7 +150,7 @@ buttons.forEach((button) => {
 
     if (activeSlide) {
       const isValid = validateForm(activeSlide);
-  
+
         if (!isValid) {
           // Validation failed, prevent navigation to the next slide
           return;
@@ -275,5 +183,3 @@ buttons.forEach((button) => {
     }
   });
 });
-
-  
