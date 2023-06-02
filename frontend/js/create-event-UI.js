@@ -112,7 +112,7 @@ function validateForm(card){
     return isValid;
 } */
 const buttons = document.querySelectorAll("[data-carousel-button]");
-
+const progressIndicatorCircles = document.querySelectorAll(".circle");
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
       const offset = button.dataset.carouselButton === "next" ? 1 :button.dataset.carouselButton === "prev"? -1: 0;
@@ -150,3 +150,45 @@ buttons.forEach((button) => {
       }
     });
   });
+  progressIndicatorCircles.forEach((circle, index) => {
+    circle.addEventListener("click", () => {
+      const slides = circle.parentElement.previousElementSibling.querySelector("[data-slides]");
+      const progIndicators = circle.parentElement;
+      const activeSlide = slides.querySelector("[data-active]");
+  
+      if (activeSlide) {
+        // const isValid = validateForm(activeSlide);
+    
+        //   if (!isValid) {
+        //     // Validation failed, prevent navigation to the next slide
+        //     return;
+        //   }
+        const newIndex = index;
+        const currentSlideIndex = [...slides.children].indexOf(activeSlide);
+  
+        if (newIndex === currentSlideIndex) {
+          // Clicked on the active slide, do nothing
+          return;
+        }
+  
+        slides.children[newIndex].dataset.active = true;
+        delete activeSlide.dataset.active;
+  
+        progIndicators.children[newIndex].dataset.progressIndicator = true;
+  
+        // Remove data-progress-indicator from circles with greater indices
+        for (let i = newIndex + 1; i < progIndicators.children.length; i++) {
+          delete progIndicators.children[i].dataset.progressIndicator;
+        }
+  
+        // Additional code to handle removing gender portion if Merchant is selected
+        if (slides.children[newIndex].querySelector("#merchant:checked")) {
+          const genderSection = slides.querySelector("[data-gender-section]");
+          if (genderSection) {
+            genderSection.remove();
+          }
+        }
+      }
+    });
+  });
+  
