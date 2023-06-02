@@ -156,7 +156,7 @@ buttons.forEach((button) => {
   const progressIndicatorCircles = document.querySelectorAll(".circle");
   
   buttons.forEach((button) => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click",async () => {
       const offset = button.dataset.carouselButton === "next" ? 1 : button.dataset.carouselButton === "prev" ? -1 : 0;
       const slides = button.closest("[data-carousel]").querySelector("[data-slides]");
       const progIndicators = button.closest("[data-carousel]").parentElement.querySelector("[data-progress]");
@@ -187,7 +187,8 @@ buttons.forEach((button) => {
         }
   
       if(document.querySelector('#merchant').checked){
-        document.querySelector('#gender-selection').remove()
+        let section = document.querySelector('#gender-selection')
+        if(section !== null) section.remove()
       }
         // Additional code to handle removing gender portion if Merchant is selected
         if (slides.children[newIndex].querySelector("#merchant:checked")) {
@@ -196,10 +197,38 @@ buttons.forEach((button) => {
             genderSection.remove();
           }
         }
-  
         if (button.dataset.carouselButton === "finish") {
           const form = button.closest("form");
-          form.submit();
+          password.value = await sha256(password.value)
+          const user_name = document.createElement('input')
+          const first_name = document.querySelector('#firstname')
+          user_name.setAttribute('type', 'hidden')
+          user_name.setAttribute('name', 'user_name')
+          user_name.setAttribute('value', `${first_name.value}#${Math.floor(Math.random() * 9000) + 1000}`)
+          form.appendChild(user_name)
+          const formData = new FormData(form);
+          formData.delete('confirm-password')
+          if(document.querySelector('#customer').checked){
+            let val = formData.get('sex') == 'M' ? 0 : 1;
+            formData.set('sex', val)
+          }
+          for(let [name, value] of formData) console.log(`${name}: ${value}`)
+          let address = document.querySelector('#merchant').checked
+                              ? '../../backend/php/users/create_merchant.php'
+                              : '../../backend/php/users/create_customer.php';
+          fetch(address, {
+           method: 'POST',
+           body: formData
+          }).then(response => {
+            if(response.ok){
+              alert(`Account with User name ${user_name.value} created successfully`)
+              sessionStorage.setItem('user_id', user_name.value) 
+            }else{
+              alert(" Failed !")
+            }
+          }).catch(error => {
+            alert(error);
+          })
         }
       }
     });

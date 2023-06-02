@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/sign_up_styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
-    
+    <script src="./js/utils.js"></script> 
 </head>
 <body>
     <div class="wapper">
@@ -58,16 +58,16 @@
         <section class="signup-form">
             <h3>Sign Up</h3>
             <div class="signup-form-content" data-carousel>
-                <form action="" method="post" data-slides>
+                <form action="" method="post" id="sign_up_form" data-slides>
                     <div class="form-content-card" data-active>
                         <label for="account-type">Type of account</label>
                         <div class="account-type-container">
                             <div class="male-container">
-                                <input type="radio" name="account-type" id="customer" value="customer">
+                                <input type="radio" name="user_type" id="customer" value="customer">
                                 <label for="customer">Customer</label>
                             </div>
                             <div class="female-container">
-                                <input type="radio" name="account-type" id="merchant" value="merchant">
+                                <input type="radio" name="user_type" id="merchant" value="merchant">
                                 <label for="merchant">Merchant</label>
                             </div>
                         </div>
@@ -79,10 +79,10 @@
                     </div>
                     <div class="form-content-card" >
                         <label for="firstname">First Name</label>
-                        <input type="text" name="firstname" id="firstname" placeholder="John" required data-required>
+                        <input type="text" name="first_name" id="firstname" placeholder="John" required data-required>
                         <div class="error"></div>
                         <label for="lastname">Last Name</label>
-                        <input type="text" name="lastname" id="lastname" placeholder="Doe" required data-required>
+                        <input type="text" name="last_name" id="lastname" placeholder="Doe" required data-required>
                         <div class="error"></div>
                         
                         <div class="button-container">
@@ -97,13 +97,13 @@
                         
                         
                         <div class="gender-container" id="gender-selection" data-gender-section>
-                            <label for="gender">Sex</label>
+                            <label for="sex">Sex</label>
                             <div class="male-container">
-                                <input type="radio" name="gender" id="male" value="M" required>
+                                <input type="radio" name="sex" id="male" value="M" required>
                                 <label for="male">Male</label>
                             </div>
                             <div class="female-container">
-                                <input type="radio" name="gender" id="female" value="F">
+                                <input type="radio" name="sex" id="female" value="F">
                                 <label for="female">female</label>
                             </div>
                         </div>
@@ -152,6 +152,7 @@
         </section>      
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="..\frontend\js\sign_up.js" defer></script>
+    <script src="../frontend/js/sign_up.js" defer></script>
+    <!-- <script src="../frontend/js/sign_up_logic.js" defer></script> -->
 </body>
 </html>
