@@ -79,15 +79,15 @@ INSERT INTO Users (user_name, password, user_type, first_name, last_name, email)
 
 INSERT INTO Customers (customer_id, sex) VALUES
 ('Abebe#2314', 1),
-('Birhanu#7865', 2),
+('Birhanu#7865', 1),
 ('Chaltu#8921', 0),
 ('Dereje#4532', 1),
 ('Jemal#5678', 1),
-('Kidanemariam#2315', 2),
+('Kidanemariam#2315', 1),
 ('Lulit#7866', 0),
 ('Mikias#8922', 1),
 ('Nahom#4533', 1),
-('Oliyad#9822', 2),
+('Oliyad#9822', 0),
 ('Petros#0079', 1);
 
 INSERT INTO Merchants (merchant_id) VALUES
