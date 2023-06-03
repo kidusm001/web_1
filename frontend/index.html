@@ -9,6 +9,8 @@
     <title>SpotBooker</title>
     <link rel="icon" href="assets\logo-mobile.svg">
     <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/dataStore.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
     
@@ -141,258 +143,258 @@
       </div>
       <div class="carousel-container" data-slides>
         <div class="carousel-card" data-active>
-          <div class="top-events-container">
-            <a href="#">
-              <div class="event-card">
-                <div class="event-image">
-                  <div class="event-number-container">
-                    <span class="event-number">#1</span>
-                    <div class="num-svg-container">
-                      <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <img src="img\header-bg.jpg" alt="Event Image">
-                </div>
-                <div class="event-details">
-                  <h2 class="event-title">Event Title</h2>
-                  <p class="event-date-time">Date & Time</p>
-                  <p class="event-location">Location</p>
-                  
-                </div>
-                <div class="event-price-container">
-                  <p class="event-price">Price</p>
-                  <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path>
-                  </svg>
-                </div>
-              </div>
-            </a>
-            <a href="#">
-              <div class="event-card">
-                <div class="event-image">
-                  <div class="event-number-container">
-                    <span class="event-number">#2</span>
-                    <div class="num-svg-container">
-                      <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <img src="img\header-bg.jpg" alt="Event Image">
-                </div>
-                <div class="event-details">
-                  <h2 class="event-title">Event Title</h2>
-                  <p class="event-date-time">Date & Time</p>
-                  <p class="event-location">Location</p>
-                  
-                </div>
-                <div class="event-price-container">
-                  <p class="event-price">Price</p>
-                  <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path>
-                  </svg>
-                </div>
-              </div>
-            </a>
-            <a href="#">
-              <div class="event-card">
-                <div class="event-image">
-                  <div class="event-number-container">
-                    <span class="event-number">#3</span>
-                    <div class="num-svg-container">
-                      <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <img src="img\header-bg.jpg" alt="Event Image">
-                </div>
-                <div class="event-details">
-                  <h2 class="event-title">Event Title</h2>
-                  <p class="event-date-time">Date & Time</p>
-                  <p class="event-location">Location</p>
-                  
-                </div>
-                <div class="event-price-container">
-                  <p class="event-price">Price</p>
-                  <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path>
-                  </svg>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="carousel-card">
           <div class="top-events-container" id="top-events-section">
-            <a href="#">
-              <div class="event-card">
-                <div class="event-image">
-                  <div class="event-number-container">
-                    <span class="event-number">#4</span>
-                    <div class="num-svg-container">
-                      <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <img src="img\header-bg.jpg" alt="Event Image">
-                </div>
-                <div class="event-details">
-                  <h2 class="event-title">Event Title</h2>
-                  <p class="event-date-time">Date & Time</p>
-                  <p class="event-location">Location</p>
-                  
-                </div>
-                <div class="event-price-container">
-                  <p class="event-price">Price</p>
-                  <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path>
-                  </svg>
-                </div>
-              </div>
-            </a>
-            <a href="#">
-              <div class="event-card">
-                <div class="event-image">
-                  <div class="event-number-container">
-                    <span class="event-number">#5</span>
-                    <div class="num-svg-container">
-                      <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <img src="img\header-bg.jpg" alt="Event Image">
-                </div>
-                <div class="event-details">
-                  <h2 class="event-title">Event Title</h2>
-                  <p class="event-date-time">Date & Time</p>
-                  <p class="event-location">Location</p>
-                  
-                </div>
-                <div class="event-price-container">
-                  <p class="event-price">Price</p>
-                  <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path>
-                  </svg>
-                </div>
-              </div>
-            </a>
-            <a href="#">
-              <div class="event-card">
-                <div class="event-image">
-                  <div class="event-number-container">
-                    <span class="event-number">#6</span>
-                    <div class="num-svg-container">
-                      <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <img src="img\header-bg.jpg" alt="Event Image">
-                </div>
-                <div class="event-details">
-                  <h2 class="event-title">Event Title</h2>
-                  <p class="event-date-time">Date & Time</p>
-                  <p class="event-location">Location</p>
-                  
-                </div>
-                <div class="event-price-container">
-                  <p class="event-price">Price</p>
-                  <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path>
-                  </svg>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="carousel-card">
-          <div class="top-events-container" id="top-events-container">
-            <a href="#">
-              <div class="event-card">
-                <div class="event-image">
-                  <div class="event-number-container">
-                    <span class="event-number">#7</span>
-                    <div class="num-svg-container">
-                      <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <img src="img\header-bg.jpg" alt="Event Image">
-                </div>
-                <div class="event-details">
-                  <h2 class="event-title">Event Title</h2>
-                  <p class="event-date-time">Date & Time</p>
-                  <p class="event-location">Location</p>
-                  
-                </div>
-                <div class="event-price-container">
-                  <p class="event-price">Price</p>
-                  <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path>
-                  </svg>
-                </div>
-              </div>
-            </a>
-            <a href="#">
-              <div class="event-card">
-                <div class="event-image">
-                  <div class="event-number-container">
-                    <span class="event-number">#8</span>
-                    <div class="num-svg-container">
-                      <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <img src="img\header-bg.jpg" alt="Event Image">
-                </div>
-                <div class="event-details">
-                  <h2 class="event-title">Event Title</h2>
-                  <p class="event-date-time">Date & Time</p>
-                  <p class="event-location">Location</p>
-                  
-                </div>
-                <div class="event-price-container">
-                  <p class="event-price">Price</p>
-                  <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path>
-                  </svg>
-                </div>
-              </div>
-            </a>
-            <a href="#">
-              <div class="event-card">
-                <div class="event-image">
-                  <div class="event-number-container">
-                    <span class="event-number">#9</span>
-                    <div class="num-svg-container">
-                      <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <img src="img\header-bg.jpg" alt="Event Image">
-                </div>
-                <div class="event-details">
-                  <h2 class="event-title">Event Title</h2>
-                  <p class="event-date-time">Date & Time</p>
-                  <p class="event-location">Location</p>
-                  
-                </div>
-                <div class="event-price-container">
-                  <p class="event-price">Price</p>
-                  <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path>
-                  </svg>
-                </div>
-              </div>
-            </a>
+        <!--     <a href="#"> -->
+        <!--       <div class="event-card"> -->
+        <!--         <div class="event-image"> -->
+        <!--           <div class="event-number-container"> -->
+        <!--             <span class="event-number">#1</span> -->
+        <!--             <div class="num-svg-container"> -->
+        <!--               <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--                 <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path> -->
+        <!--               </svg> -->
+        <!--             </div> -->
+        <!--           </div> -->
+        <!--           <img src="img\header-bg.jpg" alt="Event Image"> -->
+        <!--         </div> -->
+        <!--         <div class="event-details"> -->
+        <!--           <h2 class="event-title">Event Title</h2> -->
+        <!--           <p class="event-date-time">Date & Time</p> -->
+        <!--           <p class="event-location">Location</p> -->
+        <!--            -->
+        <!--         </div> -->
+        <!--         <div class="event-price-container"> -->
+        <!--           <p class="event-price">Price</p> -->
+        <!--           <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path> -->
+        <!--           </svg> -->
+        <!--         </div> -->
+        <!--       </div> -->
+        <!--     </a> -->
+        <!--     <a href="#"> -->
+        <!--       <div class="event-card"> -->
+        <!--         <div class="event-image"> -->
+        <!--           <div class="event-number-container"> -->
+        <!--             <span class="event-number">#2</span> -->
+        <!--             <div class="num-svg-container"> -->
+        <!--               <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--                 <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path> -->
+        <!--               </svg> -->
+        <!--             </div> -->
+        <!--           </div> -->
+        <!--           <img src="img\header-bg.jpg" alt="Event Image"> -->
+        <!--         </div> -->
+        <!--         <div class="event-details"> -->
+        <!--           <h2 class="event-title">Event Title</h2> -->
+        <!--           <p class="event-date-time">Date & Time</p> -->
+        <!--           <p class="event-location">Location</p> -->
+        <!--            -->
+        <!--         </div> -->
+        <!--         <div class="event-price-container"> -->
+        <!--           <p class="event-price">Price</p> -->
+        <!--           <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path> -->
+        <!--           </svg> -->
+        <!--         </div> -->
+        <!--       </div> -->
+        <!--     </a> -->
+        <!--     <a href="#"> -->
+        <!--       <div class="event-card"> -->
+        <!--         <div class="event-image"> -->
+        <!--           <div class="event-number-container"> -->
+        <!--             <span class="event-number">#3</span> -->
+        <!--             <div class="num-svg-container"> -->
+        <!--               <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--                 <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path> -->
+        <!--               </svg> -->
+        <!--             </div> -->
+        <!--           </div> -->
+        <!--           <img src="img\header-bg.jpg" alt="Event Image"> -->
+        <!--         </div> -->
+        <!--         <div class="event-details"> -->
+        <!--           <h2 class="event-title">Event Title</h2> -->
+        <!--           <p class="event-date-time">Date & Time</p> -->
+        <!--           <p class="event-location">Location</p> -->
+        <!--            -->
+        <!--         </div> -->
+        <!--         <div class="event-price-container"> -->
+        <!--           <p class="event-price">Price</p> -->
+        <!--           <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path> -->
+        <!--           </svg> -->
+        <!--         </div> -->
+        <!--       </div> -->
+        <!--     </a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+        <!-- <div class="carousel-card"> -->
+        <!--   <div class="top-events-container" id="top-events-section"> -->
+        <!--     <a href="#"> -->
+        <!--       <div class="event-card"> -->
+        <!--         <div class="event-image"> -->
+        <!--           <div class="event-number-container"> -->
+        <!--             <span class="event-number">#4</span> -->
+        <!--             <div class="num-svg-container"> -->
+        <!--               <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--                 <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path> -->
+        <!--               </svg> -->
+        <!--             </div> -->
+        <!--           </div> -->
+        <!--           <img src="img\header-bg.jpg" alt="Event Image"> -->
+        <!--         </div> -->
+        <!--         <div class="event-details"> -->
+        <!--           <h2 class="event-title">Event Title</h2> -->
+        <!--           <p class="event-date-time">Date & Time</p> -->
+        <!--           <p class="event-location">Location</p> -->
+        <!--            -->
+        <!--         </div> -->
+        <!--         <div class="event-price-container"> -->
+        <!--           <p class="event-price">Price</p> -->
+        <!--           <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path> -->
+        <!--           </svg> -->
+        <!--         </div> -->
+        <!--       </div> -->
+        <!--     </a> -->
+        <!--     <a href="#"> -->
+        <!--       <div class="event-card"> -->
+        <!--         <div class="event-image"> -->
+        <!--           <div class="event-number-container"> -->
+        <!--             <span class="event-number">#5</span> -->
+        <!--             <div class="num-svg-container"> -->
+        <!--               <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--                 <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path> -->
+        <!--               </svg> -->
+        <!--             </div> -->
+        <!--           </div> -->
+        <!--           <img src="img\header-bg.jpg" alt="Event Image"> -->
+        <!--         </div> -->
+        <!--         <div class="event-details"> -->
+        <!--           <h2 class="event-title">Event Title</h2> -->
+        <!--           <p class="event-date-time">Date & Time</p> -->
+        <!--           <p class="event-location">Location</p> -->
+        <!--            -->
+        <!--         </div> -->
+        <!--         <div class="event-price-container"> -->
+        <!--           <p class="event-price">Price</p> -->
+        <!--           <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path> -->
+        <!--           </svg> -->
+        <!--         </div> -->
+        <!--       </div> -->
+        <!--     </a> -->
+        <!--     <a href="#"> -->
+        <!--       <div class="event-card"> -->
+        <!--         <div class="event-image"> -->
+        <!--           <div class="event-number-container"> -->
+        <!--             <span class="event-number">#6</span> -->
+        <!--             <div class="num-svg-container"> -->
+        <!--               <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--                 <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path> -->
+        <!--               </svg> -->
+        <!--             </div> -->
+        <!--           </div> -->
+        <!--           <img src="img\header-bg.jpg" alt="Event Image"> -->
+        <!--         </div> -->
+        <!--         <div class="event-details"> -->
+        <!--           <h2 class="event-title">Event Title</h2> -->
+        <!--           <p class="event-date-time">Date & Time</p> -->
+        <!--           <p class="event-location">Location</p> -->
+        <!--            -->
+        <!--         </div> -->
+        <!--         <div class="event-price-container"> -->
+        <!--           <p class="event-price">Price</p> -->
+        <!--           <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path> -->
+        <!--           </svg> -->
+        <!--         </div> -->
+        <!--       </div> -->
+        <!--     </a> -->
+        <!--   </div> -->
+        <!-- </div> -->
+        <!-- <div class="carousel-card"> -->
+        <!--   <div class="top-events-container" id="top-events-container"> -->
+        <!--     <a href="#"> -->
+        <!--       <div class="event-card"> -->
+        <!--         <div class="event-image"> -->
+        <!--           <div class="event-number-container"> -->
+        <!--             <span class="event-number">#7</span> -->
+        <!--             <div class="num-svg-container"> -->
+        <!--               <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--                 <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path> -->
+        <!--               </svg> -->
+        <!--             </div> -->
+        <!--           </div> -->
+        <!--           <img src="img\header-bg.jpg" alt="Event Image"> -->
+        <!--         </div> -->
+        <!--         <div class="event-details"> -->
+        <!--           <h2 class="event-title">Event Title</h2> -->
+        <!--           <p class="event-date-time">Date & Time</p> -->
+        <!--           <p class="event-location">Location</p> -->
+        <!--            -->
+        <!--         </div> -->
+        <!--         <div class="event-price-container"> -->
+        <!--           <p class="event-price">Price</p> -->
+        <!--           <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path> -->
+        <!--           </svg> -->
+        <!--         </div> -->
+        <!--       </div> -->
+        <!--     </a> -->
+        <!--     <a href="#"> -->
+        <!--       <div class="event-card"> -->
+        <!--         <div class="event-image"> -->
+        <!--           <div class="event-number-container"> -->
+        <!--             <span class="event-number">#8</span> -->
+        <!--             <div class="num-svg-container"> -->
+        <!--               <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--                 <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path> -->
+        <!--               </svg> -->
+        <!--             </div> -->
+        <!--           </div> -->
+        <!--           <img src="img\header-bg.jpg" alt="Event Image"> -->
+        <!--         </div> -->
+        <!--         <div class="event-details"> -->
+        <!--           <h2 class="event-title">Event Title</h2> -->
+        <!--           <p class="event-date-time">Date & Time</p> -->
+        <!--           <p class="event-location">Location</p> -->
+        <!--            -->
+        <!--         </div> -->
+        <!--         <div class="event-price-container"> -->
+        <!--           <p class="event-price">Price</p> -->
+        <!--           <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path> -->
+        <!--           </svg> -->
+        <!--         </div> -->
+        <!--       </div> -->
+        <!--     </a> -->
+        <!--     <a href="#"> -->
+        <!--       <div class="event-card"> -->
+        <!--         <div class="event-image"> -->
+        <!--           <div class="event-number-container"> -->
+        <!--             <span class="event-number">#9</span> -->
+        <!--             <div class="num-svg-container"> -->
+        <!--               <svg width="20" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--                 <path d="M0 36H20L13.5149 6.05971C12.6246 2.49838 9.42473 0 5.75379 0H0V32Z" fill="#FF5B49"></path> -->
+        <!--               </svg> -->
+        <!--             </div> -->
+        <!--           </div> -->
+        <!--           <img src="img\header-bg.jpg" alt="Event Image"> -->
+        <!--         </div> -->
+        <!--         <div class="event-details"> -->
+        <!--           <h2 class="event-title">Event Title</h2> -->
+        <!--           <p class="event-date-time">Date & Time</p> -->
+        <!--           <p class="event-location">Location</p> -->
+        <!--            -->
+        <!--         </div> -->
+        <!--         <div class="event-price-container"> -->
+        <!--           <p class="event-price">Price</p> -->
+        <!--           <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711Z" fill="currentColor"></path> -->
+        <!--           </svg> -->
+        <!--         </div> -->
+        <!--       </div> -->
+        <!--     </a> -->
           </div>
         </div>
       </div>
@@ -683,6 +685,7 @@
   </footer>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="js\script.js"></script>
+  <script src="./js/script.js"></script>
+  <script src="./js/home_page.js"></script>
 </body>
 </html>
