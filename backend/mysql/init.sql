@@ -107,21 +107,21 @@ INSERT INTO Tags (tag_name) VALUES
 ('Exhibition');
 
 INSERT INTO Events (merchant_id, title, description, available_tickets, price, date_and_time, image) VALUES
-('Eleni#9821', 'Ethiopian Jazz Night', 'Enjoy an evening of Ethiopian jazz music with Eleni Tadesse', 100, 50, '2023-06-15 19:30:00', 'https://i.imgur.com/8qF9laQ.jpg'),
-('Fikirte#0078', 'Traditional Ethiopian Food Festival', 'Experience the richness of Ethiopian cuisine with Fikirte Negash', 200, 20, '2023-07-01 12:00:00', 'https://i.imgur.com/7khzZTm.jpg'),
-('Eleni#9821', 'Ethiopian Art Exhibition', 'Discover the beauty of Ethiopian art with Eleni Tadesse', 50, 100, '2023-08-10 10:00:00', 'https://i.imgur.com/6YtZLz5.jpg'),
-('Girma#2345', 'Ethiopian Football Championship', 'Watch the best teams in Ethiopia compete for the championship with Girma Gebre',5000, 30, '2023-09-02 14:00:00', 'https://i.imgur.com/HxvWlPz.jpg'),
-('Hana#6789', 'Entrepreneurship Conference', 'Learn from successful Ethiopian entrepreneurs at this conference with Hana Girma', 300, 80, '2023-10-20 09:00:00', 'https://i.imgur.com/9vNvL8N.jpg'),
-('Iyasu#1234', 'Ethiopian Fashion Show', 'Experience the latest trends in Ethiopian fashion with Iyasu Alemu', 150, 45, '2023-11-15 18:00:00', 'https://i.imgur.com/2Vv8sZy.jpg'),
-('Eleni#9821', 'Ethiopian Music Festival', 'Celebrate the diversity of Ethiopian music with Eleni Tadesse', 500, 25, '2023-12-01 13:00:00', 'https://i.imgur.com/8qF9laQ.jpg'),
-('Fikirte#0078', 'Ethiopian Wedding Expo', 'Plan your dream Ethiopian wedding with Fikirte Negash', 1000, 10, '2024-01-07 11:00:00', 'https://i.imgur.com/7khzZTm.jpg'),
-('Girma#2345', 'Ethiopian Athletics Championship', 'Watch the best athletes in Ethiopia compete for the championship with Girma Gebre', 5000, 30, '2024-02-18 14:00:00', 'https://i.imgur.com/HxvWlPz.jpg'),
-('Hana#6789', 'Ethiopian Film Festival', 'Discover the best of Ethiopian cinema with Hana Girma', 200, 15, '2024-03-22 16:00:00', 'https://i.imgur.com/9vNvL8N.jpg'),
-('Iyasu#1234', 'Ethiopian Tech Expo', 'Explore the latest technology innovations in Ethiopia with Iyasu Alemu', 500, 50, '2024-04-15 10:00:00', 'https://i.imgur.com/2Vv8sZy.jpg'),
-('Eleni#9821', 'Ethiopian Music Awards', 'Celebrate the best in Ethiopian music with Eleni Tadesse', 1000, 75, '2024-05-05 19:00:00', 'https://i.imgur.com/8qF9laQ.jpg'),
-('Fikirte#0078', 'Ethiopian Coffee Festival', 'Discover the best of Ethiopian coffee with Fikirte Negash', 300, 10, '2024-06-07 12:00:00', 'https://i.imgur.com/7khzZTm.jpg'),
-('Girma#2345', 'Ethiopian Basketball Championship', 'Watch the best teams in Ethiopia compete for the championship with Girma Gebre', 3000, 20, '2024-07-12 15:00:00', 'https://i.imgur.com/HxvWlPz.jpg'),
-('Hana#6789', 'Ethiopian Women Empowerment Conference', 'Join the movement to empower Ethiopian women with Hana Girma', 500, 50, '2024-08-23 09:00:00', 'https://i.imgur.com/9vNvL8N.jpg');
+('Eleni#9821', 'Ethiopian Jazz Night', 'Enjoy an evening of Ethiopian jazz music with Eleni Tadesse', 100, 50, '2023-06-15 19:30:00', 'https://i.kinja-img.com/gawker-media/image/upload/s--D1GL6j_I--/c_fill,fl_progressive,g_center,h_358,q_80,w_636/fq5co2w9m2xmiprws26l.jpg'),
+('Fikirte#0078', 'Traditional Ethiopian Food Festival', 'Experience the richness of Ethiopian cuisine with Fikirte Negash', 200, 20, '2023-07-01 12:00:00', 'https://media.istockphoto.com/photos/injera-be-wot-traditional-ethiopian-food-picture-id186502101?s=612x612'),
+('Eleni#9821', 'Ethiopian Art Exhibition', 'Discover the beauty of Ethiopian art with Eleni Tadesse', 50, 100, '2023-08-10 10:00:00', 'https://images.freeimages.com/images/large-previews/3e2/exhibition-1479136.jpg'),
+('Girma#2345', 'Ethiopian Football Championship', 'Watch the best teams in Ethiopia compete for the championship with Girma Gebre',5000, 30, '2023-09-02 14:00:00', 'https://st2.depositphotos.com/3725083/6639/i/950/depositphotos_66396623-stock-photo-soccer-stadium.jpg'),
+('Hana#6789', 'Entrepreneurship Conference', 'Learn from successful Ethiopian entrepreneurs at this conference with Hana Girma', 300, 80, '2023-10-20 09:00:00', 'https://media.istockphoto.com/photos/business-conference-picture-id529787057'),
+('Iyasu#1234', 'Ethiopian Fashion Show', 'Experience the latest trends in Ethiopian fashion with Iyasu Alemu', 150, 45, '2023-11-15 18:00:00', 'https://static3.depositphotos.com/1003697/168/i/950/depositphotos_1684316-stock-photo-fashion-show.jpg'),
+('Eleni#9821', 'Ethiopian Music Festival', 'Celebrate the diversity of Ethiopian music with Eleni Tadesse', 500, 25, '2023-12-01 13:00:00', 'https://www.musicinafrica.net/sites/default/files/images/music_professional_profile/201408/ethiopianmusicfestival.jpg'),
+('Fikirte#0078', 'Ethiopian Wedding Expo', 'Plan your dream Ethiopian wedding with Fikirte Negash', 1000, 10, '2024-01-07 11:00:00', 'https://c8.alamy.com/comp/AR987X/ethiopian-bride-and-groom-with-bridesmaides-and-best-men-at-a-wedding-AR987X.jpg'),
+('Girma#2345', 'Ethiopian Athletics Championship', 'Watch the best athletes in Ethiopia compete for the championship with Girma Gebre', 5000, 30, '2024-02-18 14:00:00', 'https://1.bp.blogspot.com/-NHmrWwmpXW0/UA1telp_zWI/AAAAAAAAAE0/yuqgQASbzeU/s1600/haile-gebrselassie%252CBekele+y+Sihine.jpg'),
+('Hana#6789', 'Ethiopian Film Festival', 'Discover the best of Ethiopian cinema with Hana Girma', 200, 15, '2024-03-22 16:00:00', 'https://i.pinimg.com/originals/69/34/6d/69346d1a0b4cbee0923e575684e69315.jpg'),
+('Iyasu#1234', 'Ethiopian Tech Expo', 'Explore the latest technology innovations in Ethiopia with Iyasu Alemu', 500, 50, '2024-04-15 10:00:00', 'https://www.ictexpoethiopia.com/wp-content/uploads/2018/01/7P9A1078.jpg'),
+('Eleni#9821', 'Ethiopian Music Awards', 'Celebrate the best in Ethiopian music with Eleni Tadesse', 1000, 75, '2024-05-05 19:00:00', 'https://i.pinimg.com/originals/a6/93/aa/a693aaf8edd7e8219e3bf7da63787650.jpg'),
+('Fikirte#0078', 'Ethiopian Coffee Festival', 'Discover the best of Ethiopian coffee with Fikirte Negash', 300, 10, '2024-06-07 12:00:00', 'https://media.istockphoto.com/photos/traditional-ethiopian-coffee-picture-id469689803?k=20&m=469689803&s=612x612&w=0&h=8nHtIHTZHYzWtNiIo7AQPW7lMd8Cq1TDg-lndNn1rRM%3D'),
+('Girma#2345', 'Ethiopian Basketball Championship', 'Watch the best teams in Ethiopia compete for the championship with Girma Gebre', 3000, 20, '2024-07-12 15:00:00', 'https://d3jbhadj57dczt.cloudfront.net/preview-565639-bcEbnFxkrHk4PVdN-large.JPG'),
+('Hana#6789', 'Ethiopian Women Empowerment Conference', 'Join the movement to empower Ethiopian women with Hana Girma', 500, 50, '2024-08-23 09:00:00', 'https://project-e.eu/wp-content/uploads/2016/01/IMG_1296-1.jpg');
 
 INSERT INTO Event_Tags (event_id, tag_id) VALUES
 (1, 1),
