@@ -18,6 +18,11 @@ function Event(eventId, merchantId, title, description, availableTickets, price,
   this.image = image;
 }
 
+function Tag(tag_id, tag_name){
+  this.tag_id = tag_id;
+  this.tag_name = tag_name;
+}
+
 function createCardComponent(eventData){
   const card = document.createElement('a')
   // add the link to the card card.setAttribute('href', 'the link')
@@ -40,11 +45,13 @@ function createCardComponent(eventData){
 
   // set the number of the event eventNumberSpan.textContent('')
   // set event title
-  eventTitle.textContent = eventData.price
+  eventTitle.textContent = eventData.title
   // set event date and time 
   eventDateTime.textContent = eventData.dateAndTime
   // set href of image
   image.setAttribute('href', eventData.image )
+  eventNumberSpan.textContent = eventData.price
+  console.log(`event price: ${eventData.price}`)
 
   eventCard.classList.add('event-card')
   eventImage.classList.add('event-image')
@@ -110,3 +117,55 @@ function createCardComponent(eventData){
   return card
 }
  
+function createCategoryCard(category){
+  const card = document.createElement('a');
+  const categoryCard = document.createElement('div')
+  const categoryImageContainer = document.createElement('div')
+  const cardImage = document.createElement('img')
+  const categoryName = document.createElement('p')
+  categoryCard.classList.add('category-card')
+  categoryImageContainer.classList.add('category-image-container')
+  categoryName.classList.add('category-name')
+  // fix the link card.setAttribute('href', '')
+  cardImage.setAttribute('src', './img/header-bg-2.jpg')
+  cardImage.setAttribute('alt', 'Card Image')
+
+  categoryImageContainer.appendChild(cardImage)
+  categoryImageContainer.appendChild(categoryName)
+  categoryCard.appendChild(categoryImageContainer)
+  card.appendChild(categoryCard)
+
+  return card
+}
+
+function createConcertCard(eventData){
+  const card = document.createElement('a')
+  const eventCard = document.createElement('div')
+  const eventImage = document.createElement('div')
+  const image = document.createElement('img')
+  const eventDetails = document.createElement('div')
+  const eventTitle = document.createElement('h2')
+  const eventDateTime = document.createElement('p')
+  const eventLocation = document.createElement('p')
+  const eventPriceContainer = document.createElement('div')
+  const eventPrice = document.createElement('p')
+
+  eventCard.classList.add('event-card')
+  eventCard.classList.add('specific-event')
+  eventImage.classList.add('event-image')
+  eventImage.classList.add('specific-event-image')
+  eventDetails.classList.add('event-details')
+  eventTitle.classList.add('event-title')
+  eventDateTime.classList.add('event-date-time')
+  eventLocation.classList.add('event-location')
+  eventPriceContainer.classList.add('event-price-container')
+  eventPriceContainer.classList.add('specific-event-price-container')
+  eventPrice.classList.add('event-price')
+  
+  eventPrice.textContent = eventData.price
+  eventTitle.textContent = eventData.title
+  eventDateTime.textContent = eventData.dateAndTime
+  // do something with location
+  image.setAttribute('href', eventData.image)
+
+}
