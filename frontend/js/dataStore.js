@@ -11,7 +11,6 @@ let dataStore = (function() {
              const { event_id, merchant_id, title, description, available_tickets, price, date_and_time, image } = event;
              return new Event(event_id, merchant_id, title, description, available_tickets, price, date_and_time, image);
           });
-          console.log(events);
           return events;
         })
         .catch(error => {
@@ -32,7 +31,6 @@ let dataStore = (function() {
            const {tag_id, tag_name} = tag;
            return new Tag(tag_id, tag_name);
           });
-          console.log(tags)
           return tags;
         }).
         catch(error => {

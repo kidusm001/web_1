@@ -51,7 +51,6 @@ function createCardComponent(eventData){
   // set href of image
   image.setAttribute('href', eventData.image )
   eventNumberSpan.textContent = eventData.price
-  console.log(`event price: ${eventData.price}`)
 
   eventCard.classList.add('event-card')
   eventImage.classList.add('event-image')

@@ -130,7 +130,7 @@
             </svg>
           </button>
           <div class="carousel-slide-num">
-            <span class="curr-slide-num" data-curr-slide></span>
+            <span class="curr-slide-num" id="top-events-current-slide" data-curr-slide></span>
             <span> of </span>
             <span class="total-slide-num" data-total-slides></span>
           </div>
@@ -271,7 +271,41 @@
             </a>
           </div>
         </div>
-        <div class="carousel-card">
+        <div class="carousel-card" id="concerts-carousel-card">
+          <div class="concert-cards-container" data-active>
+            <a href="#">
+              <div class="event-card specific-event">
+                <div class="event-image specific-event-image">
+                  <img src="img\header-bg.jpg" alt="Event Image">
+                </div>
+                <div class="event-details">
+                  <h2 class="event-title">Event Title</h2>
+                  <p class="event-date-time">Date & Time</p>
+                  <p class="event-location">Location</p>
+                  
+                </div>
+                <div class="event-price-container specific-event-price-container">
+                  <p class="event-price">Price</p>
+                </div>
+              </div>
+            </a>
+            <a href="#">
+              <div class="event-card specific-event">
+                <div class="event-image specific-event-image">
+                  <img src="img\header-bg.jpg" alt="Event Image">
+                </div>
+                <div class="event-details">
+                  <h2 class="event-title">Event Title</h2>
+                  <p class="event-date-time">Date & Time</p>
+                  <p class="event-location">Location</p>
+                  
+                </div>
+                <div class="event-price-container specific-event-price-container">
+                  <p class="event-price">Price</p>
+                </div>
+              </div>
+            </a>
+          </div>
           <div class="concert-cards-container">
             <a href="#">
               <div class="event-card specific-event">
@@ -371,7 +405,7 @@
   </footer>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="./js/home_page.js"></script>
-  <script src="./js/script.js"></script>
+  <script src="./js/home_page.js" defer></script>
+  <script src="./js/script.js" defer></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
-
 flatpickr("input[type=datetime]", {minDate: "today"});
 const buttons = document.querySelectorAll("[data-carousel-button]");
+document.querySelector('[data-curr-slide]').innerHTML = 1
 buttons.forEach( button => {
   button.addEventListener("click", () => {
     const offset = button.dataset.carouselButton === "next" ? 1 : -1;
@@ -20,10 +20,12 @@ buttons.forEach( button => {
     const currentSlide=button.closest("[data-carousel-slider-cont]").querySelector("[data-curr-slide]");
     currentSlide.innerHTML=newIndex+1;
   }); 
+
   const slides = button.closest("[data-carousel]").querySelector("[data-slides]");
   const activeSlide = slides.querySelector("[data-active]");
   const currentSlide=button.closest("[data-carousel-slider-cont]").querySelector("[data-curr-slide]");
-  currentSlide.innerHTML=[...slides.children].indexOf(activeSlide)+1;
+  currentSlide.innerHTML=[...slides.children].indexOf(activeSlide)+2
   const totalSlides=button.closest("[data-carousel-slider-cont]").querySelector("[data-total-slides]");
-  totalSlides.innerHTML=slides.children.length;
+  totalSlides.innerHTML=slides.children.length
+  console.log(slides.children)
 });

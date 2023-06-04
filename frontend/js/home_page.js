@@ -77,5 +77,6 @@ async function displayEventCategories() {
   }
 }
 
+
 displayTopEvents();
 displayEventCategories();
