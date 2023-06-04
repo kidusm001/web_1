@@ -117,7 +117,7 @@ function createCardComponent(eventData){
   return card
 }
  
-function createCategoryCard(category){
+function createCategoryCard(tag){
   const card = document.createElement('a');
   const categoryCard = document.createElement('div')
   const categoryImageContainer = document.createElement('div')
@@ -129,6 +129,7 @@ function createCategoryCard(category){
   // fix the link card.setAttribute('href', '')
   cardImage.setAttribute('src', './img/header-bg-2.jpg')
   cardImage.setAttribute('alt', 'Card Image')
+  categoryName.textContent = tag.tag_name 
 
   categoryImageContainer.appendChild(cardImage)
   categoryImageContainer.appendChild(categoryName)

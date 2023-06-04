@@ -32,6 +32,7 @@ let dataStore = (function() {
            const {tag_id, tag_name} = tag;
            return new Tag(tag_id, tag_name);
           });
+          console.log(tags)
           return tags;
         }).
         catch(error => {
