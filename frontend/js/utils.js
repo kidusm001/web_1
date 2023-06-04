@@ -168,4 +168,17 @@ function createConcertCard(eventData){
   // do something with location
   image.setAttribute('href', eventData.image)
 
+  card.appendChild(eventCard)
+  eventCard.appendChild(eventImage) 
+  eventCard.appendChild(eventDetails) 
+  eventCard.appendChild(eventPrice) 
+  eventImage.appendChild(image)
+  
+  eventDetails.appendChild(eventTitle)
+  eventDetails.appendChild(eventDateTime)
+  eventDetails.appendChild(eventLocation)
+
+  eventPriceContainer.appendChild(eventPrice)
+
+  return card;
 }

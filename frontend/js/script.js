@@ -27,5 +27,4 @@ buttons.forEach( button => {
   currentSlide.innerHTML=[...slides.children].indexOf(activeSlide)+2
   const totalSlides=button.closest("[data-carousel-slider-cont]").querySelector("[data-total-slides]");
   totalSlides.innerHTML=slides.children.length
-  console.log(slides.children)
 });
