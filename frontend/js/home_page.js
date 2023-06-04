@@ -13,7 +13,6 @@ async function displayTopEvents() {
       const bScore = b.availableTickets * b.price;
       return bScore - aScore;
   }).slice(0,maxTopEvents);
-
   function newCarousel(){
     const topEventsContainer = document.createElement('div')
     topEventsContainer.classList.add('top-events-container')
@@ -44,6 +43,9 @@ async function displayTopEvents() {
     }
     cards.push(createCardComponent(topEvents[i])) 
   }
+
+  let totalSlides = document.querySelector("#total-top-events-slides")
+  totalSlides.innerHTML = Math.ceil(topEvents.length / topEventsPerCarousel)
 }
 
 async function displayEventCategories() {
@@ -75,6 +77,8 @@ async function displayEventCategories() {
     }
     cards.push(createCategoryCard(topTags[i]))
   }
+  let totalSlides = document.querySelector('#total-category-slides')
+  totalSlides.innerText = Math.ceil( topTags.length / categoriesPerCarousel )
 }
 
 
