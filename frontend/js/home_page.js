@@ -39,13 +39,13 @@ async function displayTopEvents() {
   let currentCarousel = newCarousel();
   let firstSlide = true;
   for(let i = 0 ; i < topEvents.length; i++){
-    if((i % topEventsPerCarousel === 0 && i !== 0) || i === topEvents.length - 1){
+    cards.push(createCardComponent(topEvents[i])) 
+    if(((i + 1) % topEventsPerCarousel === 0 && i !== 0) || i === topEvents.length - 1){
       appendCarousel(currentCarousel, cards, firstSlide)
       cards = []
       currentCarousel = newCarousel()
       firstSlide = false
     }
-    cards.push(createCardComponent(topEvents[i])) 
   }
 
   let totalSlides = document.querySelector("#total-top-events-slides")
@@ -73,13 +73,13 @@ async function displayEventCategories() {
   let currentCarousel = newCarousel()
   let firstSlide = true
   for(let i = 0; i < topTags.length ; i++){
-    if((i % categoriesPerCarousel === 0 && i !== 0) || i === topTags.length - 1){
+    cards.push(createCategoryCard(topTags[i]))
+    if(((i + 1) % categoriesPerCarousel === 0 && i !== 0) || i === topTags.length - 1){
       appendCarousel(currentCarousel, cards, firstSlide)
       cards = []
       currentCarousel = newCarousel()
       firstSlide = false
     }
-    cards.push(createCategoryCard(topTags[i]))
   }
   let totalSlides = document.querySelector('#total-category-slides')
   totalSlides.innerText = Math.ceil( topTags.length / categoriesPerCarousel )
@@ -126,14 +126,14 @@ async function displayConcerts() {
   let currentCarousel = newCarousel()
   let firstSlide = true
   for(let i = 0; i < concerts.length ; i++){
-    if((i % eventsPerConcertCarousel === 0 && i !== 0) || i === concerts.length - 1){
+    cards.push(createConcertCard(concerts[i]))
+    if(((i + 1) % eventsPerConcertCarousel === 0 && i !== 0) || i === concerts.length - 1){
       console.log(cards)
       appendCarousel(currentCarousel, cards, firstSlide)
       cards = []
       currentCarousel = newCarousel()
       firstSlide = false
     }
-    cards.push(createConcertCard(concerts[i]))
   }
   let totalSlides = document.querySelector('#concerts-total-slides')
   totalSlides.innerText = Math.ceil( concerts.length / eventsPerConcertCarousel )
