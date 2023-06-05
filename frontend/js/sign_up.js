@@ -131,6 +131,8 @@ buttons.forEach((button) => {
           if(response.ok){
             alert(`Account with User name ${user_name.value} created successfully`)
             sessionStorage.setItem('user_id', user_name.value) 
+            sessionStorage.setItem('user_type', 'merchant')
+            window.location.href = "../merch-home.html"
           }else{
             alert(" Failed !")
           }

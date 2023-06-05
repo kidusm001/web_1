@@ -2,7 +2,7 @@ const userIdInput = document.querySelector('#email')
 const passwordInput = document.querySelector('#password') 
 const form = document.querySelector('#sign-in-form')
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
   event.preventDefault()
    
   const formData = new FormData(form);
@@ -13,7 +13,12 @@ form.addEventListener('submit', (event) => {
   }).then(response => {
     if(response.ok){
       console.log(`${userIdInput.value} logged in`)
+      let user_type = await getUserType(userIdInput.value)
       sessionStorage.setItem('user_id', userIdInput.value) 
+      sessionStorage.setItem('user_type', user_type)
+      window.location.href = user_type === 'customer'
+        ? "../cust-home.html"
+        : "../merch-home.html"
     }else{
       alert("login failed !")
     }

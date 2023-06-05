@@ -23,6 +23,17 @@ function Tag(tag_id, tag_name){
   this.tag_name = tag_name;
 }
 
+async function getUserType(user_id) {
+ try{
+    const response = await fetch(`http://0.0.0.0:8000/users/get_user_type.php?user_id=${encodeURIComponent(user_id)}`)
+    const data = await response.json()
+    return data
+  }catch(error){
+    console.error(error);
+    return null;
+  }
+}
+
 async function getCustomerEvents(customer_id){
   try {
     const response = await fetch(`http://0.0.0.0:8000/events/get_customer_events.php?customer_id=${encodeURIComponent(customer_id)}`);
