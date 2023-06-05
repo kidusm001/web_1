@@ -8,12 +8,12 @@ async function sha256(str) {
 }
 
 function Event(eventId, merchantId, title, description, availableTickets, price, dateAndTime, image) {
-  this.eventId = eventId;
+  this.eventId = Number(eventId);
   this.merchantId = merchantId;
   this.title = title;
   this.description = description;
-  this.availableTickets = availableTickets;
-  this.price = price;
+  this.availableTickets = Number(availableTickets);
+  this.price = Number(price);
   this.dateAndTime = dateAndTime;
   this.image = image;
 }
@@ -21,6 +21,28 @@ function Event(eventId, merchantId, title, description, availableTickets, price,
 function Tag(tag_id, tag_name){
   this.tag_id = tag_id;
   this.tag_name = tag_name;
+}
+
+async function getCustomerEvents(customer_id){
+  try {
+    const response = await fetch(`http://0.0.0.0:8000/events/get_customer_events.php?customer_id=${encodeURIComponent(customer_id)}`);
+    const data = await response.json()
+    return data.map(item => Number(item.event_id));
+  }catch(error){
+    console.error(error);
+    return null;
+  }
+}
+
+async function getMerchantEvents(merchant_id) {
+  try {
+    const response = await fetch(`http://localhost:8000/events/get_merchant_events.php?merchant_id=${encodeURIComponent(merchant_id)}`);
+    const data = await response.json();
+    return data.map(item => Number(item));
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 }
 
 function createCardComponent(eventData){

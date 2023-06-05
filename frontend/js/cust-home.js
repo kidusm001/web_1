@@ -2,7 +2,9 @@ const topEventsCarouselContainer = document.querySelector('#top-events-carousel-
 const categoriesCarouselContainer = document.querySelector('#categories-carousel-container')
 const concertsCarouselContainer = document.querySelector('#concerts-carousel-card')
 
-const maxTopEvents = 12
+const customer_id = sessionStorage.getItem('userId')
+
+const maxCustomerTickets = 12
 const maxTopTags = 6
 const topEventsPerCarousel = 3
 const categoriesPerCarousel = 4
@@ -10,13 +12,11 @@ const eventsPerConcertCarousel = 2
 
 const concertsTagId = 1
 
-async function displayTopEvents() {
-  let events = await dataStore.events();
-  topEvents = events.sort((a, b) => {
-      const aScore = a.availableTickets * a.price;
-      const bScore = b.availableTickets * b.price;
-      return bScore - aScore;
-  }).slice(0,maxTopEvents);
+async function displayCustomerEvents() {
+  let allEvents = await dataStore.events();
+  let custEvents = await getCustomerEvents(customer_id)
+  custEvents = allEvents.filter(event => custEvents.includes(event.eventId)) 
+
   function newCarousel(){
     const topEventsContainer = document.createElement('div')
     topEventsContainer.classList.add('top-events-container')
@@ -38,9 +38,9 @@ async function displayTopEvents() {
   let cards = [];
   let currentCarousel = newCarousel();
   let firstSlide = true;
-  for(let i = 0 ; i < topEvents.length; i++){
-    cards.push(createCardComponent(topEvents[i])) 
-    if(((i + 1) % topEventsPerCarousel === 0 && i !== 0) || i === topEvents.length - 1){
+  for(let i = 0 ; i < custEvents.length; i++){
+    cards.push(createCardComponent(custEvents[i])) 
+    if(((i + 1) % topEventsPerCarousel === 0 && i !== 0) || i === custEvents.length - 1){
       appendCarousel(currentCarousel, cards, firstSlide)
       cards = []
       currentCarousel = newCarousel()
@@ -49,7 +49,7 @@ async function displayTopEvents() {
   }
 
   let totalSlides = document.querySelector("#total-top-events-slides")
-  totalSlides.innerHTML = Math.ceil(topEvents.length / topEventsPerCarousel)
+  totalSlides.innerHTML = Math.ceil(custEvents.length / topEventsPerCarousel)
 }
 
 async function displayEventCategories() {
@@ -139,6 +139,6 @@ async function displayConcerts() {
   totalSlides.innerText = Math.ceil( concerts.length / eventsPerConcertCarousel )
 
 }
-displayTopEvents();
+displayCustomerEvents();
 displayEventCategories();
 displayConcerts();
