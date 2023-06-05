@@ -49,7 +49,7 @@ function createCardComponent(eventData){
   // set event date and time 
   eventDateTime.textContent = eventData.dateAndTime
   // set href of image
-  image.setAttribute('href', eventData.image )
+  image.setAttribute('src', eventData.image )
   eventNumberSpan.textContent = eventData.price
 
   eventCard.classList.add('event-card')
@@ -166,7 +166,7 @@ function createConcertCard(eventData){
   eventTitle.textContent = eventData.title
   eventDateTime.textContent = eventData.dateAndTime
   // do something with location
-  image.setAttribute('href', eventData.image)
+  image.setAttribute('src', eventData.image)
 
   card.appendChild(eventCard)
   eventCard.appendChild(eventImage) 
