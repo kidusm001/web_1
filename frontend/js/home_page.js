@@ -28,6 +28,7 @@ async function displayTopEvents() {
     const carouselCard = document.createElement('div')
     carouselCard.classList.add('carousel-card')
     cards.forEach(card => {
+      card.addEventListener('click', showPopUp)
       carousel.appendChild(card)
     })
     firstSlide && carouselCard.setAttribute('data-active', '')
@@ -64,6 +65,7 @@ async function displayEventCategories() {
 
   function  appendCarousel(carousel, cards, firstSlide) {
     cards.forEach(card => {
+      card.addEventListener('click', showPopUp)
       carousel.appendChild(card)
     });
     firstSlide && carousel.setAttribute('data-active', '')
@@ -112,7 +114,7 @@ async function displayConcerts() {
   }
   function appendCarousel(carousel, cards, firstSlide){
     cards.forEach(card => {
-      console.log(card)
+      card.addEventListener('click', showPopUp)
       carousel.appendChild(card)
     })
     const container = document.createElement('div')
