@@ -2,7 +2,8 @@ const topEventsCarouselContainer = document.querySelector('#top-events-carousel-
 const categoriesCarouselContainer = document.querySelector('#categories-carousel-container')
 const concertsCarouselContainer = document.querySelector('#concerts-carousel-card')
 
-const customer_id = sessionStorage.getItem('userId')
+// const customer_id = sessionStorage.getItem('userId')
+const customer_id = 'Abebe#2314'
 
 const maxCustomerTickets = 12
 const maxTopTags = 6
@@ -62,21 +63,30 @@ async function displayEventCategories() {
     return container
   }
 
-  function  appendCarousel(carousel, cards, firstSlide) {
+  async function  appendCarousel(carousel, cards, firstSlide) {
     cards.forEach(card => {
+      card.addEventListener('click', async () => {
+        let currentURL = window.location.href
+        let newURL = currentURL.substring(0, currentURL.lastIndexOf("/") + 1) + "event_list.html"; 
+        let events_list = await getEventsByTag(card.tag_id)
+        await dataStore.set_filtered(events_list)
+        window.location.href = newURL 
+      })
       carousel.appendChild(card)
     });
     firstSlide && carousel.setAttribute('data-active', '')
     categoriesCarouselContainer.appendChild(carousel)
   }
-  let cards = []
+  let cards = new Array(topTags.length) 
   let currentCarousel = newCarousel()
   let firstSlide = true
   for(let i = 0; i < topTags.length ; i++){
-    cards.push(createCategoryCard(topTags[i]))
+    let element =createCategoryCard(topTags[i]) 
+    element.tag_id = topTags[i].tag_id
+    cards.push(element)
     if(((i + 1) % categoriesPerCarousel === 0 && i !== 0) || i === topTags.length - 1){
-      appendCarousel(currentCarousel, cards, firstSlide)
-      cards = []
+      await appendCarousel(currentCarousel, cards, firstSlide)
+      cards = new Array(topTags.length) 
       currentCarousel = newCarousel()
       firstSlide = false
     }
@@ -100,7 +110,8 @@ async function getConcerts() {
 }
 
 async function displayConcerts() {
-  const concertIds = await getConcerts();
+  // const concertIds = await getConcerts();
+  const concertIds = await getEventsByTag(concertsTagId);
   console.log(`ids: ${concertIds}`)
   let concerts = await dataStore.events()
   concerts = concerts.filter(event => concertIds.includes(Number(event.eventId)))

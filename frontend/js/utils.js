@@ -47,10 +47,22 @@ async function getCustomerEvents(customer_id){
 
 async function getMerchantEvents(merchant_id) {
   try {
+    console.log('set filtered called')
     const response = await fetch(`http://localhost:8000/events/get_merchant_events.php?merchant_id=${encodeURIComponent(merchant_id)}`);
     const data = await response.json();
     return data.map(item => Number(item));
   } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+async function getEventsByTag(tag_id){
+  try {
+    const response = await fetch(`http://localhost:8000/events/get_events_by_tag.php?tag_id=${encodeURIComponent(tag_id)}`)
+    const data = await response.json()
+    return data.map(item => Number(item.event_id))
+  } catch (error){
     console.error(error);
     return null;
   }
