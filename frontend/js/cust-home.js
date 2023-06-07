@@ -5,7 +5,6 @@ const concertsCarouselContainer = document.querySelector('#concerts-carousel-car
 // const customer_id = sessionStorage.getItem('userId')
 const customer_id = 'Abebe#2314'
 
-const maxCustomerTickets = 12
 const maxTopTags = 6
 const topEventsPerCarousel = 3
 const categoriesPerCarousel = 4
