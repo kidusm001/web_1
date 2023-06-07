@@ -47,10 +47,9 @@ async function getCustomerEvents(customer_id){
 
 async function getMerchantEvents(merchant_id) {
   try {
-    console.log('set filtered called')
     const response = await fetch(`http://localhost:8000/events/get_merchant_events.php?merchant_id=${encodeURIComponent(merchant_id)}`);
     const data = await response.json();
-    return data.map(item => Number(item));
+    return data.map(item => Number(item.event_id));
   } catch (error) {
     console.error(error);
     return null;
