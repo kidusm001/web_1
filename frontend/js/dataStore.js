@@ -49,6 +49,21 @@ let dataStore = (function() {
     initTags();
   }
 
+  async function set_filtered(ids = []){
+    console.log('set filtered called')
+    let events = await initEvents()
+    filtered_events = []
+    ids.forEach(id => {
+      filtered_events.push(events.find(e => e.eventId === id))
+    })
+    localStorage.setItem('filtered_events', JSON.stringify(filtered_events))
+    return filtered_events
+  }
+
+  async function get_filtered(){
+    return filtered_events = JSON.parse(localStorage.getItem('filtered_events')) || [];
+  }
+
   return {
     initEvents: initEvents,
     initTags: initTags,
@@ -58,10 +73,11 @@ let dataStore = (function() {
     },
     tags: function() {
       return initTags();
-    }
+    },
+    set_filtered: set_filtered,
+    get_filtered: get_filtered
   };
 })();
 
 dataStore.initEvents();
 dataStore.initTags();
-
