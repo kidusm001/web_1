@@ -42,7 +42,7 @@
       z-index: 9999;
       top: 1rem;
       right: 2rem;
-      width: 90px;
+      /* width: 90px; */
 }
 .accoutn-btn-toggle-btn-container .accoutn-btn-toggle{
     width: 100%;

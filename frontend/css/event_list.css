@@ -1,0 +1,6 @@
+.main-cards-container{
+    gap: 1.5rem;
+}
+.main-cards-container a{
+    text-decoration: none;
+}

@@ -5,23 +5,39 @@
    width: 100%;
    height: 100%;
    background-color: rgba(0, 0, 0, 0.5);
+   backdrop-filter: blur(4px);
    z-index: 9999;
    display: flex;
    justify-content: center;
    align-items: center;
 }
-
+.popup-card{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: #fff;
+   padding: 2rem;
+   border-radius: 12px;
+}
+/* border: 2px solid #8b8d99; */
 #popup h2 {
-   color: white;
+   color: rgb(24, 24, 24);
 }
 
 #close-btn {
+   font-family: 'Work Sans', sans-serif;
    margin-top: 20px;
    padding: 10px 20px;
-   background-color: white;
-   color: black;
+   background-color: rgb(24, 24, 24);
+   color: rgb(223, 221, 221);
    border: none;
    cursor: pointer;
+   border-radius: 5px;
+   transition: background-color 0.3s ease-in ;
+}
+#close-btn:hover{
+   background-color: rgb(46, 46, 46);
 }
 
   /* <div id="popup" style="display: none;"> */
