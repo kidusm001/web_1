@@ -22,7 +22,7 @@ border-radius: 1em;
 .search-box input{
     color: #000;
 }
-.event-card{
+/* .event-card{
     background-color: #fff;
     border: 1px solid #a8a8a8;
     color: #000;
@@ -41,7 +41,7 @@ border-radius: 1em;
 }
 .event-card:hover .event-price-container{
     background-color: #d4d4d4;
-}
+} */
 .main-cards-container{
     margin-top: 70px;
 }
