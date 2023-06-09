@@ -7,9 +7,9 @@ header('Content-Type: application/json');
 $user = 'root';
 $pass = 'root';
 
-$user_name = $_POST['user_name'];
+$user_name = $_GET['user_name'];
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     try {
         $dbh = new PDO('mysql:host=db;port=3306;dbname=project', $user, $pass);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

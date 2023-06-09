@@ -67,6 +67,17 @@ async function getEventsByTag(tag_id){
   }
 }
 
+async function getBought(user_id) {
+  try {
+    const response = await fetch(`http://localhost:8000/events/get_bought.php?user_name=${encodeURIComponent(user_id)}`)
+    const data = await response.json()
+    return data
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
 function createCardComponent(eventData){
   const card = document.createElement('a')
   // add the link to the card card.setAttribute('href', 'the link')

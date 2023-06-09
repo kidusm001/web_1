@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="css/ticket_page.css">
         <script src="js\toggle.js" defer></script>
         <script src="js/account.js" defer></script>
+        <script src="./js/utils.js" ></script>
+        <script src="./js/dataStore.js"></script>
         <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
     </head>
 
@@ -140,14 +142,14 @@
       <main class="main">
         <section class="event">
           <div class="event1-image">
-            <img src="img/header-bg.jpg" alt="Event image">
+            <img src="img/header-bg.jpg" id="event_image" alt="Event image">
           </div>
           <div class="event-description">
             <h2 class="event-title">Title</h2>
-            <p class="event-summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui vero nesciunt aut eum ad ullam, deserunt, voluptate vel quia veniam fuga dignissimos inventore quis consequatur fugiat sapiente, pariatur eius amet.</p>
-            <h2 class="event-location">Location</h2>
-            <h2 class="event-price">Price</h2>
-            <button class="event-btn">Buy Ticket</button>
+            <p class="event-summary" id="event_details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui vero nesciunt aut eum ad ullam, deserunt, voluptate vel quia veniam fuga dignissimos inventore quis consequatur fugiat sapiente, pariatur eius amet.</p>
+            <h2 class="event-location" id="event_datetime">Location</h2>
+            <h2 class="event-price" id="event_price">Price</h2>
+            <button class="event-btn" id="buy_ticket_button">Buy Ticket</button>
           </div>
         </section>
       </main>
@@ -211,5 +213,6 @@
         </div>
       </footer>
       </div>
+      <script src="./js/event_details.js"></script>
     </body>
 </html>
