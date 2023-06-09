@@ -57,7 +57,7 @@ searchInput.addEventListener('blur', function() {
 });
 
 // Add event listener for window resize event
-window.addEventListener('resize', handleResize);
+// window.addEventListener('resize', handleResize);
 
 // Call handleResize initially to check the initial window size
 

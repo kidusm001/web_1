@@ -50,7 +50,6 @@ let dataStore = (function() {
   }
 
   async function set_filtered(ids = []){
-    console.log('set filtered called')
     let events = await initEvents()
     filtered_events = []
     ids.forEach(id => {
@@ -64,6 +63,15 @@ let dataStore = (function() {
     return filtered_events = JSON.parse(localStorage.getItem('filtered_events')) || [];
   }
 
+  function set_selected_event(event = null){
+    event && localStorage.setItem('selected_event', JSON.stringify(event))
+  }
+
+  function get_selected_event(){
+    let obj = JSON.parse(localStorage.getItem('selected_event'))
+    return obj
+  }
+
   return {
     initEvents: initEvents,
     initTags: initTags,
@@ -75,7 +83,9 @@ let dataStore = (function() {
       return initTags();
     },
     set_filtered: set_filtered,
-    get_filtered: get_filtered
+    get_filtered: get_filtered,
+    set_selected_event: set_selected_event,
+    get_selected_event: get_selected_event
   };
 })();
 

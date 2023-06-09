@@ -28,6 +28,12 @@ async function displayCustomerEvents() {
     const carouselCard = document.createElement('div')
     carouselCard.classList.add('carousel-card')
     cards.forEach(card => {
+      card.addEventListener('click', () => {
+        dataStore.set_selected_event(card.event)
+        let currentURL = window.location.href
+        let newURL = currentURL.substring(0, currentURL.lastIndexOf("/") + 1) + "ticket_page.html"; 
+        window.location.href = newURL 
+      })
       carousel.appendChild(card)
     })
     firstSlide && carouselCard.setAttribute('data-active', '')
@@ -39,7 +45,9 @@ async function displayCustomerEvents() {
   let currentCarousel = newCarousel();
   let firstSlide = true;
   for(let i = 0 ; i < custEvents.length; i++){
-    cards.push(createCardComponent(custEvents[i])) 
+    let card = createCardComponent(custEvents[i])
+    card.event = custEvents[i]
+    cards.push(card) 
     if(((i + 1) % topEventsPerCarousel === 0 && i !== 0) || i === custEvents.length - 1){
       appendCarousel(currentCarousel, cards, firstSlide)
       cards = []
