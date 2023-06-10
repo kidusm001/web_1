@@ -8,9 +8,16 @@ const selected_event = dataStore.get_selected_event()
 const user_id = localStorage.getItem('user_id')
 
 async function isBought(user_id){
+  console.log('checking isBought')
   let bought = await getBought(user_id)
+  console.log(`bought lenght ${bought.length}`)
+  bought.forEach(item => console.log(item.event_id))
+  console.log(`user_id ${user_id}`)
+  console.log(`selected_event id ${selected_event.eventId}`)
+
   let hasTicket = false
   for(let i = 0; i < bought.length; i++){
+    console.log(`bought at ${bought[i].event_id} event ${selected_event.eventId} verdict ${Number(bought[i].event_id) === selected_event.eventId}`)
     if(Number(bought[i].event_id) === selected_event.eventId){
       hasTicket = true; break;
     }
@@ -18,19 +25,24 @@ async function isBought(user_id){
   return hasTicket
 }
 
-let hasTicket = isBought(user_id)
+// let hasTicket = await isBought(user_id)
+// console.log(`hasTicket ${hasTicket}`)
 
 image.setAttribute('src', selected_event.image)
 description.innerText = selected_event.description
 dateTime.innerText = selected_event.dateAndTime
 price.innerText = selected_event.price
 
-if(!hasTicket){
-  button.addEventListener('click', () => {
-    // payment 
-  })
-}else{
-  button.innerText = 'Purchased'
-  button.disabled = true
+async function initButton() {
+  if(!(await isBought(user_id))){
+    console.log('not bought')
+    button.addEventListener('click', () => {
+      // payment
+      initTransaction(selected_event.price)
+    })
+  }else{
+    button.innerText = 'Purchased'
+    button.disabled = true
+  }
 }
-
+initButton()
