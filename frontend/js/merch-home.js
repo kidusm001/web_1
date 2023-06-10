@@ -21,6 +21,12 @@ async function displayMerchantEvents() {
     const carouselCard = document.createElement('div')
     carouselCard.classList.add('carousel-card')
     cards.forEach(card => {
+      card.addEventListener('click', () => {
+        dataStore.set_selected_event(card.event)
+        let currentURL = window.location.href
+        let newURL = currentURL.substring(0, currentURL.lastIndexOf("/") + 1) + "ticket_page.html"; 
+        window.location.href = newURL 
+      })
       carousel.appendChild(card)
     })
     firstSlide && carouselCard.setAttribute('data-active', '')
@@ -32,7 +38,9 @@ async function displayMerchantEvents() {
   let currentCarousel = newCarousel();
   let firstSlide = true;
   for(let i = 0 ; i < merchEvents.length; i++){
-    cards.push(createCardComponent(merchEvents[i])) 
+    let card = createCardComponent(merchEvents[i])
+    card.event = merchEvents[i]
+    cards.push(card) 
     if(((i + 1) % topEventsPerCarousel === 0 && i !== 0) || i === merchEvents.length - 1){
       appendCarousel(currentCarousel, cards, firstSlide)
       cards = []
@@ -48,6 +56,7 @@ async function displayMerchantEvents() {
 moreEventsButton.addEventListener('click', async () => {
   let allEvents = await dataStore.events();
   let merchEvents = await getMerchantEvents(merchant_id)
+  dataStore.set_filtered(merchEvents)
   let currentURL = window.location.href
   let newURL = currentURL.substring(0, currentURL.lastIndexOf("/") + 1) + "event_list.html"; 
   window.location.href = newURL
