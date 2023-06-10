@@ -7,7 +7,7 @@
     <title>Sign In</title>
     <link rel="icon" href="assets\logo-mobile.svg">
     <link rel="stylesheet" href="css/sign_up_styles.css">
-    <script src="./js/sign_in.js" defer></script>
+    <script src="./js/utils.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
     
@@ -67,7 +67,7 @@
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password" required data-required>
                         <div class="error"></div>
-                        <button type="submit" data-carousel-button="finish">Sign in</button>
+                        <button type="submit" id="submit-button" data-carousel-button="finish">Sign in</button>
                     </div>
                 </form>
                 
@@ -94,6 +94,7 @@
         </section>      
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="./js/sign_in.js" defer></script>
     
 </body>
 </html>

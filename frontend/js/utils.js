@@ -26,10 +26,10 @@ function Tag(tag_id, tag_name){
 async function getUserType(user_id) {
  try{
     const response = await fetch(`http://0.0.0.0:8000/users/get_user_type.php?user_id=${encodeURIComponent(user_id)}`)
-    const data = await response.json()
+    const data = await response.text()
     return data
   }catch(error){
-    console.error(error);
+    alert(error);
     return null;
   }
 }

@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS Tickets (
 
 -- Dummy data 
 INSERT INTO Users (user_name, password, user_type, first_name, last_name, email) VALUES
-('Abebe#2314', '1edab1a6606fe647d60ad8f2999e416778244a61c5376b2635f64424a3071d2d', 'customer', 'Abebe', 'Tadesse','abebe@example.com'),
+('Abebe#2314', '45f36d1a5bac9e263237218fd7a3ce7b2827ffb0c312c9f8ae7fc4806cbd223b', 'customer', 'Abebe', 'Tadesse','abebe@example.com'),
 ('Birhanu#7865', 'a40f4e3f9b5e0a5e2e73c4bb9d7e9c4f13a012a5e5d4d76c5ea1b5a0e2a4f1c5', 'customer', 'Birhanu', 'Mengistu','birhanu@example.com'),
 ('Chaltu#8921', 'd6e2e6a88e8ec46f3b3f1d0e2b9b6f6b5c09b0be6c9b8a4a7a5c0e6be7d4d5b9', 'customer', 'Chaltu', 'Abebe','chaltu@example.com'),
 ('Dereje#4532', '4c1c121a3cc6e8a5f1d3e4a9e4e9c7e2b5fa9aaedf3b6b6d3ab7f8e8c6d6a8b6', 'customer', 'Dereje', 'Mamo', 'dereje@example.com'),
