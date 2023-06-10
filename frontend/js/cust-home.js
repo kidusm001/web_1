@@ -4,6 +4,7 @@ const concertsCarouselContainer = document.querySelector('#concerts-carousel-car
 
 // const customer_id = sessionStorage.getItem('userId')
 const customer_id = 'Abebe#2314'
+localStorage.setItem('user_id','Abebe#2314')
 
 const maxTopTags = 6
 const topEventsPerCarousel = 3
@@ -117,12 +118,9 @@ async function getConcerts() {
 }
 
 async function displayConcerts() {
-  // const concertIds = await getConcerts();
   const concertIds = await getEventsByTag(concertsTagId);
-  console.log(`ids: ${concertIds}`)
   let concerts = await dataStore.events()
   concerts = concerts.filter(event => concertIds.includes(Number(event.eventId)))
-  console.log(`concerts: ${concerts}`) 
   function newCarousel(){
     const carousel = document.createElement('div')
     carousel.classList.add('concert-cards-container')
@@ -130,7 +128,12 @@ async function displayConcerts() {
   }
   function appendCarousel(carousel, cards, firstSlide){
     cards.forEach(card => {
-      console.log(card)
+      card.addEventListener('click', () => {
+        dataStore.set_selected_event(card.event)
+        let currentURL = window.location.href
+        let newURL = currentURL.substring(0, currentURL.lastIndexOf("/") + 1) + "ticket_page.html"; 
+        window.location.href = newURL 
+      })
       carousel.appendChild(card)
     })
     const container = document.createElement('div')
@@ -144,9 +147,10 @@ async function displayConcerts() {
   let currentCarousel = newCarousel()
   let firstSlide = true
   for(let i = 0; i < concerts.length ; i++){
-    cards.push(createConcertCard(concerts[i]))
+    let card = createConcertCard(concerts[i])
+    card.event = concerts[i]
+    cards.push(card)
     if(((i + 1) % eventsPerConcertCarousel === 0 && i !== 0) || i === concerts.length - 1){
-      console.log(cards)
       appendCarousel(currentCarousel, cards, firstSlide)
       cards = []
       currentCarousel = newCarousel()
