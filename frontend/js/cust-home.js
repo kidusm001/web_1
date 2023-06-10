@@ -2,6 +2,9 @@ const topEventsCarouselContainer = document.querySelector('#top-events-carousel-
 const categoriesCarouselContainer = document.querySelector('#categories-carousel-container')
 const concertsCarouselContainer = document.querySelector('#concerts-carousel-card')
 const username = document.querySelector('#username_field')
+const logo = document.querySelector('.logo')
+
+logo.addEventListener('click', goHome)
 
 // const customer_id = sessionStorage.getItem('userId')
 const customer_id = 'Abebe#2314'

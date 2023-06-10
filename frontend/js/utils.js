@@ -78,6 +78,19 @@ async function getBought(user_id) {
   }
 }
 
+function goHome(){
+  let getPage = () => {
+    switch (localStorage.getItem('user_type')) {
+      case 'merchant': return 'merchant-home-page.html'
+      case 'customer': return 'cust-home.html'
+      default: return 'index.html'
+    }
+  }
+  let currentURL = window.location.href
+  let newURL = currentURL.substring(0, currentURL.lastIndexOf("/") + 1) + getPage(); 
+  window.location.href = newURL 
+}
+
 function createCardComponent(eventData){
   const card = document.createElement('a')
   // add the link to the card card.setAttribute('href', 'the link')

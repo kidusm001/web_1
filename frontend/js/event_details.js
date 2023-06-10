@@ -29,9 +29,6 @@ async function isBought(user_id){
   return hasTicket
 }
 
-// let hasTicket = await isBought(user_id)
-// console.log(`hasTicket ${hasTicket}`)
-
 image.setAttribute('src', selected_event.image)
 description.innerText = selected_event.description
 dateTime.innerText = selected_event.dateAndTime
@@ -39,7 +36,10 @@ price.innerText = selected_event.price
 title.innerText = selected_event.title
 
 async function initButton() {
-  if(!(await isBought(user_id))){
+  if(localStorage.getItem('user_type') === 'merchant'){
+    button.innerText = selected_event.availableTickets + ' Tickets left'
+    button.disabled = true
+  }else if(!(await isBought(user_id))){
     console.log('not bought')
     button.addEventListener('click', () => {
       // payment

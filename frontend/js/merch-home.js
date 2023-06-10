@@ -2,9 +2,13 @@ const topEventsCarouselContainer = document.querySelector('#top-events-carousel-
 const moreEventsButton = document.querySelector('#more-events-button')
 const topEventsPerCarousel = 3
 const username = document.querySelector('#username_field')
+const logo = document.querySelector('.logo')
+
+logo.addEventListener('click', goHome)
 
 // const merchant_id = sessionStorage.getItem('userId')
 const merchant_id =  'Eleni#9821'
+localStorage.setItem('user_type', 'merchant')
 
 username.innerText = merchant_id
 
