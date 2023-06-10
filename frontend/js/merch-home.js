@@ -1,9 +1,12 @@
 const topEventsCarouselContainer = document.querySelector('#top-events-carousel-container')
 const moreEventsButton = document.querySelector('#more-events-button')
 const topEventsPerCarousel = 3
+const username = document.querySelector('#username_field')
 
 // const merchant_id = sessionStorage.getItem('userId')
 const merchant_id =  'Eleni#9821'
+
+username.innerText = merchant_id
 
 async function displayMerchantEvents() {
   let allEvents = await dataStore.events();

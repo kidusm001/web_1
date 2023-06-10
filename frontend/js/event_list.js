@@ -1,4 +1,7 @@
 let container = document.querySelector('#events_container')
+const username = document.querySelector('#username_field')
+
+username.innerText = localStorage.getItem('user_id')
 
 async function displayFilteredEvents(){
   let filtered_events = await dataStore.get_filtered()
