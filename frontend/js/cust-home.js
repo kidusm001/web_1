@@ -6,9 +6,9 @@ const logo = document.querySelector('.logo')
 
 logo.addEventListener('click', goHome)
 
-// const customer_id = sessionStorage.getItem('userId')
-const customer_id = 'Abebe#2314'
-localStorage.setItem('user_id','Abebe#2314')
+const customer_id = sessionStorage.getItem('user_id')
+// const customer_id = 'Abebe#2314'
+// localStorage.setItem('user_id','Abebe#2314')
 
 username.innerText = customer_id
 

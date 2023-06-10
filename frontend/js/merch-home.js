@@ -6,7 +6,7 @@ const logo = document.querySelector('.logo')
 
 logo.addEventListener('click', goHome)
 
-// const merchant_id = sessionStorage.getItem('userId')
+const merchant_id = sessionStorage.getItem('user_id')
 const merchant_id =  'Eleni#9821'
 localStorage.setItem('user_type', 'merchant')
 

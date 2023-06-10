@@ -1,5 +1,8 @@
 let container = document.querySelector('#events_container')
 const username = document.querySelector('#username_field')
+const logo = document.querySelector('.logo')
+
+logo.addEventListener('click', goHome)
 
 username.innerText = localStorage.getItem('user_id')
 

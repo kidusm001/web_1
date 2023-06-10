@@ -33,8 +33,9 @@ searchBtn.addEventListener('click', async function() {
   filtered_events.push(...events)
 
   // tags by Title
-  events = allEvents.filter(event => {
-    return event.title.toLowerCase().includes(locationValue.toLowerCase())
+  events = locationValue === '' ? [] : allEvents.filter(event => {
+    return
+      event.title.toLowerCase().includes(locationValue.toLowerCase()) && locationValue
       || locationValue.toLowerCase().includes(event.title.toLowerCase())
       || levenshtein(event.title.toLowerCase(), locationValue.toLowerCase()) < 2.7
   })
@@ -47,9 +48,13 @@ searchBtn.addEventListener('click', async function() {
     return acc;
   }, {});
 
-  const result = Object.entries(frequency)
+  let result = Object.entries(frequency)
     .sort((a, b) => b[1] - a[1])
     .map(([key]) => parseInt(key));
+
+  if(localStorage.getItem('user_type') === 'merchant'){
+    result = result.filter(item => item.merchantId === localStorage.getItem('user_id'))
+  }
 
   await dataStore.set_filtered(result)
   let currentURL = window.location.href

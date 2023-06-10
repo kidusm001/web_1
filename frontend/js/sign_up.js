@@ -120,10 +120,12 @@ buttons.forEach((button) => {
           let val = formData.get('sex') == 'M' ? 0 : 1;
           formData.set('sex', val)
         }
+        formData.delete('user_type')
         for(let [name, value] of formData) console.log(`${name}: ${value}`)
         let address = document.querySelector('#merchant').checked
-                            ? '../../backend/php/users/create_merchant.php'
-                            : '../../backend/php/users/create_customer.php';
+                            ? 'http://0.0.0.0:8000/users/create_merchant.php'
+                            : 'http://0.0.0.0:8000/users/create_customer.php';
+        let nextPage = document.querySelector('#merchant').checked ? 'merchant-home-page.html' : 'cust-home.html'
         fetch(address, {
          method: 'POST',
          body: formData
@@ -132,7 +134,9 @@ buttons.forEach((button) => {
             alert(`Account with User name ${user_name.value} created successfully`)
             sessionStorage.setItem('user_id', user_name.value) 
             sessionStorage.setItem('user_type', 'merchant')
-            window.location.href = "../merch-home.html"
+            let currentURL = window.location.href
+            let newURL = currentURL.substring(0, currentURL.lastIndexOf("/") + 1) + nextPage;
+            window.location.href = newURL 
           }else{
             alert(" Failed !")
           }

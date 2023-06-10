@@ -5,6 +5,9 @@ const price = document.querySelector('#event_price')
 const title = document.querySelector('#event_title')
 const button = document.querySelector('#buy_ticket_button')
 const username = document.querySelector('#username_field')
+const logo = document.querySelector('.logo')
+
+logo.addEventListener('click', goHome)
 
 const selected_event = dataStore.get_selected_event()
 const user_id = localStorage.getItem('user_id')
