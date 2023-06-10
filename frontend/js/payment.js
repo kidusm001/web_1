@@ -46,16 +46,3 @@ function initTransaction(price){
     alert("Please install MetaMask to make Ethereum transactions!");
   }
 }
-const userData = {
-  user_name: localStorage.getItem('user_id'),
-  event_id: dataStore.get_selected_event().eventId
-}
-fetch('/events/buy_ticket.php', {
-  method: 'POST',
-  body: JSON.stringify(userData),
-  headers: {
-    'Content-Type': 'application/json'
-  }
-}).then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error(error));
