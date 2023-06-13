@@ -92,6 +92,7 @@ function goHome(){
 }
 
 function signOut() {
+  sessionStorage.clear()
   localStorage.clear()
   let currentURL = window.location.href
   let newURL = currentURL.substring(0, currentURL.lastIndexOf("/") + 1) + 'index.html'; 
