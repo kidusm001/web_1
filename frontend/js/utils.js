@@ -91,6 +91,13 @@ function goHome(){
   window.location.href = newURL 
 }
 
+function signOut() {
+  localStorage.clear()
+  let currentURL = window.location.href
+  let newURL = currentURL.substring(0, currentURL.lastIndexOf("/") + 1) + 'index.html'; 
+  window.location.href = newURL 
+}
+
 function createCardComponent(eventData){
   const card = document.createElement('a')
   // add the link to the card card.setAttribute('href', 'the link')
@@ -115,7 +122,7 @@ function createCardComponent(eventData){
   // set event title
   eventTitle.textContent = eventData.title
   // set event date and time 
-  eventDateTime.textContent = eventData.dateAndTime
+  eventDateTime.textContent = eventData.dateAndTime.substring(0,16);
   // set href of image
   image.setAttribute('src', eventData.image )
   eventNumberSpan.textContent = eventData.price
@@ -232,7 +239,7 @@ function createConcertCard(eventData){
   
   eventPrice.textContent = eventData.price
   eventTitle.textContent = eventData.title
-  eventDateTime.textContent = eventData.dateAndTime
+  eventDateTime.textContent = eventData.dateAndTime.substring(0,16);
   // do something with location
   image.setAttribute('src', eventData.image)
 

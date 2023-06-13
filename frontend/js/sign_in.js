@@ -17,7 +17,7 @@ btn.addEventListener('click', async (event) => {
     if(response.ok){
       console.log(`${userIdInput.value} logged in`)
       let user_type = await getUserType(userIdInput.value)
-      sessionStorage.setItem('user_id', JSON.stringify(userIdInput.value)) 
+      sessionStorage.setItem('user_id', userIdInput.value) 
       sessionStorage.setItem('user_type', user_type)
       let page = user_type === 'customer'
         ? "cust-home.html"
