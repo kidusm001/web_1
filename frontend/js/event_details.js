@@ -28,7 +28,8 @@ async function isBought(user_id){
 
 image.setAttribute('src', selected_event.image)
 description.innerText = selected_event.description
-dateTime.innerText = selected_event.dateAndTime
+dateTime.innerText = selected_event.dateAndTime.substring(0,16);
+
 price.innerText = selected_event.price
 title.innerText = selected_event.title
 
