@@ -6,10 +6,24 @@ function showPopUp(event, func) {
   popup.style.display = "flex";
   document.body.style.overflow = "hidden";
 
+  let hidePopUp = () => {
+    popup.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+
+  let cancelBtn = () => {
+    const newBtn = document.createElement('button')
+    newBtn.setAttribute('id', 'cancel-button')
+    newBtn.innerHTML = 'Cancel'
+    newBtn.addEventListener('click', hidePopUp)
+    popup.appendChild(newBtn)
+  }
+
+  func && !document.getElementById('cancel-button') && cancelBtn()
+
   closeBtn.addEventListener("click", function() {
-     popup.style.display = "none";
-     document.body.style.overflow = "auto";
-     func && func()
+    hidePopUp()
+    func && func()
   });
 
 }
