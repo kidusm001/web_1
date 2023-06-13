@@ -3,8 +3,12 @@ const categoriesCarouselContainer = document.querySelector('#categories-carousel
 const concertsCarouselContainer = document.querySelector('#concerts-carousel-card')
 const username = document.querySelector('#username_field')
 const logo = document.querySelector('.logo')
+const signout = document.querySelector('#signout')
 
+signout.addEventListener('click', (event) => {showPopUp(event,signOut)})
 logo.addEventListener('click', goHome)
+
+console.log(signout)
 
 const customer_id = sessionStorage.getItem('user_id')
 // const customer_id = 'Abebe#2314'
@@ -167,6 +171,8 @@ async function displayConcerts() {
   totalSlides.innerText = Math.ceil( concerts.length / eventsPerConcertCarousel )
 
 }
+
+
 displayCustomerEvents();
 displayEventCategories();
 displayConcerts();

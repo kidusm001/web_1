@@ -1,6 +1,9 @@
 let container = document.querySelector('#events_container')
 const username = document.querySelector('#username_field')
 const logo = document.querySelector('.logo')
+const signout = document.querySelector('#signout')
+
+signout.addEventListener('click', (event) => {showPopUp(event,signOut)})
 
 logo.addEventListener('click', goHome)
 

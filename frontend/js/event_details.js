@@ -6,6 +6,9 @@ const title = document.querySelector('#event_title')
 const button = document.querySelector('#buy_ticket_button')
 const username = document.querySelector('#username_field')
 const logo = document.querySelector('.logo')
+const signout = document.querySelector('#signout')
+
+signout.addEventListener('click', (event) => {showPopUp(event,signOut)})
 
 logo.addEventListener('click', goHome)
 
@@ -29,7 +32,6 @@ async function isBought(user_id){
 image.setAttribute('src', selected_event.image)
 description.innerText = selected_event.description
 dateTime.innerText = selected_event.dateAndTime.substring(0,16);
-
 price.innerText = selected_event.price
 title.innerText = selected_event.title
 
