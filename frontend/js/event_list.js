@@ -4,7 +4,7 @@ const logo = document.querySelector('.logo')
 
 logo.addEventListener('click', goHome)
 
-username.innerText = localStorage.getItem('user_id')
+username.innerText = sessionStorage.getItem('user_id')
 
 async function displayFilteredEvents(){
   let filtered_events = await dataStore.get_filtered()
