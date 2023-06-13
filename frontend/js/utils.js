@@ -91,6 +91,13 @@ function goHome(){
   window.location.href = newURL 
 }
 
+function signOut() {
+  localStorage.clear()
+  let currentURL = window.location.href
+  let newURL = currentURL.substring(0, currentURL.lastIndexOf("/") + 1) + 'index.html'; 
+  window.location.href = newURL 
+}
+
 function createCardComponent(eventData){
   const card = document.createElement('a')
   // add the link to the card card.setAttribute('href', 'the link')

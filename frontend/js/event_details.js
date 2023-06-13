@@ -10,21 +10,15 @@ const logo = document.querySelector('.logo')
 logo.addEventListener('click', goHome)
 
 const selected_event = dataStore.get_selected_event()
-const user_id = localStorage.getItem('user_id')
+const user_id = sessionStorage.getItem('user_id')
 
 username.innerText = user_id
 
 async function isBought(user_id){
-  console.log('checking isBought')
   let bought = await getBought(user_id)
-  console.log(`bought lenght ${bought.length}`)
-  bought.forEach(item => console.log(item.event_id))
-  console.log(`user_id ${user_id}`)
-  console.log(`selected_event id ${selected_event.eventId}`)
-
   let hasTicket = false
+
   for(let i = 0; i < bought.length; i++){
-    console.log(`bought at ${bought[i].event_id} event ${selected_event.eventId} verdict ${Number(bought[i].event_id) === selected_event.eventId}`)
     if(Number(bought[i].event_id) === selected_event.eventId){
       hasTicket = true; break;
     }
@@ -43,9 +37,7 @@ async function initButton() {
     button.innerText = selected_event.availableTickets + ' Tickets left'
     button.disabled = true
   }else if(!(await isBought(user_id))){
-    console.log('not bought')
     button.addEventListener('click', () => {
-      // payment
       initTransaction(selected_event.price)
     })
   }else{
