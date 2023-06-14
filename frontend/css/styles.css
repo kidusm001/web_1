@@ -462,7 +462,7 @@ section a{
 }
 .top-events-container, .category-cards-container, .concert-cards-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     gap: 1.5rem;
     /* flex-wrap: wrap; */

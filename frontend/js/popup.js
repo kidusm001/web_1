@@ -1,6 +1,7 @@
 // Get the button and popup elements
 const popup = document.getElementById("popup");
 const closeBtn = document.getElementById("close-btn");
+const popupCard= document.getElementsByClassName("popup-card");
 
 function showPopUp(event, func) {
   popup.style.display = "flex";
@@ -16,7 +17,8 @@ function showPopUp(event, func) {
     newBtn.setAttribute('id', 'cancel-button')
     newBtn.innerHTML = 'Cancel'
     newBtn.addEventListener('click', hidePopUp)
-    popup.appendChild(newBtn)
+    /* popup.appendChild(newBtn) */
+    popupCard[0].appendChild(newBtn)
   }
 
   func && !document.getElementById('cancel-button') && cancelBtn()
