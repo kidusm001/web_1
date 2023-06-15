@@ -55,20 +55,7 @@
                        
                   </div>
                   
-                    <div class="nav-sec">
-                        <form class="search-bar">
-                            <button><i class="fas fa-search"></i></button>
-                            <input type="text" name="search" placeholder="Search...">
-                        </form>
-                      <ul>
-                          <li><a href="">Home</a></li>
-                          <li><a href="">Home</a></li>
-                          <li><a href="">Home</a></li>
-                          <li><a href="">Home</a></li>
-                          <li><a href="">Home</a></li>
-                          <li><a href="">Home</a></li>
-                      </ul>
-                    </div>
+                    
                 </div>
                   <div class="user-sec" data-visible="false">
                     <ul class="nav-sec-mobile">
@@ -105,7 +92,7 @@
             </div>
             <div class="account-welcome">
                 <h1>Account</h1>
-                <p>Welcome Back, <span class="users-name-cont">Kidus</span></p>
+                <p>Welcome Back, <span class="users-name-cont" id="username_field">Kidus</span></p>
             </div>
             <!-- <div class="content-searchbar">
               <div class="content">
@@ -162,13 +149,7 @@
                     </div>
                 
                 
-                    <div class="main-card" data-payment data-target="payment-delivery-card">
-                        <div class="icon-container">
-                            <i class="fa-regular fa-credit-card"></i>
-                        </div>
-                        <h3>Payment and shippment</h3>
-                        <p>Manage payments and delivery</p>
-                    </div>
+                   
                     <div class="main-card" data-payment data-target="delete-account-card">
                         <div class="icon-container">
                             <i class="fa-solid fa-user-slash" ></i>
@@ -204,7 +185,7 @@
                     </div>
                     <div class="module-card-main">
                         <div class="signup-form-content" data-carousel>
-                            <form action="" method="post" data-slides>
+                            <form action="" method="post" id="personal-info-form" data-slides>
                                 <div class="form-content-card" data-active>
                                     <div class="wrap">
                                         
@@ -215,25 +196,11 @@
                                     <label for="lastname">Last Name</label>
                                     <input type="text" name="lastname" id="lastname" placeholder="Doe" required data-required>
                                     <div class="error"></div>
-                                    <label for="middlename">Middle Name</label>
-                                    <input type="text" name="middlename" id="middlename" placeholder="Optional">
-                                    <div class="error"></div>
+                                    
                                     <label for="email">Email Address</label>
                                     <input type="email" name="email" id="email" placeholder="Eg. johndoe@mail.com" required data-required>
                                     <div class="error"></div>
-                                    
-                                    <label for="gender">Gender</label>
-                                    <div class="gender-container">
-                                        <div class="male-container">
-                                            <input type="radio" name="gender" id="male" value="M" required>
-                                            <label for="male">Male</label>
-                                        </div>
-                                        <div class="female-container">
-                                            <input type="radio" name="gender" id="female" value="F">
-                                            <label for="female">female</label>
-                                        </div>
-                                    </div>
-                                    <div class="radio-error"></div>
+                                   
                                     <button type="submit" data-carousel-button="finish">Finish</button>
                                 </div>
                                 
@@ -260,15 +227,14 @@
                         <div class="signup-form-content" data-carousel>
                             <form action=""  data-slides>
                                 <div class="form-content-card" data-active>
-                                    <label for="current-password">Current password</label>
-                                    <input type="password" name="current-password" id="current-password" required data-required>
-                                    <div class="error"></div>
-                                    <label for="password">New password</label>
+                                    <label for="password">New Password</label>
                                     <input type="password" name="password" id="password" required data-required>
+                                    <div class="error"></div>
+                                    <label for="confirm-password">Confirm password</label>
+                                    <input type="password" name="confirm-password" id="confirm-password">
                                     <div class="error"></div>
                                     <button type="submit" data-carousel-button="finish">Finish</button>
                                 </div>
-                                
                             </form>
                         </div>
                     </div>

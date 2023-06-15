@@ -14,18 +14,32 @@
 .popup-card{
    display: flex;
    flex-direction: column;
-   justify-content: center;
+   justify-content: flex-start;
    align-items: center;
    background-color: #fff;
-   padding: 2rem;
+   padding: 2em;
    border-radius: 12px;
+   height: 150px;
+   position: relative;
 }
 /* border: 2px solid #8b8d99; */
+.buttons_div {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons_div button {
+  flex: 1;
+  margin: 0 5px;
+  white-space: nowrap;
+  min-width: 0;
+}
+
 #popup h2 {
    color: rgb(24, 24, 24);
 }
 
-#close-btn {
+#close-btn,#cancel-button {
    font-family: 'Work Sans', sans-serif;
    margin-top: 20px;
    padding: 10px 20px;
@@ -35,10 +49,27 @@
    cursor: pointer;
    border-radius: 5px;
    transition: background-color 0.3s ease-in ;
+   /* position: absolute; */
+   /* bottom: 2em; */
+   width: 6em;
 }
-#close-btn:hover{
+/* #close-btn{ */
+/*    left: 8em; */
+/* } */
+/* #cancel-button{ */
+/*    right: 8em; */
+/* } */
+#close-btn:hover,#cancel-button:hover{
    background-color: rgb(46, 46, 46);
 }
+
+@media screen and (max-width: 500px) {
+   .popup-card{
+      font-size: 12px;
+   }
+}
+
+
 
   /* <div id="popup" style="display: none;"> */
   /*    <h2>Sign up or login to see details</h2> */
