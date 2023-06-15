@@ -2,6 +2,7 @@
 const popup = document.getElementById("popup");
 const closeBtn = document.getElementById("close-btn");
 const popupCard= document.getElementsByClassName("popup-card");
+const buttons_div = document.getElementsByClassName("buttons_div");
 
 function showPopUp(event, func) {
   popup.style.display = "flex";
@@ -18,7 +19,8 @@ function showPopUp(event, func) {
     newBtn.innerHTML = 'Cancel'
     newBtn.addEventListener('click', hidePopUp)
     /* popup.appendChild(newBtn) */
-    popupCard[0].appendChild(newBtn)
+    buttons_div[0].appendChild(newBtn)
+    console.log(buttons_div[0])
   }
 
   func && !document.getElementById('cancel-button') && cancelBtn()
