@@ -1,6 +1,13 @@
 const mainCards = document.querySelectorAll('.main-card');
   const moduleCards = document.querySelectorAll('.module-card');
   const backButton = document.querySelectorAll('.back');
+  const username_id = sessionStorage.getItem('user_id');
+  const username = document.querySelector('#username_field')
+  const PersonalInfoForm = document.querySelector('#personal-info-form')
+// const username_id = 'Abebe#2314'
+// localStorage.setItem('user_id','Abebe#2314')
+
+username.innerText = username_id
 
   // Add event listeners to the main cards to show the corresponding module card
   mainCards.forEach((card) => {
@@ -56,8 +63,11 @@ searchInput.addEventListener('blur', function() {
   }
 });
 
-// Add event listener for window resize event
-// window.addEventListener('resize', handleResize);
 
-// Call handleResize initially to check the initial window size
+PersonalInfoForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  fetch(`http://0.0.0.0:8000/users/update/${username_id}`, {
+    method: 'PUT',
+  })
+})
 
