@@ -1,7 +1,7 @@
 
 SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
-DROP DATABASE project;
+DROP DATABASE IF EXISTS project;
 CREATE DATABASE project;
 
 USE project;
@@ -153,4 +153,4 @@ INSERT INTO Tickets (customer_id, event_id) VALUES
 ('Jemal#5678', 9),
 ('Kidanemariam#2315', 10),
 ('Lulit#7866', 11),
-('Mikias#8922', 12)
+('Mikias#8922', 12);
