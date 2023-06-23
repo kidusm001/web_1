@@ -14,7 +14,9 @@ $available_tickets = $_POST['available_tickets'];
 $price = $_POST['price'];
 $image = $_POST['image'];
 $tags = $_POST['tags'];
+$date_and_time = $_POST['date_and_time'];
 
+echo $image;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
 
@@ -23,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $stmt = $dbh->prepare("
             INSERT INTO Events (merchant_id, title, description, available_tickets, price, date_and_time, image) 
-            VALUES (:merchant_id, :title, :description, :available_tickets, :price, CURRENT_TIMESTAMP, :image) 
+            VALUES (:merchant_id, :title, :description, :available_tickets, :price, :date_and_time, :image) 
         ");
         $stmt->bindParam(':merchant_id', $merchant_id);
         $stmt->bindParam(':title', $title);
@@ -31,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bindParam(':available_tickets', $available_tickets);
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':image', $image);
+        $stmt->bindParam(':date_and_time', $date_and_time);
 
         $stmt->execute();
 
@@ -45,13 +48,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         // bind every tag to event
+        // $stmt = $dbh->prepare("
+        //     INSERT INTO Event_Tags (event_id, tag_id)
+        //     VALUES (?, ?)
+        // ");
+        foreach ($tags as $tag) {
+            
+        $stmt = $dbh->prepare("
+            SELECT tag_id FROM Tags WHERE tag_name = :tag
+        ");
+            $stmt->bindParam(":tag", $tag);
+            $tag_id = $stmt->execute();
         $stmt = $dbh->prepare("
             INSERT INTO Event_Tags (event_id, tag_id)
             VALUES (?, ?)
         ");
-        foreach ($tags as $tag) {
             $stmt->bindParam(1, $event_id);
-            $stmt->bindParam(2, $tag);
+            $stmt->bindParam(2, $tag_id);
             $stmt->execute();
         }
 
