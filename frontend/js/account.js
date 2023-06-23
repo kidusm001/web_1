@@ -6,9 +6,6 @@ const passwordForm = document.querySelector("#password-form");
 const username_id = sessionStorage.getItem("user_id");
 const username = document.querySelector("#username_field");
 
-// const username_id = 'Abebe#2314'
-// localStorage.setItem('user_id','Abebe#2314')
-
 username.innerText = username_id;
 // Add event listeners to the main cards to show the corresponding module card
 mainCards.forEach((card) => {
@@ -67,7 +64,11 @@ searchInput.addEventListener("blur", function () {
 });
 personalForm.addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent form submission
-
+  const userData = document.createElement("input");
+  userData.setAttribute("type", "hidden");
+  userData.setAttribute("name", "user_name");
+  userData.value = username_id;
+  personalForm.appendChild(userData);
   // Retrieve form data
   const formData = new FormData(personalForm);
 
@@ -90,7 +91,11 @@ personalForm.addEventListener("submit", (event) => {
 
 passwordForm.addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent form submission
-
+  const userData = document.createElement("input");
+  userData.setAttribute("type", "hidden");
+  userData.setAttribute("name", "user_name");
+  userData.value = username_id;
+  passwordForm.appendChild(userData);
   // Retrieve form data
   const formData = new FormData(passwordForm);
   console.log(formData);
