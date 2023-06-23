@@ -3,6 +3,7 @@ const moduleCards = document.querySelectorAll(".module-card");
 const backButton = document.querySelectorAll(".back");
 const personalForm = document.querySelector("#personal-info-form");
 const passwordForm = document.querySelector("#password-form");
+const deleteForm = document.querySelector("delete-form");
 const username_id = sessionStorage.getItem("user_id");
 const username = document.querySelector("#username_field");
 
@@ -31,9 +32,7 @@ function showModuleCard(target) {
       card.removeAttribute("data-show");
     }
   });
-  document
-    .querySelector(".main-cards-container")
-    .removeAttribute("data-show-main");
+  document.querySelector(".main-cards-container").removeAttribute("data-show-main");
 }
 
 // Function to show the main cards and hide the module cards
@@ -41,9 +40,7 @@ function showMainCards() {
   moduleCards.forEach((card) => {
     card.removeAttribute("data-show");
   });
-  document
-    .querySelector(".main-cards-container")
-    .setAttribute("data-show-main", "");
+  document.querySelector(".main-cards-container").setAttribute("data-show-main", "");
 }
 // Get the search input element and user-account-btn element
 var searchInput = document.querySelector('input[name="search"]');
@@ -114,4 +111,33 @@ passwordForm.addEventListener("submit", (event) => {
       // Handle error
       console.error("Error:", error);
     });
+});
+deleteForm.addEventListener("submit", (event) => {
+  event.preventDefault(); // Prevent form submission
+  const userData = document.createElement("input");
+  userData.setAttribute("type", "hidden");
+  userData.setAttribute("name", "user_name");
+  userData.value = username_id;
+  deleteForm.appendChild(userData);
+  // Retrieve form data
+  const formData = new FormData(deleteForm);
+  console.log(formData);
+  // Send form data to the backend
+  fetch("http://0.0.0.0:8000/users/delete.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle response from the backend
+      console.log(data); // Log the response data
+      // Perform any necessary actions based on the response
+    })
+    .catch((error) => {
+      // Handle error
+      console.error("Error:", error);
+    });
+  let currentURL = window.location.href;
+  const homePage = currentURL.substring(0, currentURL.lastIndexOf("/") + 1) + "index.html";
+  window.location.href = homePage;
 });
