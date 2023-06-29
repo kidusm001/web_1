@@ -8,10 +8,10 @@ const tagi = document.querySelector('input[name="tagi"]')
 // sessionStorage.setItem('user_id', "Iyasu#1234")
 const merchantId = sessionStorage.getItem('user_id')
 
-const tags = new Set()
-const maxTags = 8
+const tags = new Set();
+const maxTags = 8;
 
-let tagCount = 0
+let tagCount = 0;
 
 async function handleNewTag() {
   if (tagCount === maxTags) return;
@@ -19,36 +19,36 @@ async function handleNewTag() {
   const updateAddTagBtn = () => {
     if (tagCount < maxTags) {
       addTagButton.disabled = false;
-      addTagButton.style.background = '#b17cc4';
+      addTagButton.style.background = "#b17cc4";
     } else {
       addTagButton.disabled = true;
-      addTagButton.style.background = 'grey';
+      addTagButton.style.background = "grey";
     }
   };
 
-  const tag = document.createElement('span');
-  const tag_text = document.createElement('span');
+  const tag = document.createElement("span");
+  const tag_text = document.createElement("span");
   tag_text.textContent = tagInput.value;
-  if (tag_text.textContent === '') return;
+  if (tag_text.textContent === "") return;
   tag.appendChild(tag_text);
-  tag.classList.add('tag');
+  tag.classList.add("tag");
   tags.add(tagInput.value);
 
-  const removeButton = document.createElement('button');
+  const removeButton = document.createElement("button");
   removeButton.innerHTML = `<i class="fa-solid fa-xmark" style="color: #ffffff;"></i>`;
-  removeButton.classList.add('removeTagButton');
-  removeButton.style.background = 'red';
+  removeButton.classList.add("removeTagButton");
+  removeButton.style.background = "red";
   tag.append(removeButton);
 
   addedTags.appendChild(tag);
-  tagInput.value = '';
+  tagInput.value = "";
   tagCount++;
 
-  removeButton.addEventListener('click', () => {
-    addedTags.removeChild(tag)
-    tagCount--
-    updateAddTagBtn()
-    tags.delete(tag_text.textContent)
+  removeButton.addEventListener("click", () => {
+    addedTags.removeChild(tag);
+    tagCount--;
+    updateAddTagBtn();
+    tags.delete(tag_text.textContent);
   });
 
   tagi.value = JSON.stringify(Array.from(tags))
@@ -56,10 +56,10 @@ async function handleNewTag() {
 }
 
 function fadeIn(element) {
-  element.style.opacity = '0';
-  element.style.transition = 'opacity 0.5s ease';
+  element.style.opacity = "0";
+  element.style.transition = "opacity 0.5s ease";
   setTimeout(() => {
-    element.style.opacity = '1';
+    element.style.opacity = "1";
   }, 100);
 }
 
