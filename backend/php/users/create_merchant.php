@@ -44,7 +44,7 @@ function create_account()
     $stmt->bindParam(':first_name', $first_name);
     $stmt->bindParam(':last_name', $last_name);
     $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':user_type', "merchant");
+    $stmt->bindValue(':user_type', "merchant");
     $stmt->execute();
 
     // create a record in the merchants table

@@ -7,12 +7,13 @@ const logo = document.querySelector('.logo')
 logo.addEventListener('click', goHome)
 
 const merchant_id = sessionStorage.getItem('user_id')
-const merchant_id =  'Eleni#9821'
+// const merchant_id =  'Eleni#9821'
 localStorage.setItem('user_type', 'merchant')
 
 username.innerText = merchant_id
 
 async function displayMerchantEvents() {
+  await dataStore.reload()
   let allEvents = await dataStore.events();
   let merchEvents = await getMerchantEvents(merchant_id)
   merchEvents = allEvents.filter(event => merchEvents.includes(event.eventId)) 
@@ -69,4 +70,5 @@ moreEventsButton.addEventListener('click', async () => {
   window.location.href = newURL
 })
 
-displayMerchantEvents()
+document.onLoad =async () => await displayMerchantEvents()  
+// displayMerchantEvents()

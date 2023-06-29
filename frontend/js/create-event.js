@@ -1,17 +1,19 @@
-const form = document.querySelector("#new-event-form");
-const addTagButton = document.querySelector("#add-tag-btn");
-const tagInput = document.querySelector("#tag-input");
-const addedTags = document.querySelector("#added-tags");
+const form = document.querySelector("#new-event-form")
+const addTagButton = document.querySelector('#add-tag-btn')
+const tagInput = document.querySelector('#tag-input')
+const addedTags = document.querySelector('#added-tags')
+const finish_button = document.querySelector('#finish_button')
+const tagi = document.querySelector('input[name="tagi"]')
 
-sessionStorage.setItem("user_id", "Abel");
-const merchantId = sessionStorage.getItem("user_id");
+// sessionStorage.setItem('user_id', "Iyasu#1234")
+const merchantId = sessionStorage.getItem('user_id')
 
 const tags = new Set();
 const maxTags = 8;
 
 let tagCount = 0;
 
-function handleNewTag() {
+async function handleNewTag() {
   if (tagCount === maxTags) return;
 
   const updateAddTagBtn = () => {
@@ -49,6 +51,7 @@ function handleNewTag() {
     tags.delete(tag_text.textContent);
   });
 
+  tagi.value = JSON.stringify(Array.from(tags))
   updateAddTagBtn();
 }
 
@@ -60,40 +63,49 @@ function fadeIn(element) {
   }, 100);
 }
 
-addTagButton.addEventListener("click", () => {
-  handleNewTag();
+addTagButton.addEventListener('click',async () => {
+  await handleNewTag();
   fadeIn(addedTags.lastChild);
 });
 
-tagInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    handleNewTag();
-  }
-});
+tagInput.addEventListener('keydown',async (event) => {
+  if(event.key === 'Enter'){
+    event.preventDefault()
+    await handleNewTag()
+  } 
+})
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  tagInput.value = JSON.stringify([...tags]);
-
-  const merchantData = document.createElement("input");
-  merchantData.setAttribute("type", "text");
-  merchantData.setAttribute("name", "user_name");
-  merchantData.value = merchantId;
-  merchantData.setAttribute("style", "display: none;");
-  form.appendChild(merchantData);
+function handleSubmit(e) {
+  e.preventDefault()
 
   const formData = new FormData(form);
+  formData.append('merchant_id', merchantId)
+  let redirectHome = () => {
+    let currentURL = window.location.href
+    let newURL = currentURL.substring(0, currentURL.lastIndexOf("/") + 1) + "merchant-home-page.html";
+    window.location.href = newURL 
+  }
 
-  for (let [name, value] of formData) console.log(`${name}: ${value}`);
-  fetch("../backend/php/events/create.php", {
-    method: "POST",
+  fetch('http://localhost:8000/events/create.php', {
+    mode: 'no-cors',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    // body: JSON.stringify(formData),
     body: formData,
+  }).then(response => {
+      if(response.status === 200){
+        redirectHome()
+      }else{
+        redirectHome()
+        alert(" Failed !")
+        throw new Error(response.text)
+      }
+  }).catch(error => {
+      redirectHome()
   })
-    .then((response) => {
-      alert(response);
-    })
-    .catch((error) => {
-      alert(error);
-    });
-});
+}
+
+form.addEventListener('submit', e => e.preventDefault())
+finish_button.addEventListener('click', handleSubmit)
