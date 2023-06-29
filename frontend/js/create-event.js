@@ -5,7 +5,7 @@ const addedTags = document.querySelector('#added-tags')
 const finish_button = document.querySelector('#finish_button')
 const tagi = document.querySelector('input[name="tagi"]')
 
-sessionStorage.setItem('user_id', "Iyasu#1234")
+// sessionStorage.setItem('user_id', "Iyasu#1234")
 const merchantId = sessionStorage.getItem('user_id')
 
 const tags = new Set()
@@ -78,13 +78,8 @@ tagInput.addEventListener('keydown',async (event) => {
 function handleSubmit(e) {
   e.preventDefault()
 
-  // alert(`tags are: ${JSON.stringify(Array.from(tags))}`)
-  // tagi.value = JSON.stringify(Array.from(tags))
-  // add the merchantId as merchant_id to the form formData
   const formData = new FormData(form);
-  alert(`merchant id is ${merchantId}`)
   formData.append('merchant_id', merchantId)
-   console.log(`merchant id is ${merchantId}`)
   let redirectHome = () => {
     let currentURL = window.location.href
     let newURL = currentURL.substring(0, currentURL.lastIndexOf("/") + 1) + "merchant-home-page.html";
@@ -109,7 +104,6 @@ function handleSubmit(e) {
       }
   }).catch(error => {
       redirectHome()
-        // alert(error);
   })
 }
 
