@@ -70,5 +70,7 @@ moreEventsButton.addEventListener('click', async () => {
   window.location.href = newURL
 })
 
-document.onLoad =async () => await displayMerchantEvents()  
+// window.onload = async () => await displayMerchantEvents()  
+document.addEventListener('DOMContentLoaded', async () => await displayMerchantEvents(), false)
+
 // displayMerchantEvents()
